@@ -1,6 +1,6 @@
 class ReportsController < ApplicationController
   def create
-    @report = Report.new(report_params)
+    @report = Report.create(report_params)
     redirect_to root_path, notice: "Merci !"
   end
 
