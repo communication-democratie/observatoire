@@ -1,0 +1,8 @@
+{
+  "name": "observatoire",
+  "version": "1.0.0",
+  "repository": "https://github.com/communication-democratie/observatoire.git",
+  "dependencies": {
+    "notyf": "^3.10.0"
+  }
+}
