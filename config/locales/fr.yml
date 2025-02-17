@@ -7,17 +7,23 @@ fr:
         slug: Slug
         title: Titre
         taxonomy: Taxonomie
+      problem:
+        description: Description
       report:
         author_contact: Coordonnées
         author_place: Lieu
         author_pseudonym: Pseudonyme
         description: Description
+        problem: Problème
         slug: Slug
         title: Titre
     models:
       category:
         one: Catégorie
         other: Catégories
+      problem:
+        one: Problème
+        other: Problèmes
       report:
         one: Signalement
         other: Signalements
@@ -25,7 +31,13 @@ fr:
         one: Taxonomie
         other: Taxonomies
   admin:
+    create: Créer
+    created: Création effectuée
     dashboard: Tableau de bord
+    deleted: Suppression effectuée
+    edit: Modifier
+    save: Enregistrer
+    updated: Mise à jour effectuée
   simple_form:
     hints:
       report:

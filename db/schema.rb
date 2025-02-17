@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_02_17_113203) do
+ActiveRecord::Schema[8.0].define(version: 2025_02_17_125330) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -141,6 +141,12 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_17_113203) do
     t.index ["scheduled_at"], name: "index_good_jobs_on_scheduled_at", where: "(finished_at IS NULL)"
   end
 
+  create_table "problems", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "reports", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -149,6 +155,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_17_113203) do
     t.text "author_contact"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.uuid "problem_id"
+    t.index ["problem_id"], name: "index_reports_on_problem_id"
   end
 
   create_table "taxonomies", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -163,4 +171,5 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_17_113203) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "categories", "taxonomies"
+  add_foreign_key "reports", "problems"
 end

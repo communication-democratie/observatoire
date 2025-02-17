@@ -1,0 +1,10 @@
+<% content_for :title, Problem.model_name.human(count: 2) %>
+
+<div id="problems">
+  <% @problems.each do |problem| %>
+    <%= render problem %>
+    <p>
+      <%= link_to "Show this problem", problem %>
+    </p>
+  <% end %>
+</div>

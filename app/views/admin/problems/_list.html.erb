@@ -1,0 +1,16 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th><%= Problem.human_attribute_name(:title) %></th>
+      <th><%= Problem.human_attribute_name(:description) %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% problems.each do |problem| %>
+      <tr>
+        <td><%= link_to problem, [:admin, problem] %></td>
+        <td><%= problem.description.to_s.truncate_words(30) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

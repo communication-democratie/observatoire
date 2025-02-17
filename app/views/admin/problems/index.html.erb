@@ -1,0 +1,7 @@
+<% content_for :title, Problem.model_name.human(count: 2) %>
+
+<%= render 'admin/problems/list', problems: @problems %>
+
+<% content_for :buttons do %>
+  <%= link_to t('admin.create'), new_admin_problem_path, class: button_classes %>
+<% end %>

@@ -5,6 +5,6 @@
 <%= render 'admin/categories/list', categories: @taxonomy.categories %>
 
 <% content_for :buttons do %>
-  <%= link_to 'Modifier', edit_admin_taxonomy_path(@taxonomy), class: button_classes %>
+  <%= link_to t('admin.edit'), edit_admin_taxonomy_path(@taxonomy), class: button_classes %>
   <%= link_to 'Ajouter une catégorie', new_admin_category_path(taxonomy_id: @taxonomy.id), class: button_classes %>
 <% end %>

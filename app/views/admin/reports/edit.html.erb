@@ -1,0 +1,11 @@
+<% content_for :title, @report %>
+
+<%= simple_form_for [:admin, @report] do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <%= f.association :problem %>
+
+  <%= f.button :submit, t('admin.save'), class: button_classes %>
+<% end %>
+

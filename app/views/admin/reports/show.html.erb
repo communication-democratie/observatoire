@@ -5,3 +5,12 @@
 <%= @report.author_pseudonym %><br>
 <%= @report.author_place %><br>
 <%= @report.author_contact %>
+
+<div>
+  <%= Report.human_attribute_name(:problem) %><br>
+  <%= link_to @report.problem, [:admin, @report.problem] if @report.problem.present? %>
+</div>
+
+<% content_for :buttons do %>
+  <%= link_to t('admin.edit'), edit_admin_report_path(@report), class: button_classes %>
+<% end %>

@@ -1,9 +1,2 @@
 <% content_for :title, Report.model_name.human(count: 2) %>
-
-<div class="row">
-  <% @reports.each do |report| %>
-    <div class="col-lg-4">
-      <%= link_to report.title, [:admin, report] %>
-    </div>
-  <% end %>
-</div>
+<%= render 'admin/reports/list', reports: @reports %>
