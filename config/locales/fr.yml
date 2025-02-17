@@ -8,6 +8,10 @@ fr:
         author_pseudonym: Pseudonyme
         description: Description
         title: Titre
+    models:
+      report:
+        one: Signalement
+        other: Signalements
   simple_form:
     hints:
       report:
