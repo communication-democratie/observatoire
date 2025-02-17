@@ -12,7 +12,6 @@ fr:
         description: Description
       report:
         author_contact: Coordonnées
-        author_place: Lieu
         author_pseudonym: Pseudonyme
         description: Description
         problem: Problème

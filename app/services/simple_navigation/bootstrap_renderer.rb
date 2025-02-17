@@ -1,6 +1,6 @@
 class SimpleNavigation::BootstrapRenderer < SimpleNavigation::Renderer::Base
   def render(item_container)
-    content = '<ul class="nav">'
+    content = '<ul class="navbar-nav">'
     item_container.items.each do |item|
       content << make(item)
     end
@@ -13,7 +13,6 @@ class SimpleNavigation::BootstrapRenderer < SimpleNavigation::Renderer::Base
   def make(item)
     has_sub_navigation = consider_sub_navigation?(item)
     li = "<li class=\"nav-item"
-    li += " active" if item.selected?
     li += " dropdown" if has_sub_navigation
     li += "\">"
     li += make_a(item)
@@ -25,6 +24,7 @@ class SimpleNavigation::BootstrapRenderer < SimpleNavigation::Renderer::Base
   def make_a(item)
     has_sub_navigation = consider_sub_navigation?(item)
     a = "<a href=\"#{ item.url }\" class=\"nav-link"
+    a += " active" if item.selected?
     a += " dropdown-toggle" if has_sub_navigation
     a += "\""
     a += " data-bs-toggle=\"dropdown\" aria-expanded=\"false\"" if has_sub_navigation

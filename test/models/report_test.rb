@@ -4,7 +4,6 @@
 #
 #  id               :uuid             not null, primary key
 #  author_contact   :text
-#  author_place     :string
 #  author_pseudonym :string
 #  description      :text
 #  title            :string
