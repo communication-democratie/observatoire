@@ -1,10 +1,22 @@
+---
 fr:
+  activerecord:
+    attributes:
+      report:
+        author_contact: Coordonnées
+        author_place: Lieu
+        author_pseudonym: Pseudonyme
+        description: Description
+        title: Titre
   simple_form:
+    hints:
+      report:
+        author_contact: Si vous voulez que l'équipe vous recontacte
     error_notification:
-      default_message: "Veuillez résoudre les problèmes:"
-    "no": 'Non'
+      default_message: 'Veuillez résoudre les problèmes:'
+    'no': Non
     required:
       mark: '*'
-      text: 'requis'
-    "yes": 'Oui'
-  website: "Observatoire Citoyen de la Publicité"
+      text: requis
+    'yes': Oui
+  website: Observatoire Citoyen de la Publicité
