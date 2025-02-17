@@ -3,14 +3,20 @@
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class="form-inputs">
-    <%= f.input :title %>
-    <%= f.input :slug %>
-    <%= f.input :description %>
-    <%= f.input :position %>
+  <div class="row">
+    <div class="col-lg-6">
+      <%= f.input :title %>
+    </div>
+    <div class="col-lg-6">
+      <%= f.input :slug, 
+                  input_html: f.object.persisted? ? {} : {
+                    class: 'js-slug-input',
+                    data: { source: '#taxonomy_title' }
+                  } %>
+    </div>
   </div>
+  <%= f.input :description %>
+  <%= f.input :position %>
 
-  <div class="form-actions">
-    <%= f.button :submit, t('admin.save'), class: button_classes %>
-  </div>
+  <%= f.button :submit, t('admin.save'), class: button_classes %>
 <% end %>

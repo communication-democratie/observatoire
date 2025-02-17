@@ -13,6 +13,7 @@ fr:
       report:
         author_contact: Coordonnées
         author_pseudonym: Pseudonyme
+        created_at: Date de création
         description: Description
         problem: Problème
         slug: Slug
