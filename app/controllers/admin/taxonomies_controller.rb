@@ -18,7 +18,7 @@ class Admin::TaxonomiesController < Admin::ApplicationController
   def create
     @taxonomy = Taxonomy.new(taxonomy_params)
     if @taxonomy.save
-      redirect_to [:admin, @taxonomy], notice: "Taxonomy was successfully created."
+      redirect_to [:admin, @taxonomy], notice: t('admin.created')
     else
       render :new, status: :unprocessable_entity
     end
@@ -26,7 +26,7 @@ class Admin::TaxonomiesController < Admin::ApplicationController
 
   def update
     if @taxonomy.update(taxonomy_params)
-      redirect_to [:admin, @taxonomy], notice: "Taxonomy was successfully updated."
+      redirect_to [:admin, @taxonomy], notice: t('admin.updated')
     else
       render :edit, status: :unprocessable_entity
     end
@@ -34,7 +34,7 @@ class Admin::TaxonomiesController < Admin::ApplicationController
 
   def destroy
     @taxonomy.destroy!
-    redirect_to admin_taxonomies_path, status: :see_other, notice: "Taxonomy was successfully destroyed."
+    redirect_to admin_taxonomies_path, status: :see_other, notice: t('admin.deleted')
   end
 
   private

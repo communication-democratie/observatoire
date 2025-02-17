@@ -2,6 +2,22 @@
 
 <p><%= @problem.description %></p>
 
+<div class="row">
+<% Taxonomy.all.ordered.each do |taxonomy| %>
+  <div class="col-lg-3">
+    <div class="card">
+      <div class="card-header">
+        <h2 class="h4"><%= link_to taxonomy, [:admin, taxonomy] %></h2>
+      </div>
+      <div class="card-body">
+        <% @problem.categories.where(taxonomy: taxonomy).each do |category| %>
+          <%= link_to category, [:admin, category] %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>
+</div>
 
 <div class="card">
   <div class="card-header">

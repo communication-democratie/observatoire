@@ -18,7 +18,7 @@ class Admin::ProblemsController < Admin::ApplicationController
   def create
     @problem = Problem.new(problem_params)
     if @problem.save
-      redirect_to [:admin, @problem], notice: "Problem was successfully created."
+      redirect_to [:admin, @problem], notice: t('admin.created')
     else
       render :new, status: :unprocessable_entity
     end
@@ -26,7 +26,7 @@ class Admin::ProblemsController < Admin::ApplicationController
 
   def update
     if @problem.update(problem_params)
-      redirect_to [:admin, @problem], notice: "Problem was successfully updated."
+      redirect_to [:admin, @problem], notice: t('admin.updated')
     else
       render :edit, status: :unprocessable_entity
     end
@@ -34,7 +34,7 @@ class Admin::ProblemsController < Admin::ApplicationController
 
   def destroy
     @problem.destroy!
-    redirect_to admin_problems_path, status: :see_other, notice: "Problem was successfully destroyed."
+    redirect_to admin_problems_path, status: :see_other, notice: t('admin.deleted')
   end
 
   private
@@ -45,6 +45,6 @@ class Admin::ProblemsController < Admin::ApplicationController
 
     # Only allow a list of trusted parameters through.
     def problem_params
-      params.expect(problem: [ :description ])
+      params.expect(problem: [ :description, category_ids: [] ])
     end
 end

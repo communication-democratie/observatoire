@@ -10,6 +10,15 @@
 #  title            :string
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
+#  problem_id       :uuid
+#
+# Indexes
+#
+#  index_reports_on_problem_id  (problem_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (problem_id => problems.id)
 #
 class Report < ApplicationRecord
   belongs_to :problem, optional: true

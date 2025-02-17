@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_02_17_125330) do
+ActiveRecord::Schema[8.0].define(version: 2025_02_17_132126) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -50,6 +50,13 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_17_125330) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["taxonomy_id"], name: "index_categories_on_taxonomy_id"
+  end
+
+  create_table "categories_problems", id: false, force: :cascade do |t|
+    t.uuid "category_id", null: false
+    t.uuid "problem_id", null: false
+    t.index ["category_id"], name: "index_categories_problems_on_category_id"
+    t.index ["problem_id"], name: "index_categories_problems_on_problem_id"
   end
 
   create_table "good_job_batches", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|

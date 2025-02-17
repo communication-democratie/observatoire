@@ -20,9 +20,12 @@
 #
 class Category < ApplicationRecord
   belongs_to :taxonomy
+  has_and_belongs_to_many :problems
 
   validates_presence_of :title, :slug
-  
+
+  scope :ordered, -> { order(:title) }
+
   def to_s
     "#{title}"
   end

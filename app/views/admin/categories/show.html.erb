@@ -2,6 +2,17 @@
 
 <p><%= @category.description %></p>
 
+
+<div class="card">
+  <div class="card-header">
+    <h2 class="h4"><%= Problem.model_name.human(count: 2) %></h2>
+  </div>
+  <div class="card-body">
+    <%= render 'admin/problems/list', problems: @category.problems %>
+  </div>
+</div>
+
+
 <% content_for :buttons do %>
   <%= link_to t('admin.edit'), edit_admin_category_path(@category), class: button_classes %>
 <% end %>

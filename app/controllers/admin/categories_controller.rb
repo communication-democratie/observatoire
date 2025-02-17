@@ -20,7 +20,7 @@ class Admin::CategoriesController < Admin::ApplicationController
     @category = Category.new(category_params)
 
     if @category.save
-      redirect_to [:admin, @category], notice: "Category was successfully created."
+      redirect_to [:admin, @category], notice: t('admin.created')
     else
       render :new, status: :unprocessable_entity
     end
@@ -28,7 +28,7 @@ class Admin::CategoriesController < Admin::ApplicationController
 
   def update
     if @category.update(category_params)
-      redirect_to [:admin, @category], notice: "Category was successfully updated."
+      redirect_to [:admin, @category], notice: t('admin.updated')
     else
       render :edit, status: :unprocessable_entity
     end
@@ -36,7 +36,7 @@ class Admin::CategoriesController < Admin::ApplicationController
 
   def destroy
     @category.destroy!
-    redirect_to admin_categories_path, status: :see_other, notice: "Category was successfully destroyed."
+    redirect_to admin_categories_path, status: :see_other, notice: t('admin.deleted')
   end
 
   private
