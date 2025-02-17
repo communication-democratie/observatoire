@@ -6,4 +6,6 @@
 //= require mazer/app
 //= require notyf/notyf.min
 //= require simple_form_bs5_file_input
+//= require slug/slug
 //= require_tree ./commons
+//= require_tree ./admin

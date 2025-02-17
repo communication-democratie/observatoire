@@ -5,7 +5,11 @@
 
   <div class="form-inputs">
     <%= f.input :title %>
-    <%= f.input :slug %>
+    <%= f.input :slug, 
+                input_html: f.object.persisted? ? {} : {
+                  class: 'js-slug-input',
+                  data: { source: '#category_title' }
+                } %>
     <%= f.association :taxonomy, include_blank: false, as: :hidden %>
     <%= f.input :description %>
   </div>
