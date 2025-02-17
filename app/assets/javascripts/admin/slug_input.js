@@ -34,8 +34,7 @@ window.slugInput = {
 
     onSourceChange: function (sourceInputs, slugInput) {
         'use strict';
-        var maxLength = slugInput.maxLength,
-            generatedSlug,
+        var generatedSlug,
             values = [],
             value,
             i;
@@ -48,9 +47,6 @@ window.slugInput = {
         }
 
         generatedSlug = window.slug(values.join(' '));
-        if (generatedSlug.length > maxLength) {
-            generatedSlug = generatedSlug.slice(0, maxLength);
-        }
         if (generatedSlug[generatedSlug.length - 1] === '-') {
             generatedSlug = generatedSlug.slice(0, -1);
         }
