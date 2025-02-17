@@ -22,7 +22,11 @@
   </head>
 
   <body>
-    <%= yield %>
+    <main>
+      <div class="container">
+        <%= yield %>
+      </div>
+    </main>
     <%= javascript_include_tag "application" %>
   </body>
 </html>
