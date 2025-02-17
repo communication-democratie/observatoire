@@ -7,7 +7,7 @@ require "active_job/railtie"
 require "active_record/railtie"
 require "active_storage/engine"
 require "action_controller/railtie"
-require "action_mailer/railtie"
+# require "action_mailer/railtie"
 # require "action_mailbox/engine"
 # require "action_text/engine"
 require "action_view/railtie"
@@ -36,15 +36,6 @@ module Observatoire
     #
     config.time_zone = "Europe/Paris"
     # config.eager_load_paths << Rails.root.join("extras")
-
-    config.action_mailer.delivery_method = :smtp
-    config.action_mailer.smtp_settings = {
-        address: "smtp-relay.brevo.com",
-        port: 587,
-        user_name: ENV['SMTP_USER'],
-        password: ENV['SMTP_PASSWORD'],
-        authentication: :plain
-    }
 
     # TODO Remove when kamifusen is compatible with Vips
     config.active_storage.variant_processor = :mini_magick
