@@ -24,6 +24,7 @@ gem "rails-i18n", "~> 8.0"
 gem "simple_form", "~> 5.3"
 gem "simple_form_bs5_file_input", "~> 0.1"
 gem "simple-navigation", "~> 4.4"
+gem "simple_navigation_bootstrap"
 gem "sprockets-rails", "~> 3.2"
 gem "terser", "~> 1.2"
 gem "tzinfo-data", platforms: %i[ windows jruby ]

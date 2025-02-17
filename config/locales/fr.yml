@@ -39,6 +39,9 @@ fr:
     edit: Modifier
     save: Enregistrer
     updated: Mise à jour effectuée
+  front:
+    home: Accueil
+    website: Observatoire Citoyen de la Publicité
   simple_form:
     hints:
       report:
@@ -50,4 +53,3 @@ fr:
       mark: '*'
       text: requis
     'yes': Oui
-  website: Observatoire Citoyen de la Publicité

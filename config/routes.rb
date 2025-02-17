@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   resources :reports, only: :create
   resources :problems, only: [:index, :show]
+  get ":taxonomy_slug" => 'categories#index', as: :taxonomy
+  get ":taxonomy_slug/:category_slug" => 'categories#show', as: :category
 
   get "up" => "rails/health#show", as: :rails_health_check
 

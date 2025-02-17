@@ -4,6 +4,6 @@ class ApplicationController < ActionController::Base
   include WithErrors
 
   def breadcrumb
-    add_breadcrumb t('home'), root_path
+    add_breadcrumb t('front.home'), root_path
   end
 end

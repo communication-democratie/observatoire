@@ -353,6 +353,9 @@ GEM
     simple_form_bs5_file_input (0.1.5)
       rails
       simple_form
+    simple_navigation_bootstrap (1.3.0)
+      simple-navigation (~> 4.0)
+      zeitwerk
     sprockets (4.2.1)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -423,6 +426,7 @@ DEPENDENCIES
   simple-navigation (~> 4.4)
   simple_form (~> 5.3)
   simple_form_bs5_file_input (~> 0.1)
+  simple_navigation_bootstrap
   sprockets-rails (~> 3.2)
   terser (~> 1.2)
   tzinfo-data

@@ -11,6 +11,8 @@ class Problem < ApplicationRecord
   has_many :reports
   has_and_belongs_to_many :categories
 
+  scope :ordered, -> { order(created_at: :desc) }
+
   def to_s
     id.split('-').first.upcase
   end

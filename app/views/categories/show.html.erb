@@ -1,0 +1,10 @@
+<%= content_for :title, @category %>
+
+<div class="row">
+  <div class="col-lg-6">
+    <%= simple_format @category.description %>
+  </div>
+</div>
+
+<h2 class="h4 mt-5"><%= Problem.model_name.human(count: 2) %></h2>
+<%= render 'problems/list', problems: @category.problems.ordered %>

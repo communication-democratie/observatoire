@@ -1,0 +1,27 @@
+<%= content_for :title, @taxonomy %>
+
+<div class="row">
+  <div class="col-lg-6">
+    <%= simple_format @taxonomy.description %>
+  </div>
+</div>
+
+<div class="row">
+  <% @categories.each do |category| %>
+    <div class="col-lg-4">
+      <div class="card">
+        <div class="card-body">
+          <h2 class="card-title"><%= category %></h2>
+          <p class="card-text"><%= category.description.truncate_words(20) %></p>
+          <div>
+            <span class="badge text-bg-secondary">
+              <%= category.problems.count %>
+              <%= Problem.model_name.human(count: category.problems.count).downcase %>
+            </span>
+          </div>
+          <%= link_to t('read'), category_path(taxonomy_slug: @taxonomy.slug, category_slug: category.slug), class: 'stretched-link' %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
