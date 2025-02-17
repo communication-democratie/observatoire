@@ -2,16 +2,30 @@
 fr:
   activerecord:
     attributes:
+      category:
+        description: Description
+        slug: Slug
+        title: Titre
+        taxonomy: Taxonomie
       report:
         author_contact: Coordonnées
         author_place: Lieu
         author_pseudonym: Pseudonyme
         description: Description
+        slug: Slug
         title: Titre
     models:
+      category:
+        one: Catégorie
+        other: Catégories
       report:
         one: Signalement
         other: Signalements
+      taxonomy:
+        one: Taxonomie
+        other: Taxonomies
+  admin:
+    dashboard: Tableau de bord
   simple_form:
     hints:
       report:

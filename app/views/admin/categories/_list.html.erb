@@ -1,0 +1,16 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th><%= Category.human_attribute_name(:title) %></th>
+      <th><%= Category.human_attribute_name(:taxonomy) %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% categories.each do |category| %>
+      <tr>
+        <td><%= link_to category, [:admin, category] %></td>
+        <td><%= link_to category.taxonomy, [:admin, category.taxonomy] %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

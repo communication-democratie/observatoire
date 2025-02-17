@@ -1,0 +1,5 @@
+<% content_for :title, Category.model_name.human(count: 2) %>
+
+<%= render 'admin/categories/list', categories: @categories %>
+
+<%= link_to 'Créer', new_admin_category_path %>

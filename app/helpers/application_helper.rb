@@ -10,4 +10,8 @@ module ApplicationHelper
     classes += " #{additional_body_class}" if additional_body_class.present?
     classes
   end
+
+  def button_classes
+    'btn btn-primary'
+  end
 end
