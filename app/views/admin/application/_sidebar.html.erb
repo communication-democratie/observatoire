@@ -1,0 +1,15 @@
+<div id="sidebar" class="active">
+  <div class="sidebar-wrapper active d-flex flex-column">
+    <div class="sidebar-header position-relative text-center">
+      <div class="logo">
+        <%= link_to root_path, target: :blank do %>
+          <%#= image_tag 'logo.svg', alt: t('website'), class: 'p-4' %>
+          OCP
+        <% end %>
+      </div>
+    </div>
+    <div class="sidebar-menu flex-grow-1">
+      <%= render_navigation context: :admin %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+<header class="mb-3">
+  <a href="#" class="burger-btn d-block d-xl-none">
+    <i class="bi bi-justify fs-3"></i>
+  </a>
+</header>
+<div class="sticky-header sticky-top py-3">
+  <div class="d-lg-flex justify-content-between">
+    <h1 class="h3">
+      <%= yield :title %>
+    </h1>
+    <div>
+      <%= yield :buttons %>
+    </div>
+  </div>
+</div>
+<% if breadcrumbs.many? %>
+  <nav aria-label="breadcrumb" class="breadcrumb-header small mb-4">
+    <%= render_breadcrumbs builder: Mazer::BreadcrumbsOnRailsBuilder %>
+  </nav>
+<% end %>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= content_for(:title) || "Admin Observatoire" %></title>
+    <title><%= content_for(:title) || "Admin - #{t('website')}" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
@@ -18,11 +18,21 @@
     <link rel="apple-touch-icon" href="/icon.png">
 
     <%# Includes all stylesheet files in app/assets/stylesheets %>
-    <%= stylesheet_link_tag "application" %>
+    <%= stylesheet_link_tag "admin" %>
   </head>
 
-  <body>
-    <%= yield %>
-    <%= javascript_include_tag "application" %>
+  <body class="<%= body_classes %> <%= yield(:body_class) if content_for?(:body_class) %>" >
+    <div id="app">
+      <%= render 'admin/application/sidebar' %>
+      <main id="main">
+        <%= render "notice" %>
+        <%= render 'admin/application/header' %>
+        <div class="flex-grow-1">
+          <%= yield %>
+        </div>
+        <%= render 'admin/application/footer' %>
+      </main>
+    </div>
+    <%= javascript_include_tag "admin" %>
   </body>
 </html>

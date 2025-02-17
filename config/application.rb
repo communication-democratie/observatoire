@@ -37,6 +37,8 @@ module Observatoire
     config.time_zone = "Europe/Paris"
     # config.eager_load_paths << Rails.root.join("extras")
 
+    config.i18n.default_locale = :fr
+
     # TODO Remove when kamifusen is compatible with Vips
     config.active_storage.variant_processor = :mini_magick
     # Need for +repage, because of https://github.com/rails/rails/commit/b2ab8dd3a4a184f3115e72b55c237c7b66405bd9
