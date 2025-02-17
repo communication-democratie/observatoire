@@ -3,12 +3,18 @@
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class="form-inputs">
-    <%= f.input :title %>
-    <%= f.input :description %>
-    <%= f.input :author_pseudonym %>
-    <%= f.input :author_place %>
-    <%= f.input :author_contact %>
+  <div class="row">
+    <div class="col-lg-6">
+      <h3 class="h4">La publicité problématique</h3>
+      <%= f.input :title %>
+      <%= f.input :description %>
+    </div>
+    <div class="col-lg-6">
+      <h3 class="h4">Vous</h3>
+      <%= f.input :author_pseudonym %>
+      <%= f.input :author_place %>
+      <%= f.input :author_contact %>
+    </div>
   </div>
 
   <div class="form-actions">
