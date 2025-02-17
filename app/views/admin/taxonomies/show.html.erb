@@ -1,6 +1,6 @@
 <% content_for :title, @taxonomy %>
 
-<p><%= @taxonomy.description %></p>
+<p><%= @taxonomy.description.truncate_words(20) %></p>
 
 <%= render 'admin/categories/list', categories: @taxonomy.categories %>
 

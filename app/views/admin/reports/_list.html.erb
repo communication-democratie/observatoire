@@ -10,7 +10,7 @@
     <% reports.each do |report| %>
       <tr>
         <td><%= link_to report.title, [:admin, report] %></td>
-        <td><%= report.description.to_s.truncate_words(30) %></td>
+        <td><%= report.description.to_s.truncate_words(20) %></td>
         <td><%= l report.created_at %></td>
       </tr>
     <% end %>

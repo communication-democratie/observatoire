@@ -1,7 +1,6 @@
 <% content_for :title, @category %>
 
-<p><%= @category.description %></p>
-
+<p><%= @category.description.truncate_words(20) %></p>
 
 <div class="card">
   <div class="card-header">
@@ -11,7 +10,6 @@
     <%= render 'admin/problems/list', problems: @category.problems %>
   </div>
 </div>
-
 
 <% content_for :buttons do %>
   <%= link_to t('admin.edit'), edit_admin_category_path(@category), class: button_classes %>

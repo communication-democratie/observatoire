@@ -9,7 +9,7 @@
     <% problems.each do |problem| %>
       <tr>
         <td><%= link_to problem, [:admin, problem] %></td>
-        <td><%= problem.description.to_s.truncate_words(30) %></td>
+        <td><%= problem.description.to_s.truncate_words(20) %></td>
       </tr>
     <% end %>
   </tbody>
