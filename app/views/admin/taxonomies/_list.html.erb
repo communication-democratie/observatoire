@@ -1,0 +1,16 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th><%= Taxonomy.human_attribute_name(:title) %></th>
+      <th><%= Taxonomy.human_attribute_name(:categories) %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% taxonomies.each do |taxonomy| %>
+      <tr>
+        <td><%= link_to taxonomy, [:admin, taxonomy] %></td>
+        <td><%= taxonomy.categories.count %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

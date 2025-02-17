@@ -4,6 +4,7 @@ fr:
     attributes:
       category:
         description: Description
+        problems: Problèmes
         slug: Slug
         title: Titre
         taxonomy: Taxonomie

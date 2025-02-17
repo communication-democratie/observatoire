@@ -2,14 +2,14 @@
   <thead>
     <tr>
       <th><%= Category.human_attribute_name(:title) %></th>
-      <th><%= Category.human_attribute_name(:taxonomy) %></th>
+      <th><%= Category.human_attribute_name(:problems) %></th>
     </tr>
   </thead>
   <tbody>
     <% categories.each do |category| %>
       <tr>
         <td><%= link_to category, [:admin, category] %></td>
-        <td><%= link_to category.taxonomy, [:admin, category.taxonomy] %></td>
+        <td><%= category.problems.count %></td>
       </tr>
     <% end %>
   </tbody>

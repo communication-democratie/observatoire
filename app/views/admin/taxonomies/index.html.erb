@@ -1,12 +1,6 @@
 <% content_for :title, Taxonomy.model_name.human(count: 2) %>
 
-<div class="row">
-  <% @taxonomies.each do |taxonomy| %>
-    <div class="col-lg-3">
-      <%= link_to taxonomy, [:admin, taxonomy] %>
-    </div>
-  <% end %>
-</div>
+<%= render 'admin/taxonomies/list', taxonomies: @taxonomies %>
 
 <% content_for :buttons do %>
   <%= link_to t('admin.create'), new_admin_taxonomy_path, class: button_classes %>

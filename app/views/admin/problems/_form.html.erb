@@ -5,12 +5,16 @@
 
   <%= f.input :description %>
 
-  <% Taxonomy.all.ordered.each do |taxonomy| %>
-    <%= f.association :categories,
-                      label: taxonomy,
-                      as: :check_boxes,
-                      collection: taxonomy.categories.ordered %>
-  <% end %>
+  <div class="row">
+    <% Taxonomy.all.ordered.each do |taxonomy| %>
+      <div class="col-lg-3">
+        <%= f.association :categories,
+                          label: taxonomy,
+                          as: :check_boxes,
+                          collection: taxonomy.categories.ordered %>
+      </div>
+    <% end %>
+  </div>
 
   <%= f.button :submit, t('admin.save'), class: button_classes %>
 <% end %>

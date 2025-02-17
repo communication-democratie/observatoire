@@ -38,12 +38,11 @@ class Admin::ProblemsController < Admin::ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
     def set_problem
       @problem = Problem.find(params.expect(:id))
     end
 
-    # Only allow a list of trusted parameters through.
     def problem_params
       params.expect(problem: [ :description, category_ids: [] ])
     end
