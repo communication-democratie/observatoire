@@ -10,6 +10,9 @@ fr:
         taxonomy: Taxonomie
       problem:
         description: Description
+        year: Année
+        reports: Signalements
+        title: Titre
       report:
         author_contact: Coordonnées
         author_pseudonym: Pseudonyme
@@ -39,6 +42,7 @@ fr:
     deleted: Suppression effectuée
     edit: Modifier
     save: Enregistrer
+    show: Voir
     updated: Mise à jour effectuée
   front:
     home: Accueil

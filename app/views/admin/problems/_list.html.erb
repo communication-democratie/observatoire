@@ -1,15 +1,26 @@
 <table class="table">
   <thead>
     <tr>
+      <th><%= Problem.human_attribute_name(:image) %></th>
       <th><%= Problem.human_attribute_name(:title) %></th>
       <th><%= Problem.human_attribute_name(:description) %></th>
+      <th><%= Problem.human_attribute_name(:year) %></th>
+      <th><%= Problem.human_attribute_name(:reports) %></th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
     <% problems.each do |problem| %>
       <tr>
+        <td><%= image_tag problem.image, class: 'img-fluid', width: 200 if problem.image.attached?  %></td>
         <td><%= link_to problem, [:admin, problem] %></td>
         <td><%= problem.description.to_s.truncate_words(20) %></td>
+        <td><%= problem.created_at.year %></td>
+        <td><%= problem.reports.count %></td>
+        <td class="text-end">
+          <%= link_to t('admin.show'), [:admin, problem], class: button_classes %>
+          <%= link_to t('admin.edit'), [:edit, :admin, problem], class: button_classes %>
+        </td>
       </tr>
     <% end %>
   </tbody>

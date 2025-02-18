@@ -1,6 +1,13 @@
 <% content_for :title, @problem %>
 
-<p><%= @problem.description %></p>
+<div class="row mb-5">
+  <div class="col-lg-6">
+    <%= image_tag @problem.image, class: 'img-fluid rounded' if @problem.image.attached? %>
+  </div>
+  <div class="col-lg-6">
+    <%= simple_format @problem.description %>
+  </div>
+</div>
 
 <div class="row">
   <% Taxonomy.all.ordered.each do |taxonomy| %>
