@@ -1,20 +1,35 @@
 <% content_for :title, @report %>
 
-<div class="row">
+<div class="row mb-5">
   <div class="col-lg-6">
     <%= simple_format @report.description %>
+    <hr>
+    <% if @report.link.present? %>
+      <a href="<%= @report.link %>" target="_blank"><%= @report.link %></a>
+      <hr>
+    <% end %>
+    <%= @report.author_pseudonym %><br>
+    <%= @report.author_contact %>
   </div>
   <div class="col-lg-6">
     <%= image_tag @report.image, class: 'img-fluid' if @report.image.attached? %>
   </div>
 </div>
 
-<%= @report.author_pseudonym %><br>
-<%= @report.author_contact %>
+<div class="row">
+  <div class="col-lg-6">
+    <%= Report.human_attribute_name(:problem) %><br>
+    <% if @report.problem.present? %>
+      <%= link_to @report.problem, [:admin, @report.problem] %>
+    <% else %>
+      Non associé
+    <% end %>
+  </div>
 
-<div>
-  <%= Report.human_attribute_name(:problem) %><br>
-  <%= link_to @report.problem, [:admin, @report.problem] if @report.problem.present? %>
+  <div class="col-lg-6">
+    <%= Report.human_attribute_name(:step) %><br>
+    <%= @report.step %>
+  </div>
 </div>
 
 <% content_for :buttons do %>

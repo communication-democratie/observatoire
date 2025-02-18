@@ -1,2 +1,6 @@
-<% content_for :title, Report.model_name.human(count: 2) %>
+<%
+title = Report.model_name.human(count: 2)
+title += " — #{@step}" if @step
+%>
+<% content_for :title, title %>
 <%= render 'admin/reports/list', reports: @reports %>

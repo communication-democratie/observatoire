@@ -12,8 +12,18 @@ SimpleNavigation::Configuration.run do |navigation|
                   { icon: 'bi bi-grid-fill', highlights_on: /admin$/ }
     primary.item  :reports, 
                   Report.model_name.human(count: 2),
-                  admin_reports_path,
-                  { icon: 'bi bi-question-circle-fill' }
+                  nil,
+                  { icon: 'bi bi-question-circle-fill' } do |secondary|
+      Report::Step.ordered.each do |step|
+        secondary.item  step.id.to_sym,
+                        "#{step.reports.count} #{step}",
+                        admin_reports_path(step: step.id)
+
+      end
+      secondary.item  :reports_all,
+                      'Tous',
+                      admin_reports_path
+    end
     primary.item  :problems,
                   Problem.model_name.human(count: 2),
                   admin_problems_path,
@@ -28,6 +38,14 @@ SimpleNavigation::Configuration.run do |navigation|
                         @taxonomy == taxonomy || @category&.taxonomy == taxonomy
                       }
                     }
+    end
+    primary.item  :settings,
+                  'Réglages',
+                  nil,
+                  { icon: 'bi bi-gear-fill' } do |secondary|
+      secondary.item  :report_steps,
+                      Report::Step.model_name.human(count: 2),
+                      admin_reports_steps_path
     end
   end
 end

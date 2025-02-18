@@ -1,0 +1,11 @@
+<table class="table">
+  <tbody>
+    <% steps.each do |step| %>
+      <tr>
+        <td width="50%"><%= link_to step.title, admin_reports_step_path(step) %></td>
+        <td><%= step.description %></td>
+        <td><%= step.position %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

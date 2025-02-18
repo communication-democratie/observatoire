@@ -1,0 +1,7 @@
+<% content_for :title, Report::Step.model_name.human(count: 2) %>
+
+<%= render 'admin/reports/steps/list', steps: @steps %>
+
+<% content_for :buttons do %>
+  <%= link_to t('admin.create'), new_admin_reports_step_path, class: button_classes %>
+<% end %>

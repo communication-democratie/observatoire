@@ -3,6 +3,10 @@ class Admin::ReportsController < Admin::ApplicationController
 
   def index
     @reports = Report.all.ordered
+    if params[:step]
+      @step = Report::Step.find(params[:step])
+      @reports = @reports.where(step: @step)
+    end
   end
 
   def show
@@ -26,6 +30,6 @@ class Admin::ReportsController < Admin::ApplicationController
   end
 
   def report_params
-    params.expect(report: [ :problem_id ])
+    params.expect(report: [ :problem_id, :step_id ])
   end
 end

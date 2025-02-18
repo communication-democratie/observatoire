@@ -21,6 +21,11 @@ fr:
         link: Lien web
         problem: Problème
         slug: Slug
+        step: Étape
+        title: Titre
+      report_step:
+        description: Description
+        position: Position
         title: Titre
     models:
       category:
@@ -32,6 +37,9 @@ fr:
       report:
         one: Signalement
         other: Signalements
+      report/step:
+        one: Étape d'un signalement
+        other: Étapes d'un signalement
       taxonomy:
         one: Taxonomie
         other: Taxonomies

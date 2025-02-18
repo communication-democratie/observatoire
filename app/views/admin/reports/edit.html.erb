@@ -4,6 +4,9 @@
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
+  <%= f.association :step,
+                    collection: Report::Step.ordered,
+                    as: :radio_buttons %>
   <%= f.association :problem %>
 
   <%= f.button :submit, t('admin.save'), class: button_classes %>

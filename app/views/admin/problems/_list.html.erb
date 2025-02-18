@@ -3,7 +3,6 @@
     <tr>
       <th><%= Problem.human_attribute_name(:image) %></th>
       <th><%= Problem.human_attribute_name(:title) %></th>
-      <th><%= Problem.human_attribute_name(:description) %></th>
       <th><%= Problem.human_attribute_name(:year) %></th>
       <th><%= Problem.human_attribute_name(:reports) %></th>
       <th></th>
@@ -14,7 +13,6 @@
       <tr>
         <td><%= image_tag problem.image, class: 'img-fluid', width: 200 if problem.image.attached?  %></td>
         <td><%= link_to problem, [:admin, problem] %></td>
-        <td><%= problem.description.to_s.truncate_words(20) %></td>
         <td><%= problem.created_at.year %></td>
         <td><%= problem.reports.count %></td>
         <td class="text-end">

@@ -2,7 +2,8 @@
   <thead>
     <tr>
       <th><%= Report.human_attribute_name(:title) %></th>
-      <th><%= Report.human_attribute_name(:description) %></th>
+      <th><%= Report.human_attribute_name(:step) %></th>
+      <th><%= Report.human_attribute_name(:problem) %></th>
       <th><%= Report.human_attribute_name(:created_at) %></th>
     </tr>
   </thead>
@@ -10,8 +11,9 @@
     <% reports.each do |report| %>
       <tr>
         <td><%= link_to report.title, [:admin, report] %></td>
-        <td><%= report.description.to_s.truncate_words(20) %></td>
-        <td><%= l report.created_at %></td>
+        <td><%= report.step %></td>
+        <td><%= report.problem %></td>
+        <td><%= l report.created_at.to_date %></td>
       </tr>
     <% end %>
   </tbody>
