@@ -1,21 +1,20 @@
 <div class="row g-4">
-    <% problems.each do |problem| %>
-      <div class="col-lg-3">
-        <div class="card">
-          <%= kamifusen_tag problem.image, class: 'card-img-top img-fluid' if problem.image.attached? %>
-          <div class="card-body">
-            <h2 class="card-title"><%= problem %></h2>
-            <p><%= problem.description.truncate_words(20) %></p>
-            <% problem.main_categories.each do |category| %>
-              <span class="badge bg-secondary"><%= category %></span>
-            <% end %>
-            <span class="badge bg-secondary"><%= problem.created_at.year %></span>
-          </div>
-          <div class="card-footer">
-            <%= link_to t('front.more'), problem, class: 'stretched-link' %>
-          </div>
+  <% problems.each do |problem| %>
+    <div class="col-lg-3">
+      <div class="card">
+        <%= kamifusen_tag problem.image, class: 'card-img-top img-fluid' if problem.image.attached? %>
+        <div class="card-body">
+          <h2 class="card-title"><%= problem %></h2>
+          <p><%= problem.description.truncate_words(20) %></p>
+          <% problem.main_categories.each do |category| %>
+            <span class="badge bg-secondary"><%= category %></span>
+          <% end %>
+          <span class="badge bg-secondary"><%= problem.created_at.year %></span>
         </div>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        <div class="card-footer">
+          <%= link_to t('front.more'), problem, class: 'stretched-link' %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
