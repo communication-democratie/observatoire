@@ -47,6 +47,7 @@ fr:
   front:
     home: Accueil
     website: Observatoire Citoyen de la Publicité
+    more: Lire la suite
   simple_form:
     hints:
       report:

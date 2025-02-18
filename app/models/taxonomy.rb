@@ -17,6 +17,7 @@ class Taxonomy < ApplicationRecord
   validates_presence_of :title, :slug
 
   scope :ordered, -> { order(:position) }
+  scope :main, -> { ordered.first }
 
   def to_s
     "#{title}"

@@ -1,8 +1,11 @@
 <% content_for :title, @problem %>
 
-<div class="row">
+<div class="row mb-5">
   <div class="col-lg-6">
-    <p><%= @problem.description %></p>
+    <%= kamifusen_tag @problem.image, class: 'img-fluid rounded' if @problem.image.attached? %>
+  </div>
+  <div class="col-lg-6">
+    <%= simple_format @problem.description %>
   </div>
 </div>
 

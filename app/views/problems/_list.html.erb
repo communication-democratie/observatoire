@@ -1,19 +1,20 @@
-<table class="table">
-  <thead>
-    <tr>
-      <th><%= Problem.human_attribute_name(:title) %></th>
-      <% Taxonomy.all.ordered.each do |taxonomy| %>
-        <th><%= taxonomy %></th>
-      <% end %>
-    </tr>
-  </thead>
-  <tbody>
+<div class="row g-4">
     <% problems.each do |problem| %>
-      <tr>
-        <td><%= link_to problem, problem %></td>
-        <% Taxonomy.all.ordered.each do |taxonomy| %>
-          <td><%= problem.categories.where(taxonomy: taxonomy).join(', ') %></td>
-        <% end %>
+      <div class="col-lg-3">
+        <div class="card">
+          <%= kamifusen_tag problem.image, class: 'card-img-top img-fluid' if problem.image.attached? %>
+          <div class="card-body">
+            <h2 class="card-title"><%= problem %></h2>
+            <p><%= problem.description.truncate_words(20) %></p>
+            <% problem.main_categories.each do |category| %>
+              <span class="badge bg-secondary"><%= category %></span>
+            <% end %>
+            <span class="badge bg-secondary"><%= problem.created_at.year %></span>
+          </div>
+          <div class="card-footer">
+            <%= link_to t('front.more'), problem, class: 'stretched-link' %>
+          </div>
+        </div>
       </tr>
     <% end %>
   </tbody>

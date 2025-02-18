@@ -20,6 +20,10 @@ class Problem < ApplicationRecord
     id.split('-').first.upcase
   end
 
+  def main_categories
+    categories.where(id: Taxonomy.main.categories)
+  end
+
   def to_s
     "#{title}"
   end
