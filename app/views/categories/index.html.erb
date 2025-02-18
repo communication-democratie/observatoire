@@ -6,12 +6,14 @@
   </div>
 </div>
 
-<div class="row">
+<div>
   <% @categories.each do |category| %>
-    <div class="col-lg-4">
-      <div class="card">
-        <div class="card-body">
-          <h2 class="card-title"><%= category %></h2>
+    <div class="border-bottom py-5 position-relative">
+      <div class="row">
+        <div class="col-lg-6">
+          <h2><%= category %></h2>
+        </div>
+        <div class="col-lg-4">
           <p class="card-text"><%= category.description.truncate_words(20) %></p>
           <div>
             <span class="badge text-bg-secondary">
@@ -19,7 +21,9 @@
               <%= Problem.model_name.human(count: category.problems.count).downcase %>
             </span>
           </div>
-          <%= link_to t('read'), category_path(taxonomy_slug: @taxonomy.slug, category_slug: category.slug), class: 'stretched-link' %>
+        </div>
+        <div class="col-lg-2 text-end">
+          <%= link_to t('front.more'), category_path(taxonomy_slug: @taxonomy.slug, category_slug: category.slug), class: 'stretched-link' %>
         </div>
       </div>
     </div>

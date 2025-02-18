@@ -1,6 +1,6 @@
 <div class="row g-4">
   <% problems.each do |problem| %>
-    <div class="col-lg-3">
+    <div class="col-lg-4">
       <div class="card">
         <%= kamifusen_tag problem.image, class: 'card-img-top img-fluid' if problem.image.attached? %>
         <div class="card-body">
