@@ -15,6 +15,7 @@ fr:
         author_pseudonym: Pseudonyme
         created_at: Date de création
         description: Description
+        link: Lien web
         problem: Problème
         slug: Slug
         title: Titre
@@ -45,7 +46,11 @@ fr:
   simple_form:
     hints:
       report:
+        author_pseudonym: Cela permet d'identifier vos signalements si vous le souhaitez
         author_contact: Si vous voulez que l'équipe vous recontacte
+        link: Cela peut être la page de la campagne, ou un minisite dédié
+        title: Le titre ou l'accroche de la campagne que vous trouvez problématique
+        description: Décrivez en détails pourquoi vous trouvez cette campagne problématique, et à quel titre (greenwashing, stimulation de l'obsolescence...)
     error_notification:
       default_message: 'Veuillez résoudre les problèmes:'
     'no': Non

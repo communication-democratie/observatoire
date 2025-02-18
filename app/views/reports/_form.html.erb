@@ -7,7 +7,9 @@
     <div class="col-lg-6">
       <h3 class="h4">Décrivez la publicité problématique...</h3>
       <%= f.input :title %>
-      <%= f.input :description %>
+      <%= f.input :description, input_html: { rows: 6 } %>
+      <%= f.input :link %>
+      <%= f.input :image %>
     </div>
     <div class="col-lg-6">
       <h3 class="h4">Si vous le souhaitez, dites-nous qui vous êtes...</h3>

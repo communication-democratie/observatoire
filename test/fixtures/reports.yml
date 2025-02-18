@@ -8,6 +8,7 @@
 #  author_contact   :text
 #  author_pseudonym :string
 #  description      :text
+#  link             :string
 #  title            :string
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
