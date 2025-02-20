@@ -6,7 +6,7 @@
   </div>
   <div class="col-lg-6">
     <div class="h2 mb-5">
-      <span class="badge bg-secondary"><%= @problem.step %></span>
+      <%= render 'problems/badge', problem: @problem %>
     </div>
     <%= simple_format @problem.description %>
   </div>

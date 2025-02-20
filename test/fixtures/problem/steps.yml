@@ -5,6 +5,7 @@
 # Table name: problem_steps
 #
 #  id          :uuid             not null, primary key
+#  color       :string           default("#666666")
 #  description :text
 #  position    :integer          default(0)
 #  title       :string

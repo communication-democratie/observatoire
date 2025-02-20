@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_02_20_063644) do
+ActiveRecord::Schema[8.0].define(version: 2025_02_20_065536) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -154,6 +154,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_20_063644) do
     t.integer "position", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "color", default: "#666666"
   end
 
   create_table "problems", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|

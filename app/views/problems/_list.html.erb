@@ -10,7 +10,7 @@
             <span class="badge bg-secondary"><%= category %></span>
           <% end %>
           <span class="badge bg-secondary"><%= problem.created_at.year %></span>
-          <span class="badge bg-secondary"><%= problem.step %></span>
+          <%= render 'problems/badge', problem: problem %>
         </div>
         <div class="card-footer">
           <%= link_to t('front.more'), problem, class: 'stretched-link' %>

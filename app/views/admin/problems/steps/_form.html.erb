@@ -1,11 +1,12 @@
 
-<%= simple_form_for step, url: step.persisted? ? admin_reports_step_path(step) : admin_problems_steps_path do |f| %>
+<%= simple_form_for step, url: step.persisted? ? admin_problems_step_path(step) : admin_problems_steps_path do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <%= f.input :title %>
   <%= f.input :description %>
-  <%= f.input :position%>
+  <%= f.input :color, as: :color %>
+  <%= f.input :position %>
 
   <%= f.button :submit, t('admin.save'), class: button_classes %>
 <% end %>
