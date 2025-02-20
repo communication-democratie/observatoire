@@ -27,7 +27,14 @@ SimpleNavigation::Configuration.run do |navigation|
     primary.item  :problems,
                   Problem.model_name.human(count: 2),
                   admin_problems_path,
-                  { icon: 'bi bi-exclamation-circle-fill' }
+                  { icon: 'bi bi-exclamation-circle-fill' } do |secondary|
+      Problem::Step.ordered.each do |step|
+        secondary.item  step.id.to_sym,
+                        "#{step.problems.count} #{step}",
+                        admin_problems_path(step: step.id)
+
+      end
+    end
     Taxonomy.all.each do |taxonomy|
       primary.item  taxonomy.id.to_sym,
                     taxonomy.to_s,
@@ -46,6 +53,9 @@ SimpleNavigation::Configuration.run do |navigation|
       secondary.item  :report_steps,
                       Report::Step.model_name.human(count: 2),
                       admin_reports_steps_path
+      secondary.item  :problem_steps,
+                      Problem::Step.model_name.human(count: 2),
+                      admin_problems_steps_path
     end
   end
 end

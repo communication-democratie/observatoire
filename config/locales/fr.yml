@@ -12,6 +12,7 @@ fr:
         description: Description
         year: Année
         reports: Signalements
+        step: Étape
         title: Titre
       report:
         author_contact: Coordonnées
@@ -34,6 +35,9 @@ fr:
       problem:
         one: Problème
         other: Problèmes
+      problem/step:
+        one: Étape d'un problème
+        other: Étapes d'un problème
       report:
         one: Signalement
         other: Signalements

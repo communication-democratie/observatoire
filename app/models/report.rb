@@ -24,22 +24,15 @@
 #  fk_rails_...  (step_id => report_steps.id)
 #
 class Report < ApplicationRecord
+  include WithSteps
+
   belongs_to :problem, optional: true
-  belongs_to :step, optional: true
 
   scope :ordered, -> { order(created_at: :desc) }
 
   has_one_attached :image
 
-  before_validation :initialize_step
-
   def to_s
     "#{title}"
-  end
-
-  protected
-
-  def initialize_step
-    self.step ||= Report::Step.ordered.first
   end
 end

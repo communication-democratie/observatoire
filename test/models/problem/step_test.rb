@@ -1,25 +1,17 @@
 # == Schema Information
 #
-# Table name: problems
+# Table name: problem_steps
 #
 #  id          :uuid             not null, primary key
 #  description :text
+#  position    :integer          default(0)
 #  title       :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
-#  step_id     :uuid
-#
-# Indexes
-#
-#  index_problems_on_step_id  (step_id)
-#
-# Foreign Keys
-#
-#  fk_rails_...  (step_id => problem_steps.id)
 #
 require "test_helper"
 
-class ProblemTest < ActiveSupport::TestCase
+class Problem::StepTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

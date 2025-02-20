@@ -16,7 +16,7 @@ class Admin::Reports::StepsController < Admin::ApplicationController
   end
 
   def create
-    @step = Report::Step.new(problem_params)
+    @step = Report::Step.new(step_params)
     if @step.save
       redirect_to admin_reports_step_path(@step), notice: t('admin.created')
     else
@@ -25,7 +25,7 @@ class Admin::Reports::StepsController < Admin::ApplicationController
   end
 
   def update
-    if @step.update(problem_params)
+    if @step.update(step_params)
       redirect_to admin_reports_step_path(@step), notice: t('admin.updated')
     else
       render :edit, status: :unprocessable_entity
@@ -43,7 +43,7 @@ class Admin::Reports::StepsController < Admin::ApplicationController
       @step = Report::Step.find(params.expect(:id))
     end
 
-    def problem_params
+    def step_params
       params.expect(report_step: [ :title, :description, :position ])
     end
 end

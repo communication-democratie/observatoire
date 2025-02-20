@@ -3,6 +3,9 @@ Rails.application.routes.draw do
     namespace :reports do
       resources :steps
     end
+    namespace :problems do
+      resources :steps
+    end
     resources :reports, only: [:index, :show, :edit, :update]
     resources :taxonomies, :categories, :problems
     root to: "dashboard#index"

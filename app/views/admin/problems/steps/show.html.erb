@@ -1,0 +1,11 @@
+<% content_for :title, @step %>
+
+<div class="row">
+  <div class="col-lg-6">
+    <%= simple_format @step.description %>
+  </div>
+</div>
+
+<% content_for :buttons do %>
+  <%= link_to t('admin.edit'), edit_admin_problems_step_path(@step), class: button_classes %>
+<% end %>

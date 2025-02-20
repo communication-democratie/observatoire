@@ -6,6 +6,7 @@
   <%= f.input :title %>
   <%= f.input :description %>
   <%= f.input :image %>
+  <%= f.association :step, include_blank: false, as: :radio_buttons %>
 
   <div class="row">
     <% Taxonomy.all.ordered.each do |taxonomy| %>
