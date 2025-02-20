@@ -3,6 +3,10 @@ class Admin::ProblemsController < Admin::ApplicationController
 
   def index
     @problems = Problem.all
+    if params[:step]
+      @step = Problem::Step.find(params[:step])
+      @problems = @problems.where(step: @step)
+    end
   end
 
   def show

@@ -1,5 +1,8 @@
-<% content_for :title, Problem.model_name.human(count: 2) %>
-
+<%
+title = Problem.model_name.human(count: 2)
+title += " — #{@step}" if @step
+%>
+<% content_for :title, title %>
 <%= render 'admin/problems/list', problems: @problems %>
 
 <% content_for :buttons do %>

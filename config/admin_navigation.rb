@@ -34,6 +34,9 @@ SimpleNavigation::Configuration.run do |navigation|
                         admin_problems_path(step: step.id)
 
       end
+      secondary.item  :problems_all,
+                      'Tous',
+                      admin_problems_path
     end
     Taxonomy.all.each do |taxonomy|
       primary.item  taxonomy.id.to_sym,
