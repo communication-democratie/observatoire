@@ -1,20 +1,14 @@
 <%= simple_form_for [:admin, taxonomy] do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-
-  <div class="row">
-    <div class="col-lg-6">
-      <%= f.input :title %>
-    </div>
-    <div class="col-lg-6">
-      <%= f.input :slug, 
-                  input_html: f.object.persisted? ? {} : {
-                    class: 'js-slug-input',
-                    data: { source: '#taxonomy_title' }
-                  } %>
-    </div>
-  </div>
-  <%= f.input :description %>
+  <%= f.input :title %>
+  <%= f.input :slug, 
+              input_html: f.object.persisted? ? {} : {
+                class: 'js-slug-input',
+                data: { source: '#taxonomy_title' }
+              } %>
+  <%= f.input :for_reports %>
+  <%= f.input :description, input_html: { rows: 5 } %>
   <%= f.input :position %>
 
   <%= f.button :submit, t('admin.save'), class: button_classes %>

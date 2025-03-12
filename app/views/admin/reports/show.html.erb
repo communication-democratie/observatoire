@@ -16,9 +16,20 @@
   </div>
 </div>
 
+<div class="row my-5">
+  <% Taxonomy.for_reports.each do |taxonomy| %>
+    <div class="col-lg-4 mb-3">
+      <p class="form-label">
+        <%= taxonomy %>
+      </p>
+      <%= @report.categories.where(taxonomy: taxonomy).to_sentence %>
+    </div>
+  <% end %>
+</div>
+
 <div class="row">
   <div class="col-lg-6">
-    <p class="small text-muted">
+    <p class="form-label">
       <%= Report.human_attribute_name(:step) %>
     </p>
     <%
@@ -34,7 +45,7 @@
     <% end %>
   </div>
   <div class="col-lg-6">
-    <p class="small text-muted">
+    <p class="form-label">
       <%= Report.human_attribute_name(:problem) %>
     </p>
     <% if @report.problem.present? %>

@@ -26,6 +26,7 @@
 class Report < ApplicationRecord
   include WithSteps
 
+  has_and_belongs_to_many :categories
   belongs_to :problem, optional: true
 
   scope :ordered, -> { order(created_at: :desc) }

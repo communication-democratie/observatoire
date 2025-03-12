@@ -28,6 +28,11 @@ fr:
         description: Description
         position: Position
         title: Titre
+      taxonomy:
+        description: Description
+        for_reports: Utiliser pour les signalements
+        title: Titre
+        position: Position
     models:
       category:
         one: Catégorie

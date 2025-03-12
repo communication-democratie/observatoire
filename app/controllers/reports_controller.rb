@@ -1,7 +1,7 @@
 class ReportsController < ApplicationController
   def create
     @report = Report.create(report_params)
-    redirect_to root_path, notice: "Merci !"
+    redirect_to root_path, notice: "Merci pour ce signalement !"
   end
 
   private
@@ -9,7 +9,8 @@ class ReportsController < ApplicationController
   def report_params
     params.expect(report: [ 
       :title, :description, :link, :image,
-      :author_pseudonym, :author_contact
+      :author_pseudonym, :author_contact,
+      category_ids: []
     ])
   end
 end

@@ -44,6 +44,6 @@ class Admin::TaxonomiesController < Admin::ApplicationController
   end
 
   def taxonomy_params
-    params.expect(taxonomy: [ :title, :slug, :description, :position ])
+    params.expect(taxonomy: [ :title, :slug, :description, :position, :for_reports ])
   end
 end

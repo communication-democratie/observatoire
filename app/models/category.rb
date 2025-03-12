@@ -21,6 +21,7 @@
 class Category < ApplicationRecord
   belongs_to :taxonomy
   has_and_belongs_to_many :problems
+  has_and_belongs_to_many :reports
 
   validates_presence_of :title, :slug
 

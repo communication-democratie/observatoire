@@ -10,7 +10,7 @@
   <tbody>
     <% reports.each do |report| %>
       <tr>
-        <td><%= link_to report.title, [:admin, report] %></td>
+        <td><%= link_to report, [:admin, report] %></td>
         <td><%= report.step %></td>
         <td><%= report.problem %></td>
         <td><%= l report.created_at.to_date %></td>

@@ -4,6 +4,7 @@
 #
 #  id          :uuid             not null, primary key
 #  description :text
+#  for_reports :boolean          default(FALSE)
 #  position    :integer          default(0)
 #  slug        :string
 #  title       :string
