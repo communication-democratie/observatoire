@@ -12,6 +12,16 @@
   </div>
 </div>
 
+<div class="my-4">
+  <%= @problem.reports.count %>
+  <%= Report.model_name.human(count: @problem.reports.count).downcase %>
+  <% if @problem.reported_by.any? %>
+    <br>
+    Merci à 
+    <%= @problem.reported_by.to_sentence %>
+  <% end %>
+</div>
+
 <div class="row g-4">
   <%
   Taxonomy.all.ordered.each do |taxonomy|

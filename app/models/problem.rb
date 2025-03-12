@@ -35,6 +35,13 @@ class Problem < ApplicationRecord
     categories.where(id: Taxonomy.main.categories)
   end
 
+  def reported_by
+    @reported_by ||= reports.pluck(:author_pseudonym)
+                            .uniq
+                            .compact_blank
+                            .sort
+  end
+
   def to_s
     "#{title}"
   end
