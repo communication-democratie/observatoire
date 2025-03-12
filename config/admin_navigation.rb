@@ -24,7 +24,7 @@ SimpleNavigation::Configuration.run do |navigation|
                         badge(step.to_s, step.reports.count),
                         admin_reports_path(step: step.id),
                         highlights_on: lambda {
-                          @step == step
+                          controller_name == 'reports' && @step == step
                         }
 
       end
@@ -32,7 +32,7 @@ SimpleNavigation::Configuration.run do |navigation|
                       'Tous',
                       admin_reports_path,
                       highlights_on: lambda {
-                        @step.nil?
+                        controller_name == 'reports' && @step.nil?
                       }
     end
     primary.item  :problems,
@@ -44,7 +44,7 @@ SimpleNavigation::Configuration.run do |navigation|
                         badge(step.to_s, step.problems.count),
                         admin_problems_path(step: step.id),
                         highlights_on: lambda {
-                          @step == step
+                          controller_name == 'problems' && @step == step
                         }
 
       end
@@ -52,7 +52,7 @@ SimpleNavigation::Configuration.run do |navigation|
                       'Tous',
                       admin_problems_path,
                       highlights_on: lambda {
-                        @step.nil?
+                        controller_name == 'problems' && @step.nil?
                       }
     end
     Taxonomy.all.each do |taxonomy|
