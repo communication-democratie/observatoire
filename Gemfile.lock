@@ -111,6 +111,8 @@ GEM
       rails (>= 3.1)
     breadcrumbs_on_rails (4.1.0)
       railties (>= 5.0)
+    bugsnag (6.27.1)
+      concurrent-ruby (~> 1.0)
     builder (3.3.0)
     byebug (11.1.3)
     capybara (3.40.0)
@@ -407,6 +409,7 @@ DEPENDENCIES
   bootstrap (~> 5.3)
   bootstrap5-kaminari-views (~> 0.0)
   breadcrumbs_on_rails (~> 4.1)
+  bugsnag (~> 6.27)
   byebug
   capybara
   dartsass-sprockets (~> 3.2)

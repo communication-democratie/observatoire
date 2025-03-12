@@ -9,6 +9,7 @@ gem "bootsnap", require: false
 gem "bootstrap", "~> 5.3"
 gem "bootstrap5-kaminari-views", "~> 0.0"
 gem "breadcrumbs_on_rails", "~> 4.1"
+gem "bugsnag", "~> 6.27"
 gem "dartsass-sprockets", "~> 3.2"
 gem "good_job", "~> 4.5"
 gem "image_processing", "~> 1.2"

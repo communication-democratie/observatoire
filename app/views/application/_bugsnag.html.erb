@@ -1,0 +1,14 @@
+<% unless ENV["APPLICATION_ENV"] == "development" %>
+  <script src="//d2wy8f7a9ursnm.cloudfront.net/v7/bugsnag.min.js"></script>
+  <script type="text/javascript" nonce="<%= request.content_security_policy_nonce %>">
+    Bugsnag.start({
+      apiKey: "<%= j ENV['BUGSNAG_JAVASCRIPT_KEY'] %>",
+      releaseStage: "<%= j ENV['APPLICATION_ENV'] %>"
+    });
+    Bugsnag.addOnError(function (event) {
+      if (event.originalError === 'ResizeObserver loop limit exceeded') {
+        return false;
+      }
+    });
+  </script>
+<% end %>
