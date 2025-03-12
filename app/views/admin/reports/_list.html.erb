@@ -2,6 +2,7 @@
   <thead>
     <tr>
       <th><%= Report.human_attribute_name(:title) %></th>
+      <th><%= Report.human_attribute_name(:brand) %></th>
       <th><%= Report.human_attribute_name(:step) %></th>
       <th><%= Report.human_attribute_name(:problem) %></th>
       <th><%= Report.human_attribute_name(:created_at) %></th>
@@ -11,6 +12,7 @@
     <% reports.each do |report| %>
       <tr>
         <td><%= link_to report, [:admin, report] %></td>
+        <td><%= report.brand %></td>
         <td><%= report.step %></td>
         <td><%= report.problem %></td>
         <td><%= l report.created_at.to_date %></td>

@@ -8,8 +8,8 @@ class ReportsController < ApplicationController
 
   def report_params
     params.expect(report: [ 
-      :title, :description, :link, :image,
-      :author_pseudonym, :author_contact,
+      :title, :description, :link, :image, :brand,
+      :author_pseudonym, :author_email,
       category_ids: []
     ])
   end

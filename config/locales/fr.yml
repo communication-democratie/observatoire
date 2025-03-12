@@ -15,8 +15,9 @@ fr:
         step: Étape
         title: Titre
       report:
-        author_contact: Coordonnées
+        author_email: Adresse mail
         author_pseudonym: Pseudonyme
+        brand: Marque
         created_at: Date de création
         description: Description
         link: Lien web
@@ -68,8 +69,9 @@ fr:
   simple_form:
     hints:
       report:
-        author_pseudonym: Cela permet d'identifier vos signalements si vous le souhaitez
-        author_contact: Si vous voulez que l'équipe vous recontacte
+        author_pseudonym: Cela permet d'identifier publiquement vos signalements, si vous le souhaitez
+        author_email: Cela vous permet de recevoir une confirmation de votre signalement, et d'être tenu au courant du traitement
+        brand: Par exemple Coca-Cola, Air France...
         link: Cela peut être la page de la campagne, ou un minisite dédié
         title: Le titre ou l'accroche de la campagne que vous trouvez problématique
         description: Décrivez en détails pourquoi vous trouvez cette campagne problématique, et à quel titre (greenwashing, stimulation de l'obsolescence...)

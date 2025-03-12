@@ -5,7 +5,7 @@
 # Table name: reports
 #
 #  id               :uuid             not null, primary key
-#  author_contact   :text
+#  author_email     :string
 #  author_pseudonym :string
 #  description      :text
 #  link             :string
