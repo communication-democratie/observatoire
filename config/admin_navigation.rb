@@ -3,7 +3,7 @@ SimpleNavigation::Configuration.run do |navigation|
   navigation.auto_highlight = true
   navigation.highlight_on_subpath = true
   navigation.selected_class = 'active'
-  navigation.active_leaf_class = 'active'
+  navigation.active_leaf_class = 'active-leaf'
 
   def badge(text, count)
     return text if count.zero?
@@ -22,12 +22,18 @@ SimpleNavigation::Configuration.run do |navigation|
       Report::Step.ordered.each do |step|
         secondary.item  step.id.to_sym,
                         badge(step.to_s, step.reports.count),
-                        admin_reports_path(step: step.id)
+                        admin_reports_path(step: step.id),
+                        highlights_on: lambda {
+                          @step == step
+                        }
 
       end
       secondary.item  :reports_all,
                       'Tous',
-                      admin_reports_path
+                      admin_reports_path,
+                      highlights_on: lambda {
+                        @step.nil?
+                      }
     end
     primary.item  :problems,
                   Problem.model_name.human(count: 2),
@@ -36,12 +42,18 @@ SimpleNavigation::Configuration.run do |navigation|
       Problem::Step.ordered.each do |step|
         secondary.item  step.id.to_sym,
                         badge(step.to_s, step.problems.count),
-                        admin_problems_path(step: step.id)
+                        admin_problems_path(step: step.id),
+                        highlights_on: lambda {
+                          @step == step
+                        }
 
       end
       secondary.item  :problems_all,
                       'Tous',
-                      admin_problems_path
+                      admin_problems_path,
+                      highlights_on: lambda {
+                        @step.nil?
+                      }
     end
     Taxonomy.all.each do |taxonomy|
       primary.item  taxonomy.id.to_sym,
