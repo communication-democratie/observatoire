@@ -33,6 +33,6 @@ class Report < ApplicationRecord
   has_one_attached :image
 
   def to_s
-    "#{title}"
+    title.blank? ? "#{id}" : "#{title}"
   end
 end
