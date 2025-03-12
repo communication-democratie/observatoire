@@ -5,6 +5,11 @@ SimpleNavigation::Configuration.run do |navigation|
   navigation.selected_class = 'active'
   navigation.active_leaf_class = 'active'
 
+  def badge(text, count)
+    return text if count.zero?
+    "#{text} <span class=\"badge rounded-pill text-bg-dark\">#{count} </span>"
+  end
+
   navigation.items do |primary|
     primary.item  :dashboard,
                   t('admin.dashboard'),
@@ -16,7 +21,7 @@ SimpleNavigation::Configuration.run do |navigation|
                   { icon: 'bi bi-question-circle-fill' } do |secondary|
       Report::Step.ordered.each do |step|
         secondary.item  step.id.to_sym,
-                        "#{step.reports.count} #{step}",
+                        badge(step.to_s, step.reports.count),
                         admin_reports_path(step: step.id)
 
       end
@@ -30,7 +35,7 @@ SimpleNavigation::Configuration.run do |navigation|
                   { icon: 'bi bi-exclamation-circle-fill' } do |secondary|
       Problem::Step.ordered.each do |step|
         secondary.item  step.id.to_sym,
-                        "#{step.problems.count} #{step}",
+                        badge(step.to_s, step.problems.count),
                         admin_problems_path(step: step.id)
 
       end
