@@ -18,17 +18,30 @@
 
 <div class="row">
   <div class="col-lg-6">
-    <%= Report.human_attribute_name(:problem) %><br>
+    <p class="small text-muted">
+      <%= Report.human_attribute_name(:step) %>
+    </p>
+    <%
+    Report::Step.ordered.each do |step| 
+      active = step == @report.step
+      classes = active ? 'btn btn-primary' : 'btn btn-light'
+      %>
+      <%= link_to step, 
+                  admin_report_path(@report, report: { step_id: step.id } ), 
+                  method: :put, 
+                  disabled: !active,
+                  class: classes %>
+    <% end %>
+  </div>
+  <div class="col-lg-6">
+    <p class="small text-muted">
+      <%= Report.human_attribute_name(:problem) %>
+    </p>
     <% if @report.problem.present? %>
       <%= link_to @report.problem, [:admin, @report.problem] %>
     <% else %>
       Non associé
     <% end %>
-  </div>
-
-  <div class="col-lg-6">
-    <%= Report.human_attribute_name(:step) %><br>
-    <%= @report.step %>
   </div>
 </div>
 
