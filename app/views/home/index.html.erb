@@ -1,7 +1,71 @@
-<div class="px-4 py-5 my-5 text-center">
+<div class="py-5 my-5">
   <h1 class="display-5 fw-bold text-body-emphasis"><%= t('front.website') %></h1>
-  <p class="lead mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam augue ipsum, dictum vel nisi feugiat, condimentum tristique tellus. Nam cursus, elit id tempus congue, urna justo aliquam velit, non maximus magna dolor vel dui. Praesent risus magna, faucibus id iaculis nec, mattis ac tortor. Aliquam nec tristique urna. Pellentesque at massa rutrum, gravida ante porttitor, euismod urna. Nam dignissim facilisis libero, vel aliquam odio egestas sit amet. Quisque vitae odio vitae magna facilisis luctus. Duis ac ornare dolor, id euismod libero.</p>
+  <p class="lead">
+    Greenwashing, socialwashing, obsolescence marketing, publicités discriminantes, publicité dissimulée, promotion de produits néfastes...votre contribution est essentielle pour identifier et analyser ces pratiques !
+  </p>
 </div>
 
-<h2>Faire un signalement</h2>
+<div class="row">
+  <div class="col-lg-6">
+    <p class="mt-5 mb-4">
+      L’Observatoire Citoyen de la Publicité (OCP) est une plateforme permettant aux citoyen·nes de signaler des publicités qu’ils·elles jugent problématiques sur une grande variété de thématiques. 
+    </p>
+  </div>
+  <div class="col-lg-6">
+    <p class="mt-5 mb-4">
+      Cet outil participatif offre à chacun·e la possibilité de se réapproprier les enjeux publicitaires en exprimant son point de vue sur les discours qui leur sont adressés au quotidien.
+    </p>
+  </div>
+</div>
+
+<h2 class="mt-5 mb-4">Grâce à vos signalements, l’OCP peut...</h2>
+<div class="row">
+  <div class="col-lg-3">
+    <div class="card h-100">
+      <div class="card-body">
+        <b>Repérer</b> les mauvaises pratiques publicitaires
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3">
+    <div class="card h-100">
+      <div class="card-body">
+        <b>Publier</b> les campagnes problématiques
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3">
+    <div class="card h-100">
+      <div class="card-body">
+      <b>Mobiliser</b> ses organisations membres et partenaires sur leurs sujets d’expertise
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3">
+    <div class="card h-100">
+      <div class="card-body">
+      <b>Animer</b> le débat public sur la régulation des contenus publicitaires
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2 class="mt-5 mb-4">Vous avez repéré une campagne problématique ?</h2>
+<p>Remplissez le formulaire ci-dessous</p>
+<div class="row">
+  <div class="col-lg-4">
+    <span class="lead">1</span><br>
+    Notre équipe analysera votre signalement pour évaluer sa recevabilité
+  </div>
+  <div class="col-lg-4">
+    <span class="lead">2</span><br>
+    Si le signalement est pertinent, il sera publié comme recevable sur notre site internet
+  </div>
+  <div class="col-lg-4">
+    <span class="lead">3</span><br>
+    La campagne que vous avez signalée pourra faire l’objet d’une analyse approfondie par l’une de nos organisations expertes
+  </div>
+</div>
+
+<h2 class="mt-5 mb-4">Faire un signalement</h2>
 <%= render "reports/form", report: @report %>
