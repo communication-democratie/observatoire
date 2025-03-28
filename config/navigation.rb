@@ -5,10 +5,10 @@ SimpleNavigation::Configuration.run do |navigation|
 
   navigation.items do |primary|
     primary.item  :problems, Problem.model_name.human(count: 2), problems_path
-    Taxonomy.all.ordered.each do |taxonomy|
-      primary.item  taxonomy.slug.to_sym,
-                    taxonomy.to_s,
-                    taxonomy_path(taxonomy_slug: taxonomy.slug)
-    end
+    # Taxonomy.all.ordered.each do |taxonomy|
+    #   primary.item  taxonomy.slug.to_sym,
+    #                 taxonomy.to_s,
+    #                 taxonomy_path(taxonomy_slug: taxonomy.slug)
+    # end
   end
 end
