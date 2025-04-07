@@ -1,11 +1,11 @@
-<div class="container pt-5">
-  <footer class="my-5 border-top">
-    <div class="my-5 text-center">
-      <a href="/" class="link-body-emphasis text-decoration-none h2">
-        <%= t('front.website') %>
+<footer class="mt-5 py-5 bg-white">
+  <div class="container pt-5">
+    <div class="mb-5 text-center">
+      <a href="/">
+        <%= image_tag 'logo.svg', alt: t('front.website'), class: 'logo' %>
       </a>
     </div>
-
+    <hr>
     <div class="row g-5 row-cols-2 row-cols-lg-4 align-items-center">
       <div class="col">
         <%= image_tag 'logos/amis-terre.png', class: 'img-fluid pe-5', alt: 'Les amis de la Terre' %>
@@ -29,5 +29,5 @@
         <%= image_tag 'logos/zerowaste.jpg', class: 'img-fluid pe-5', alt: 'Zero Waste' %>
       </div>
     </div>
-  </footer>
-</div>
+  </div>
+</footer>

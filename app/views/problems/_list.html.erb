@@ -1,18 +1,18 @@
 <div class="row g-4">
   <% problems.each do |problem| %>
     <div class="col-lg-4">
-      <div class="card">
+      <div class="card bg-white border-0">
         <%= kamifusen_tag problem.image, class: 'card-img-top img-fluid' if problem.image.attached? %>
         <div class="card-body">
           <h2 class="card-title"><%= problem %></h2>
           <p><%= problem.description.truncate_words(20) %></p>
-          <% problem.main_categories.each do |category| %>
-            <span class="badge bg-secondary"><%= category %></span>
-          <% end %>
-          <span class="badge bg-secondary"><%= problem.created_at.year %></span>
-          <%= render 'problems/badge', problem: problem %>
-        </div>
-        <div class="card-footer">
+          <div class="my-4">
+            <% problem.main_categories.each do |category| %>
+              <span class="badge bg-secondary"><%= category %></span>
+            <% end %>
+            <span class="badge bg-secondary"><%= problem.created_at.year %></span>
+            <%= render 'problems/badge', problem: problem %>
+          </div>
           <%= link_to t('front.more'), problem, class: 'stretched-link' %>
         </div>
       </div>

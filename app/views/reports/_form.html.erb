@@ -1,44 +1,36 @@
-
 <%= simple_form_for(@report) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class="row">
-    <div class="col-lg-6">
-      <h3 class="h4 my-5">Décrivez la publicité problématique...</h3>
-      <%= f.input :brand %>
-      <% Taxonomy.for_reports.each do |taxonomy| %>
-        <div class="mb-3">
-          <label class="form-label">
-            <%= taxonomy %>
+  <h3 class="h4 my-5">Décrivez la publicité problématique...</h3>
+  <%= f.input :brand %>
+  <% Taxonomy.for_reports.each do |taxonomy| %>
+    <div class="mb-3">
+      <label class="form-label">
+        <%= taxonomy %>
+      </label>
+      <% taxonomy.categories.ordered.each do |category| %>
+        <div class="form-check">
+          <input  class="form-check-input"
+                  type="radio" 
+                  value="<%= category.id %>"
+                  name="report[category_ids][]"
+                  id="report_<%= taxonomy.id %>_<%= category.id %>">
+          <label  class="form-check-label"
+                  for="report_<%= taxonomy.id %>_<%= category.id %>">
+            <%= category %>
           </label>
-          <% taxonomy.categories.ordered.each do |category| %>
-            <div class="form-check">
-              <input  class="form-check-input"
-                      type="radio" 
-                      value="<%= category.id %>"
-                      name="report[category_ids][]"
-                      id="report_<%= taxonomy.id %>_<%= category.id %>">
-              <label  class="form-check-label"
-                      for="report_<%= taxonomy.id %>_<%= category.id %>">
-                <%= category %>
-              </label>
-            </div>
-          <% end %>
         </div>
       <% end %>
-      <%= f.input :description, input_html: { rows: 6 } %>
-      <%= f.input :link %>
-      <%= f.input :image %>
     </div>
-    <div class="col-lg-6">
-      <h3 class="h4 my-5">Si vous le souhaitez, dites-nous qui vous êtes...</h3>
-      <%= f.input :author_pseudonym %>
-      <%= f.input :author_email %>
-    </div>
-  </div>
+  <% end %>
+  <%= f.input :description, input_html: { rows: 6 } %>
+  <%= f.input :link %>
+  <%= f.input :image %>
 
-  <div class="form-actions">
-    <%= f.button :submit, 'Envoyer', class: 'btn btn-primary' %>
-  </div>
+  <h3 class="h4 my-5">Si vous le souhaitez, dites-nous qui vous êtes...</h3>
+  <%= f.input :author_pseudonym %>
+  <%= f.input :author_email %>
+
+  <%= f.button :submit, 'Envoyer', class: 'btn btn-primary' %>
 <% end %>

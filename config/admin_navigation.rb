@@ -55,7 +55,7 @@ SimpleNavigation::Configuration.run do |navigation|
                         controller_name == 'problems' && @step.nil?
                       }
     end
-    Taxonomy.all.each do |taxonomy|
+    Taxonomy.ordered.each do |taxonomy|
       primary.item  taxonomy.id.to_sym,
                     taxonomy.to_s,
                     admin_taxonomy_path(taxonomy),
