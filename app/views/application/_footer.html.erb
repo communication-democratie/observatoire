@@ -6,28 +6,22 @@
       </a>
     </div>
     <hr>
-    <div class="row g-5 row-cols-2 row-cols-lg-4 align-items-center">
-      <div class="col">
-        <%= image_tag 'logos/amis-terre.png', class: 'img-fluid pe-5', alt: 'Les amis de la Terre' %>
-      </div>
-      <div class="col">
-        <%= image_tag 'logos/code.svg', class: 'img-fluid pe-5', alt: 'Communication et démocratie' %>
-      </div>
-      <div class="col">
-        <%= image_tag 'logos/hop.svg', class: 'img-fluid pe-5', alt: 'Halte à l\'obsolescence programmée' %>
-      </div>
-      <div class="col">
-        <%= image_tag 'logos/rap.jpg', class: 'img-fluid pe-5', alt: 'Résistance à l\'agression publicitaire' %>
-      </div>
-      <div class="col">
-        <%= image_tag 'logos/sherpa.svg', class: 'img-fluid pe-5', alt: 'Sherpa' %>
-      </div>
-      <div class="col">
-        <%= image_tag 'logos/veblen.png', class: 'img-fluid pe-5', alt: 'Institut Veblen' %>
-      </div>
-      <div class="col">
-        <%= image_tag 'logos/zerowaste.jpg', class: 'img-fluid pe-5', alt: 'Zero Waste' %>
-      </div>
+    <div class="row row-cols-2 row-cols-lg-4 align-items-center">
+      <% [
+        ['amis-terre.png', 'Les amis de la Terre'],
+        ['code.svg', 'Communication et démocratie'],
+        ['hop.svg', 'Halte à l\'obsolescence programmée'],
+        ['rap.jpg', 'Résistance à l\'agression publicitaire'],
+        ['sherpa.svg', 'Sherpa'],
+        ['veblen.png', 'Institut Veblen'],
+        ['zerowaste.jpg', 'Zero Waste'],
+      ].each do |logo, name| %>
+        <div class="col">
+          <%= image_tag "logos/#{logo}",
+                        class: 'img-fluid pe-5 mb-5', 
+                        alt: name %>
+        </div>
+      <% end %>
     </div>
   </div>
 </footer>
