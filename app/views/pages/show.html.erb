@@ -1,7 +1,10 @@
 <%= content_for :title, @page %>
 
-<div class="row">
-  <div class="offset-lg-6 col-lg-6">
+<div class="row markdown">
+  <div class="col-lg-8">
     <%= @page.html %>
+  </div>
+  <div class="col-lg-4 text-end toc">
+    <%= @page.toc %>
   </div>
 </div>
