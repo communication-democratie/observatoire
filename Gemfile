@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-ruby "3.4.1"
+ruby "3.4.2"
 
 gem "activestorage-scaleway-service", "~> 1.1"
 gem "annotaterb", "~> 4.13"
@@ -23,6 +23,7 @@ gem "pg", "~> 1.1"
 gem "puma", ">= 5.0"
 gem "rails", "~> 8.0.1"
 gem "rails-i18n", "~> 8.0"
+gem "redcarpet"
 gem "simple_form", "~> 5.3"
 gem "simple_form_bs5_file_input", "~> 0.1"
 gem "simple-navigation", "~> 4.4"

@@ -8,6 +8,9 @@ fr:
         slug: Slug
         title: Titre
         taxonomy: Taxonomie
+      page: 
+        title: Titre
+        markdown: Texte (markdown)
       problem:
         description: Description
         year: Année
@@ -38,6 +41,9 @@ fr:
       category:
         one: Catégorie
         other: Catégories
+      page:
+        one: Page
+        other: Pages
       problem:
         one: Campagne
         other: Campagnes

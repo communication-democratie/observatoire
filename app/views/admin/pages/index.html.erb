@@ -1,0 +1,7 @@
+<% content_for :title, Page.model_name.human(count: 2) %>
+
+<%= render 'admin/pages/list', pages: @pages %>
+
+<% content_for :buttons do %>
+  <%= link_to t('admin.create'), new_admin_page_path, class: button_classes %>
+<% end %>

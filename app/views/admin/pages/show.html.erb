@@ -1,0 +1,7 @@
+<% content_for :title, @page %>
+
+<%= @page.html %>
+
+<% content_for :buttons do %>
+  <%= link_to t('admin.edit'), edit_admin_page_path(@page), class: button_classes %>
+<% end %>

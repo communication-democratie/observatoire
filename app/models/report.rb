@@ -5,6 +5,7 @@
 #  id               :uuid             not null, primary key
 #  author_email     :string
 #  author_pseudonym :string
+#  brand            :string
 #  description      :text
 #  link             :string
 #  title            :string

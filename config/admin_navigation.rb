@@ -66,6 +66,10 @@ SimpleNavigation::Configuration.run do |navigation|
                       }
                     }
     end
+    primary.item  :pages,
+                  'Pages statiques',
+                  admin_pages_path,
+                  { icon: 'bi bi-pen-fill' }
     primary.item  :settings,
                   'Réglages',
                   nil,

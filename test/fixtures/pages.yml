@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# == Schema Information
+#
+# Table name: pages
+#
+#  id         :uuid             not null, primary key
+#  markdown   :text
+#  position   :integer
+#  slug       :string
+#  title      :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+one:
+  title: MyString
+  slug: MyString
+  markdown: MyText
+
+two:
+  title: MyString
+  slug: MyString
+  markdown: MyText

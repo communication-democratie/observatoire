@@ -1,0 +1,28 @@
+
+<%= simple_form_for [:admin, @page] do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <div class="row">
+      <div class="col-lg-5">
+        <%= f.input :title %>
+      </div>
+      <div class="col-lg-5">
+        <%= f.input :slug, 
+                    input_html: f.object.persisted? ? {} : {
+                      class: 'js-slug-input',
+                      data: { source: '#page_title' }
+                    } %>
+    </div>
+    <div class="col-lg-2">
+      <%= f.input :position %>
+    </div>
+    </div>
+    <%= f.input :markdown, input_html: { rows: 20 } %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, t('admin.save'), class: button_classes %>
+  </div>
+<% end %>

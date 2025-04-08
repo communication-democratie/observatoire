@@ -7,16 +7,22 @@ Rails.application.routes.draw do
       resources :steps
     end
     resources :reports, only: [:index, :show, :edit, :update]
-    resources :taxonomies, :categories, :problems
+    resources :taxonomies, :categories, :problems, :pages
     root to: "dashboard#index"
   end
 
   resources :reports, only: :create
   resources :problems, only: [:index, :show], path: 'problemes'
-  get ":taxonomy_slug" => 'categories#index', as: :taxonomy
+  get ":taxonomy_slug" => 'categories#index', as: :taxonomy, constraints: lambda { |request|
+    request.path.in? Taxonomy.pluck(:slug)
+  }
   get ":taxonomy_slug/:category_slug" => 'categories#show', as: :category
 
   get "up" => "rails/health#show", as: :rails_health_check
-
-  root to: "home#index"
+  
+  root to: "pages#index"
+  
+  match "*slug" => "pages#show", via: :get, constraints: lambda { |request|
+    request.path.exclude? 'rails/active_storage'
+  }
 end

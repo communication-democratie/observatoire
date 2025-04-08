@@ -1,0 +1,18 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th><%= Page.human_attribute_name(:title) %></th>
+      <th><%= Page.human_attribute_name(:slug) %></th>
+      <th><%= Page.human_attribute_name(:position) %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% pages.each do |page| %>
+      <tr>
+        <td><%= link_to page, [:admin, page] %></td>
+        <td><%= page.slug %></td>
+        <td><%= page.position %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
