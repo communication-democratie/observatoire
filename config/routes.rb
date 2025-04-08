@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   resources :reports, only: :create
   resources :problems, only: [:index, :show], path: 'problemes'
   get ":taxonomy_slug" => 'categories#index', as: :taxonomy, constraints: lambda { |request|
-    request.path.in? Taxonomy.pluck(:slug)
+    request.path.remove("/").in? Taxonomy.pluck(:slug)
   }
   get ":taxonomy_slug/:category_slug" => 'categories#show', as: :category
 
