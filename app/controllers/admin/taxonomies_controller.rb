@@ -6,6 +6,7 @@ class Admin::TaxonomiesController < Admin::ApplicationController
   end
 
   def show
+    @categories = @taxonomy.categories.ordered
   end
 
   def new

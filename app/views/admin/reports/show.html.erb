@@ -9,31 +9,33 @@
       <hr>
     <% end %>
     <%= @report.author_pseudonym %><br>
-    <%= @report.author_email %>
-  </div>
-  <div class="col-lg-6">
-    <%= image_tag @report.image, class: 'img-fluid' if @report.image.attached? %>
-  </div>
-</div>
-
-<div class="row my-5">
-  <% Taxonomy.for_reports.each do |taxonomy| %>
-    <div class="col-lg-4 mb-3">
-      <p class="form-label">
-        <%= taxonomy %>
-      </p>
-      <%= @report.categories.where(taxonomy: taxonomy).to_sentence %>
+    <%= @report.author_email %><br>
+    <div class="my-5">
+      <% Taxonomy.for_reports.each do |taxonomy| %>
+        <div class="mb-3">
+          <p class="form-label">
+            <%= taxonomy %>
+          </p>
+          <%= @report.categories.where(taxonomy: taxonomy).to_sentence %>
+        </div>
+      <% end %>
     </div>
-  <% end %>
-</div>
-
-<div class="row">
-  <div class="col-lg-6">
-    <p class="form-label">
+    <div class="my-5">
+      <p class="form-label">
+        <%= Report.human_attribute_name(:problem) %>
+      </p>
+      <% if @report.problem.present? %>
+        <%= link_to @report.problem, [:admin, @report.problem] %>
+      <% else %>
+        Non associé
+      <% end %>
+    </div>
+    <div class="my-5">
+      <p class="form-label">
       <%= Report.human_attribute_name(:step) %>
-    </p>
-    <%
-    Report::Step.ordered.each do |step| 
+      </p>
+      <%
+      Report::Step.ordered.each do |step| 
       active = step == @report.step
       classes = active ? 'btn btn-primary' : 'btn btn-light'
       %>
@@ -42,16 +44,37 @@
                   method: :put, 
                   disabled: !active,
                   class: classes %>
-    <% end %>
+      <% end %>
+    </div>
   </div>
   <div class="col-lg-6">
-    <p class="form-label">
-      <%= Report.human_attribute_name(:problem) %>
-    </p>
-    <% if @report.problem.present? %>
-      <%= link_to @report.problem, [:admin, @report.problem] %>
-    <% else %>
-      Non associé
+    <% if @report.image.attached? %>
+      <div class="mb-5">
+        <p>Image</p>
+        <%= image_tag @report.image, class: 'img-fluid' if @report.image.attached? %>
+      </div>
+    <% end %>
+
+    <% if @report.files.any? %>
+      <div>
+        <p>Fichiers</p>
+        <% @report.files.each do |file| %>
+          <div class="mb-5">
+            <% if file.image? %>
+              <div class="mb-2">
+                <%= image_tag file, class: 'img-fluid' %>
+              </div>
+            <% elsif file.video? %>
+              <div class="mb-2">
+                <%= video_tag file, controls: true %>
+              </div>
+            <% end %>
+            <%= file.filename %>
+            — 
+            <%= link_to 'Télécharger', rails_blob_url(file, disposition: :attachment) %>
+          </div>
+        <% end %>
+      </div>
     <% end %>
   </div>
 </div>

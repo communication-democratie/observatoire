@@ -12,15 +12,32 @@
   </div>
 </div>
 
-<div class="my-4">
-  <%= @problem.reports.count %>
-  <%= Report.model_name.human(count: @problem.reports.count).downcase %>
-  <% if @problem.reported_by.any? %>
-    <br>
-    Merci à 
-    <%= @problem.reported_by.to_sentence %>
-  <% end %>
-</div>
+<% if @problem.reports.any? %>
+  <div class="my-5">
+    <p>
+      <%= @problem.reports.count %>
+      <%= Report.model_name.human(count: @problem.reports.count).downcase %>, merci aux personnes ci-dessous.
+    </p>
+    <table class="table">
+      <thead>
+        <tr>
+          <th><%= Report.human_attribute_name(:author_pseudonym) %>
+          <th><%= Report.human_attribute_name(:created_at) %>
+          <th width="50%"><%= Report.human_attribute_name(:description) %>
+        </tr>
+      </thead>
+      <tbody>
+        <% @problem.reports.ordered.each do |report| %>
+          <tr>
+            <td><%= report.author_pseudonym %></td>
+            <td><%= l report.created_at.to_date %></td>
+            <td><%= simple_format report.description %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<% end %>
 
 <div class="row g-4">
   <%

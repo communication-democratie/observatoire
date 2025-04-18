@@ -21,13 +21,14 @@ fr:
         author_email: Adresse mail
         author_pseudonym: Pseudonyme
         brand: Marque
-        created_at: Date de création
+        created_at: Date de signalement
         description: Description
         link: Lien web
         problem: Problème
         slug: Slug
         step: Étape
         title: Titre
+        files: Autres fichiers (images, vidéos, sons...)
       report_step:
         description: Description
         position: Position
@@ -71,16 +72,18 @@ fr:
   front:
     home: Accueil
     website: Observatoire Citoyen de la Publicité
-    more: Lire la suite
+    more: Plus d'informations
   simple_form:
     hints:
       report:
-        author_pseudonym: Cela permet d'identifier publiquement vos signalements, si vous le souhaitez
+        author_pseudonym: Cela permet d'identifier publiquement vos signalements
         author_email: Cela vous permet de recevoir une confirmation de votre signalement, et d'être tenu au courant du traitement
         brand: Par exemple Coca-Cola, Air France...
-        link: Cela peut être la page de la campagne, ou un minisite dédié
+        files: "Si vous avez des fichiers “montrant” la campagne : d'autres photos, une vidéo, une bande son, etc."
+        image: Si vous avez une image “montrant” la campagne
+        link: Partagez-nous les ressources (site internet, article blog, etc.) qui nous aideront à retrouver la campagne publicitaire et/ou à comprendre pourquoi vous pensez qu’il y a mauvaise(s) pratique(s)
         title: Le titre ou l'accroche de la campagne que vous trouvez problématique
-        description: Décrivez en détails pourquoi vous trouvez cette campagne problématique, et à quel titre (greenwashing, stimulation de l'obsolescence...)
+        description: Décrivez, en bref et avec vos mots, pourquoi vous trouvez cette campagne problématique
     error_notification:
       default_message: 'Veuillez résoudre les problèmes:'
     'no': Non

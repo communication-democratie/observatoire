@@ -2,7 +2,7 @@
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <h3 class="h4 my-5">Décrivez la publicité problématique...</h3>
+  <p>Décrivez la publicité problématique...</p>
   <%= f.input :brand %>
   <% Taxonomy.for_reports.each do |taxonomy| %>
     <div class="mb-3">
@@ -25,11 +25,16 @@
     </div>
   <% end %>
   <%= f.input :description, input_html: { rows: 6 } %>
+  <%= f.input :author_pseudonym %>
+
+  <hr class="my-5">
+  <p>Vous pouvez déjà nous aider à y voir clair sur cette campagne et votre signalement</p>
   <%= f.input :link %>
   <%= f.input :image %>
+  <%= f.input :files, input_html: { multiple: true } %>
 
-  <h3 class="h4 my-5">Si vous le souhaitez, dites-nous qui vous êtes...</h3>
-  <%= f.input :author_pseudonym %>
+  <hr class="my-5">
+  <p>Si vous le souhaitez, dites-nous qui vous êtes...</p>
   <%= f.input :author_email %>
 
   <%= f.button :submit, 'Envoyer', class: 'btn btn-primary' %>

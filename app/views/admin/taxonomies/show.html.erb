@@ -2,7 +2,7 @@
 
 <p><%= @taxonomy.description.truncate_words(20) %></p>
 
-<%= render 'admin/categories/list', categories: @taxonomy.categories %>
+<%= render 'admin/categories/list', categories: @categories %>
 
 <% content_for :buttons do %>
   <%= link_to 'Ajouter', new_admin_category_path(taxonomy_id: @taxonomy.id), class: button_classes %>
