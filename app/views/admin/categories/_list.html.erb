@@ -2,6 +2,7 @@
   <thead>
     <tr>
       <th><%= Category.human_attribute_name(:title) %></th>
+      <th><%= Category.human_attribute_name(:position) %></th>
       <th><%= Category.human_attribute_name(:problems) %></th>
     </tr>
   </thead>
@@ -9,6 +10,7 @@
     <% categories.each do |category| %>
       <tr>
         <td><%= link_to category, [:admin, category] %></td>
+        <td><%= category.position %></td>
         <td><%= category.problems.count %></td>
       </tr>
     <% end %>

@@ -4,6 +4,7 @@
 #
 #  id          :uuid             not null, primary key
 #  description :text
+#  position    :integer
 #  slug        :string
 #  title       :string
 #  created_at  :datetime         not null

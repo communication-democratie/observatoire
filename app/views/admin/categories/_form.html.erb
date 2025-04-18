@@ -5,15 +5,18 @@
 
   <div class="form-inputs">
     <div class="row">
-      <div class="col-lg-6">
+      <div class="col-lg-5">
         <%= f.input :title %>
       </div>
-      <div class="col-lg-6">
+      <div class="col-lg-5">
         <%= f.input :slug, 
                     input_html: f.object.persisted? ? {} : {
                       class: 'js-slug-input',
                       data: { source: '#category_title' }
                     } %>
+      </div>
+      <div class="col-lg-2">
+        <%= f.input :position %>
       </div>
     </div>
     <%= f.association :taxonomy, include_blank: false, as: :hidden %>

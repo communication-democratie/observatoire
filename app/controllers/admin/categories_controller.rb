@@ -46,6 +46,6 @@ class Admin::CategoriesController < Admin::ApplicationController
     end
 
     def category_params
-      params.expect(category: [ :title, :slug, :taxonomy_id, :description ])
+      params.expect(category: [ :title, :slug, :taxonomy_id, :description, :position ])
     end
 end

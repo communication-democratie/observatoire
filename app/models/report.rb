@@ -30,6 +30,8 @@ class Report < ApplicationRecord
   has_and_belongs_to_many :categories
   belongs_to :problem, optional: true
 
+  validates_presence_of :brand, :description
+
   scope :ordered, -> { order(created_at: :desc) }
 
   has_one_attached :image

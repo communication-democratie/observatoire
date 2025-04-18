@@ -45,3 +45,5 @@
 
 # Ignore node_modules just in case
 /node_modules
+
+latest.pgsql

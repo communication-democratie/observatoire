@@ -4,6 +4,7 @@
 #
 #  id          :uuid             not null, primary key
 #  description :text
+#  position    :integer
 #  slug        :string
 #  title       :string
 #  created_at  :datetime         not null
@@ -25,7 +26,7 @@ class Category < ApplicationRecord
 
   validates_presence_of :title, :slug
 
-  scope :ordered, -> { order(:title) }
+  scope :ordered, -> { order(:position, :title) }
 
   def to_s
     "#{title}"

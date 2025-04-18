@@ -12,7 +12,7 @@
       <% taxonomy.categories.ordered.each do |category| %>
         <div class="form-check">
           <input  class="form-check-input"
-                  type="radio" 
+                  type="checkbox" 
                   value="<%= category.id %>"
                   name="report[category_ids][]"
                   id="report_<%= taxonomy.id %>_<%= category.id %>">

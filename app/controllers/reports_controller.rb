@@ -1,7 +1,11 @@
 class ReportsController < ApplicationController
   def create
     @report = Report.create(report_params)
-    redirect_to root_path, notice: "Merci pour ce signalement !"
+    if @report.valid?
+      redirect_to root_path, notice: "Merci pour ce signalement !"
+    else
+      render 'pages/index'
+    end
   end
 
   private
