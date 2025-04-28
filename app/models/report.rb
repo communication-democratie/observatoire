@@ -30,7 +30,7 @@ class Report < ApplicationRecord
   has_and_belongs_to_many :categories
   belongs_to :problem, optional: true
 
-  validates_presence_of :brand, :description, :author_pseudonym
+  validates_presence_of :brand, :description, :author_pseudonym, on: :create
 
   scope :ordered, -> { order(created_at: :desc) }
 

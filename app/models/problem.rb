@@ -5,6 +5,7 @@
 #  id          :uuid             not null, primary key
 #  description :text
 #  title       :string
+#  year        :integer
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  step_id     :uuid
@@ -22,10 +23,12 @@ class Problem < ApplicationRecord
 
   has_many :reports
   has_and_belongs_to_many :categories
-
+  
   has_one_attached :image
+  
+  validates_presence_of :year
 
-  scope :ordered, -> { order(created_at: :desc) }
+  scope :ordered, -> { order(years: :desc) }
 
   def identifier
     id.split('-').first.upcase
@@ -43,6 +46,6 @@ class Problem < ApplicationRecord
   end
 
   def to_s
-    "#{title}"
+    "#{title} — #{year}"
   end
 end
