@@ -12,8 +12,8 @@
     <% problems.each do |problem| %>
       <tr>
         <td><%= image_tag problem.image, class: 'img-fluid', width: 200 if problem.image.attached?  %></td>
-        <td><%= link_to problem, [:admin, problem] %></td>
-        <td><%= problem.created_at.year %></td>
+        <td><%= link_to problem.title, [:admin, problem] %></td>
+        <td><%= problem.year %></td>
         <td><%= problem.reports.count %></td>
         <td class="text-end">
           <%= link_to t('admin.show'), [:admin, problem], class: button_classes %>
