@@ -28,7 +28,7 @@ class Problem < ApplicationRecord
   
   validates_presence_of :year
 
-  scope :ordered, -> { order(years: :desc) }
+  scope :ordered, -> { order(year: :desc) }
 
   def identifier
     id.split('-').first.upcase
