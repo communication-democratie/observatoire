@@ -7,7 +7,6 @@
     <%= csp_meta_tag %>
     <%= yield :head %>
     <%= stylesheet_link_tag "admin" %>
-    <%= favicon_link_tag "favicon.png" %>
   </head>
 
   <body class="<%= body_classes %> <%= yield(:body_class) if content_for?(:body_class) %>" >
