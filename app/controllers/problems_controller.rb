@@ -1,7 +1,7 @@
 class ProblemsController < ApplicationController
   def index
-    @problems = Problem.all
-    @taxonomies = Taxonomy.ordered
+    @facets = Problem::Facets.new params[:facets]
+    @problems = @facets.results.ordered.page params[:page]
     breadcrumb
   end
 

@@ -146,6 +146,9 @@ GEM
     et-orbi (1.2.11)
       tzinfo
     execjs (2.10.0)
+    faceted_search (3.6.3)
+      font-awesome-sass
+      rails (>= 5.2.0)
     ffi (1.17.2-aarch64-linux-gnu)
     ffi (1.17.2-aarch64-linux-musl)
     ffi (1.17.2-arm-linux-gnu)
@@ -154,6 +157,8 @@ GEM
     ffi (1.17.2-x86_64-darwin)
     ffi (1.17.2-x86_64-linux-gnu)
     ffi (1.17.2-x86_64-linux-musl)
+    font-awesome-sass (6.7.2)
+      sassc (~> 2.0)
     fugit (1.11.1)
       et-orbi (~> 1, >= 1.2.11)
       raabro (~> 1.4)
@@ -350,6 +355,8 @@ GEM
       google-protobuf (~> 4.31)
     sass-embedded (1.89.2-x86_64-linux-musl)
       google-protobuf (~> 4.31)
+    sassc (2.4.0)
+      ffi (~> 1.9)
     sassc-embedded (1.80.4)
       sass-embedded (~> 1.80)
     securerandom (0.4.1)
@@ -427,6 +434,7 @@ DEPENDENCIES
   capybara
   dartsass-sprockets (~> 3.2)
   dotenv-rails
+  faceted_search
   good_job (~> 4.5)
   image_processing (~> 1.2)
   jbuilder

@@ -2,11 +2,10 @@
   <% problems.each do |problem| %>
     <div class="col-lg-4">
       <div class="card bg-white border-0">
-        <div class="ratio ratio-16x9">
-          <%= kamifusen_tag problem.image,
-                            class: 'card-img-top img-fluid',
-                            width: 400 if problem.image.attached? %>
-        </div>
+        <%= kamifusen_tag problem.image,
+                          class: 'card-img-top img-fluid',
+                          width: 400,
+                          height: 225 if problem.image.attached? %>
         <div class="card-body">
           <h2 class="card-title"><%= problem %></h2>
           <p><%= problem.description.truncate_words(20) %></p>

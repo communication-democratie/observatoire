@@ -8,17 +8,12 @@
   </div>
 <% end %>
 
-<% @taxonomies.each do |taxonomy| %>
-  <h2 class="h5"><%= taxonomy %></h2>
-  <ul class="list-unstyled list-inline">
-    <% taxonomy.categories.ordered.each do |category| %>
-      <li class="list-inline-item">
-        <%= link_to category,
-                    category_path(taxonomy_slug: taxonomy.slug, category_slug: category.slug),
-                    class: 'btn btn-outline-primary rounded-pill mb-2 me-1 px-lg-3 py-lg-2' %>
-      </li>
-    <% end %>
-  </ul>
-<% end %>
-
-<%= render 'problems/list', problems: @problems %>
+<div class="row">
+  <div class="col-md-3">
+    <%= render 'faceted_search/facets', facets: @facets %>
+  </div>
+  <div class="col-md-9">
+    <%= render 'problems/list', problems: @problems %>
+    <%= paginate @problems %>
+  </div
+</div

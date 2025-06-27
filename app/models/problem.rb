@@ -46,6 +46,6 @@ class Problem < ApplicationRecord
   end
 
   def to_s
-    "#{title} — #{year}"
+    "#{title}"
   end
 end
