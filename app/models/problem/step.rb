@@ -14,6 +14,7 @@ class Problem::Step < ApplicationRecord
   has_many :problems
 
   scope :ordered, -> { order(:position) }
+  scope :analyzed, -> { where('position > 9') }
 
   def to_s
     "#{title}"

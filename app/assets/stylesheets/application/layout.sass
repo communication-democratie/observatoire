@@ -15,7 +15,8 @@
             transform: rotate(-1deg) 
             &:nth-of-type(2)
                 background: $color-yellow
-                transform: rotate(1deg) 
+                transform: rotate(1deg)
+
 .navbar
     background: $color-dark-blue
     @include media-breakpoint-up(lg)
@@ -29,12 +30,18 @@
             height: 40px
             @include media-breakpoint-up(lg)
                 height: 80px
+
 .breadcrumb
     .breadcrumb-item
         + .breadcrumb-item::before
             color: $color-white
         &.active
             color: $color-white
+
+.problem__thumb
+    aspect-ratio: 16/9
+    object-fit: cover
+    filter: saturate(0)
 
 footer
     .logo

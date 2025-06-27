@@ -1,0 +1,20 @@
+<% content_for :title, 'Campagnes analysées' %>
+
+<% content_for :hero do %>
+  <div class="container">
+    <div class="row">
+      <h1>Campagnes analysées</h1>
+    </div>
+  </div>
+<% end %>
+
+<% @categories.each do |category| %>
+  <section class="mt-5">
+    <h2><%= category %></h2>
+    <%= render 'list',
+                problems: category.problems
+                                  .where(step: @steps)
+                                  .ordered
+                                  .limit(3) %>
+  </section>
+<% end %>
