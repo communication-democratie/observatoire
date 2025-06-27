@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   end
 
   resources :reports, only: :create
-  resources :problems, only: [:index, :show], path: 'problemes'
+  resources :problems, only: [:index, :show], path: 'campagnes'
   get ":taxonomy_slug" => 'categories#index', as: :taxonomy, constraints: lambda { |request|
     request.path.remove("/").in? Taxonomy.pluck(:slug)
   }

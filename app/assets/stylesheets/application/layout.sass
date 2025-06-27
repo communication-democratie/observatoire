@@ -1,9 +1,45 @@
-.navbar-brand
-    img
-        height: 80px
+.hero
+    background: $color-dark-blue
+    *
+        color: $color-white
+    h1
+        color: $color-white !important
+        font-family: $font-kaio
+        span
+            color: $color-black !important
+            font-family: $font-kaio-krilin
+            background: $color-pink
+            padding: 5px 30px
+            border-radius: 50px
+            display: inline-block
+            transform: rotate(-1deg) 
+            &:nth-of-type(2)
+                background: $color-yellow
+                transform: rotate(1deg) 
+.navbar
+    background: $color-dark-blue
+    @include media-breakpoint-up(lg)
+        padding-top: 100px
+    *
+        color: $color-white !important
+    .dropdown-menu
+        background: $color-black
+    .navbar-brand
+        img
+            height: 40px
+            @include media-breakpoint-up(lg)
+                height: 80px
+.breadcrumb
+    .breadcrumb-item
+        + .breadcrumb-item::before
+            color: $color-white
+        &.active
+            color: $color-white
+
 footer
     .logo
         height: 80px
+
 .top
     background: $color-yellow
     text-align: center

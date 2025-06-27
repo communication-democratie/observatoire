@@ -1,12 +1,19 @@
-<div class="py-5 my-5">
-  <h1 class="display-4 fw-bold text-body-emphasis">
-    <%= t('front.website') %>
-  </h1>
-  <p class="display-6">
-    Greenwashing, socialwashing, obsolescence marketing, publicités discriminantes, publicité dissimulée, promotion de produits néfastes... 
-    votre contribution est essentielle pour identifier et analyser ces pratiques !
-  </p>
-</div>
+<% content_for :hero do %>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="my-5">
+          <h1 class="display-4">
+            Surveiller, <span>signaler</span> et comprendre la <span>publicité</span>
+          </h1>
+          <p class="lead my-5 pe-lg-5">
+            Cet outil participatif offre à chaque personne la possibilité de se réapproprier les enjeux publicitaires en exprimant son point de vue sur les discours qui leur sont adressés au quotidien.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
 
 <div class="row lead">
   <div class="col-lg-6">

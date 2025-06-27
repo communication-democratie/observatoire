@@ -19,9 +19,13 @@
     <%= render "header" %>
     <%= render "notice" %>
     <main>
+      <div class="hero mb-5 pb-5">
+        <div class="container py-5">
+          <%= render "breadcrumb" %>
+        </div>
+        <%= yield :hero %>
+      </div>
       <div class="container">
-        <%= render "breadcrumb" %>
-        <h1 class="my-5"><%= content_for :title %></h1>
         <%= yield %>
       </div>
     </main>

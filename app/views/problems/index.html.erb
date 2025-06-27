@@ -1,5 +1,13 @@
 <% content_for :title, Problem.model_name.human(count: 2) %>
 
+<% content_for :hero do %>
+  <div class="container">
+    <div class="row">
+      <h1><%= Problem.model_name.human(count: 2) %></h1>
+    </div>
+  </div>
+<% end %>
+
 <% @taxonomies.each do |taxonomy| %>
   <h2 class="h5"><%= taxonomy %></h2>
   <ul class="list-unstyled list-inline">

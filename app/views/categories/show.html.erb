@@ -1,5 +1,13 @@
 <%= content_for :title, @category %>
 
+<% content_for :hero do %>
+  <div class="container">
+    <div class="row">
+      <h1><%= @category %></h1>
+    </div>
+  </div>
+<% end %>
+
 <div class="row">
   <div class="col-lg-6">
     <%= simple_format @category.description %>
