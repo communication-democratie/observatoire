@@ -1,0 +1,16 @@
+<% anchor ||= '' %>
+<% if facet.values.any? %>
+  <% facet.values.each do |value| %>
+    <% 
+    identifier = value.slug
+    %>
+    <% if facet.value_selected?(identifier) %>
+      <li class="list-inline-item">
+        <%= render 'faceted_search/facets/taxonomy/item', 
+                    value: value,
+                    facet: facet,
+                    anchor: anchor %>
+      </li>
+    <% end %>
+  <% end %>
+<% end %>

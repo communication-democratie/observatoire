@@ -1,0 +1,10 @@
+<%
+identifier = value.slug
+path = facet.facets.path_for(facet, identifier) + anchor
+selected = facet.value_selected?(identifier)
+%>
+<%= link_to path do %>
+  <span class="btn <%= selected ? 'btn-dark' : 'btn-outline-dark' %> btn-sm rounded-pill mb-1" title="<%= value.to_s %>">
+    <%= value.to_s.truncate(25) %><%= selected ? ' ×' : '' %>
+  </span>
+<% end %>
