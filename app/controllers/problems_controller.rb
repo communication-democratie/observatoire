@@ -12,7 +12,7 @@ class ProblemsController < ApplicationController
                           .categories
                           .ordered
     breadcrumb
-    add_breadcrumb 'Campagnes nalysées'
+    add_breadcrumb 'Campagnes analysées'
   end
 
   def show
