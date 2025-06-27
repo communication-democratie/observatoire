@@ -5,7 +5,10 @@ class Problem::Facets < FacetedSearch::Facets
     filter_with_text :title, {
       title: Problem.human_attribute_name(:title),
     }
-    # filter_with_list :step, {}
+    filter_with_list :step, {
+      title: Problem.human_attribute_name(:step),
+      source: Problem::Step.all
+    }
     ::Taxonomy.ordered.each do |taxonomy|
       add_facet ::FacetedSearch::Facets::Taxonomy,
                 taxonomy.slug, 
