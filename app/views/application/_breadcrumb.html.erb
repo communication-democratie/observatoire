@@ -1,1 +1,5 @@
-<%= render_breadcrumbs builder: BreadcrumbsOnRails::BootstrapBuilder  %>
+<% if breadcrumbs.any? %>
+  <div class="container py-5">
+    <%= render_breadcrumbs builder: BreadcrumbsOnRails::BootstrapBuilder  %>
+  </div>
+<% end %>
