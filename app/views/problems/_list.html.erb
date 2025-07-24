@@ -1,9 +1,9 @@
 <div class="row g-4">
   <% problems.each do |problem| %>
     <div class="col-lg-4">
-      <div class="card bg-white border-0">
+      <div class="card card--problem bg-white">
         <%= kamifusen_tag problem.image,
-                          class: 'card-img-top img-fluid problem__thumb',
+                          class: 'card-img-top img-fluid problem__thumb rounded',
                           width: 400 if problem.image.attached? %>
         <div class="card-body">
           <h2 class="card-title"><%= problem %></h2>

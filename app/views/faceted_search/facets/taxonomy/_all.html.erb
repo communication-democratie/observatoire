@@ -7,7 +7,7 @@
           <% unless facet.title.blank? %><b><%= facet.title %></b><% end %>
         </button>
       </h4>
-      <div id="collapse<%= facet.name %>" class="TMPaccordion-collapse TMPcollapse <%= 'show' if has_selected_values %>" aria-labelledby="heading<%= facet.name %>">
+      <div id="collapse<%= facet.name %>" class="accordion-collapse collapse <%= 'show' if has_selected_values %>" aria-labelledby="heading<%= facet.name %>">
         <ol class="faceted__facet__item list-inline pt-2">
           <% facet.values.each do |value| %>
             <li class="list-inline-item faceted__facet__item__value">

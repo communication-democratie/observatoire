@@ -11,6 +11,22 @@
 <div class="row my-5">
   <div class="col-lg-6">
     <%= kamifusen_tag @problem.image, class: 'img-fluid rounded' if @problem.image.attached? %>
+    <ul class="problem-categories list-unstyled mt-5 d-md-flex gap-5 flex-wrap">
+      <%
+      Taxonomy.all.ordered.each do |taxonomy|
+        categories = @problem.categories.where(taxonomy: taxonomy).ordered
+        next if categories.none?
+        %>
+          <li>
+            <span class="h5 fw-bold d-block md-2"><%= taxonomy %></span>
+            <ul class="list-unstyled">
+              <% categories.each do |category| %>
+                <li class="btn badge btn-outline-dark"><%= link_to category, category_path(taxonomy_slug: category.taxonomy.slug, category_slug: category.slug), class: 'text-decoration-none fw-normal text-black' %></li>
+              <% end %>
+            </ul>
+          </li>
+      <% end %>
+    </ul>
   </div>
   <div class="col-lg-6">
     <div class="h2 mb-5">
@@ -21,49 +37,26 @@
 </div>
 
 <% if @problem.reports.any? %>
-  <div class="my-5">
-    <p>
-      <%= @problem.reports.count %>
-      <%= Report.model_name.human(count: @problem.reports.count).downcase %>, merci aux personnes ci-dessous.
-    </p>
-    <table class="table">
-      <thead>
-        <tr>
-          <th><%= Report.human_attribute_name(:author_pseudonym) %>
-          <th><%= Report.human_attribute_name(:created_at) %>
-          <th width="50%"><%= Report.human_attribute_name(:description) %>
-        </tr>
-      </thead>
-      <tbody>
-        <% @problem.reports.ordered.each do |report| %>
-          <tr>
-            <td><%= report.author_pseudonym %></td>
-            <td><%= l report.created_at.to_date %></td>
-            <td><%= simple_format report.description %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
-<% end %>
-
-<div class="row g-4">
-  <%
-  Taxonomy.all.ordered.each do |taxonomy|
-    categories = @problem.categories.where(taxonomy: taxonomy).ordered
-    next if categories.none?
-    %>
-    <div class="col-lg-3">
-      <div class="card bg-white border-0">
-        <div class="card-header bg-white"><%= taxonomy %></div>
-        <div class="card-body">
-          <ul class="list-unstyled">
-            <% categories.each do |category| %>
-              <li><%= link_to category, category_path(taxonomy_slug: category.taxonomy.slug, category_slug: category.slug) %></li>
-            <% end %>
-          </ul>
-        </div>
+  <div class="report-list mt-5 py-4 rounded container">
+    <div class="row">
+      <div class="col-md-3">
+        <h2 class="h4">
+          <%= t('front.problem.reports', count: @problem.reports.count) %> (<%= @problem.reports.count%>)
+        </h2>
+      </div>
+      <div class="col-md-9 mt-3 mt-md-0">
+        <ul class="list-unstyled">
+          <% @problem.reports.ordered.each do |report| %>
+            <li class="bg-white rounded p-2 p-md-4">
+              <%= simple_format report.description %>
+              <p class="meta">
+                <span><%= report.author_pseudonym %></span>
+                <span><%= l report.created_at.to_date %></span>
+              </p>
+            </li>
+          <% end %>
+        </ul>
       </div>
     </div>
-  <% end %>
-</div>
+  </div>
+<% end %>

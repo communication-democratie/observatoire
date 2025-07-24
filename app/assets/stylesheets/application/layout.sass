@@ -41,7 +41,15 @@
 .problem__thumb
     aspect-ratio: 16/9
     object-fit: cover
-    filter: saturate(0)
+    filter: grayscale(1)
+    .card:hover & 
+        filter: grayscale(0)
+
+.card
+    &--problem
+        border: 2px solid $color-white
+        picture
+            margin: -2px
 
 footer
     .logo
@@ -60,3 +68,9 @@ footer
             margin-bottom: 5px
             a
                 text-decoration: none
+
+// problem show
+.report-list
+    background-color: $color-light-green
+    .meta
+        font-size: 16px

@@ -76,6 +76,10 @@ fr:
     home: Accueil
     website: Observatoire Citoyen de la Publicité
     more: Plus d'informations
+    problem:
+      reports:
+        one: Signalement reçu
+        other: Signalements reçus
   simple_form:
     hints:
       report:
