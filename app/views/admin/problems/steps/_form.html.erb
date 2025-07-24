@@ -5,8 +5,17 @@
 
   <%= f.input :title %>
   <%= f.input :description %>
-  <%= f.input :color, as: :color %>
-  <%= f.input :position %>
+  <div class="row">
+    <div class="col-lg-4">
+      <%= f.input :importance, include_blank: false %>
+    </div>
+    <div class="col-lg-4">
+      <%= f.input :position %>
+    </div>
+    <div class="col-lg-4">
+      <%= f.input :color, as: :color %>
+    </div>
+  </div>
 
   <%= f.button :submit, t('admin.save'), class: button_classes %>
 <% end %>

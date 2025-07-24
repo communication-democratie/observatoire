@@ -29,6 +29,8 @@ class Problem < ApplicationRecord
   validates_presence_of :year
 
   scope :ordered, -> { order(year: :desc) }
+  scope :normal_and_important, -> { joins(:step).where('problem_steps.importance >= 0') }
+  scope :important, -> { joins(:step).where('problem_steps.importance > 0') }
 
   def identifier
     id.split('-').first.upcase

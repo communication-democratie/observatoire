@@ -1,9 +1,9 @@
-<% content_for :title, 'Campagnes analysées' %>
+<% content_for :title, 'Nos analyses' %>
 
 <% content_for :hero do %>
   <div class="container">
     <div class="row">
-      <h1>Campagnes analysées</h1>
+      <h1>Nos analyses</h1>
     </div>
   </div>
 <% end %>
@@ -13,7 +13,7 @@
     <h2><%= category %></h2>
     <%= render 'list',
                 problems: category.problems
-                                  .where(step: @steps)
+                                  .important
                                   .ordered
                                   .limit(3) %>
   </section>

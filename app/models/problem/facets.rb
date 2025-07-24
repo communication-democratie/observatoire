@@ -1,7 +1,7 @@
 class Problem::Facets < FacetedSearch::Facets
   def initialize(params)
     super
-    @model = Problem.all
+    @model = Problem.normal_and_important
     filter_with_text :title, {
       title: Problem.human_attribute_name(:title),
     }

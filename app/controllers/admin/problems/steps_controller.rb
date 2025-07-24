@@ -44,6 +44,6 @@ class Admin::Problems::StepsController < Admin::ApplicationController
     end
 
     def step_params
-      params.expect(problem_step: [ :title, :description, :position, :color ])
+      params.expect(problem_step: [ :title, :description, :position, :color, :importance ])
     end
 end

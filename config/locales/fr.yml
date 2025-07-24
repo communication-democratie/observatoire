@@ -28,7 +28,7 @@ fr:
         slug: Slug
         step: Étape
         title: Titre
-        files: Autres fichiers (images, vidéos, sons...)
+        files: Images ou vidéos
       report_step:
         description: Description
         position: Position
@@ -74,14 +74,13 @@ fr:
     website: Observatoire Citoyen de la Publicité
     more: Plus d'informations
   simple_form:
-    hints:
+    placeholders:
       report:
         author_pseudonym: Cela permet d'identifier publiquement vos signalements
         author_email: Cela vous permet de recevoir une confirmation de votre signalement, et d'être tenu au courant du traitement
-        brand: Par exemple Coca-Cola, Air France...
-        files: "Si vous avez des fichiers “montrant” la campagne : d'autres photos, une vidéo, une bande son, etc."
+        files: Déposer l’image ou la vidéo du visuel de la campagne
         image: Si vous avez une image “montrant” la campagne
-        link: Partagez-nous les ressources (site internet, article blog, etc.) qui nous aideront à retrouver la campagne publicitaire et/ou à comprendre pourquoi vous pensez qu’il y a mauvaise(s) pratique(s)
+        link: Lien web vers toutes informations utiles concernant la campagne
         title: Le titre ou l'accroche de la campagne que vous trouvez problématique
         description: Décrivez, en bref et avec vos mots, pourquoi vous trouvez cette campagne problématique
     error_notification:
@@ -91,3 +90,10 @@ fr:
       mark: '*'
       text: requis
     'yes': Oui
+  enums:
+    problem:
+      step:
+        importance:
+          low: Faible (non visible dans les listes)
+          medium: Moyenne
+          high: Haute (visible sur la page d'accueil)

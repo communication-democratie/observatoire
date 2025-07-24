@@ -2,13 +2,15 @@
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <p>Décrivez la publicité problématique...</p>
+  <h3>Quelle campagne ?</h3>
   <%= f.input :brand %>
+  <%= f.input :link %>
+  <%= f.input :files, input_html: { multiple: true } %>
+
+  <h3>Quelles mauvaises pratiques ?</h3>
+
   <% Taxonomy.for_reports.each do |taxonomy| %>
     <div class="mb-3">
-      <label class="form-label">
-        <%= taxonomy %>
-      </label>
       <% taxonomy.categories.ordered.each do |category| %>
         <div class="form-check">
           <input  class="form-check-input"
@@ -24,18 +26,29 @@
       <% end %>
     </div>
   <% end %>
+
+  <h3>Description</h3>
+
   <%= f.input :description, input_html: { rows: 6 } %>
-  <%= f.input :author_pseudonym %>
 
-  <hr class="my-5">
-  <p>Vous pouvez déjà nous aider à y voir clair sur cette campagne et votre signalement</p>
-  <%= f.input :link %>
-  <%= f.input :image %>
-  <%= f.input :files, input_html: { multiple: true } %>
+  <h3>Identifiez-vous</h3>
 
-  <hr class="my-5">
-  <p>Si vous le souhaitez, dites-nous qui vous êtes...</p>
-  <%= f.input :author_email %>
+  <div class="row">
+    <div class="col-lg-6">
+      <%= f.input :author_pseudonym %>
+    </div>
+    <div class="col-lg-6">
+      <%= f.input :author_email %>
+    </div>
+  </div>
 
   <%= f.button :submit, 'Envoyer', class: 'btn btn-primary' %>
+
+  <p>Remplissez le formulaire ci-dessous, puis : </p>
+  <ol>
+    <li>Notre équipe analysera votre signalement pour évaluer sa recevabilité</li>
+    <li>Si le signalement est pertinent, il sera publié comme recevable sur notre site internet</li>
+    <li>La campagne que vous avez signalée pourra faire l’objet d’une analyse approfondie par l’une de nos organisations expertes</li>
+  </ol>
+
 <% end %>
