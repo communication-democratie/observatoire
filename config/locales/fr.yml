@@ -1,5 +1,8 @@
 ---
 fr:
+  time:
+    formats:
+      month_year: "%B %Y"
   activerecord:
     attributes:
       category:

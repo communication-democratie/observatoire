@@ -12,10 +12,10 @@
             <% problem.main_categories.each do |category| %>
               <span class="badge bg-secondary"><%= category %></span>
             <% end %>
-            <span class="badge bg-secondary"><%= problem.created_at.year %></span>
             <%= render 'problems/badge', problem: problem %>
           </div>
           <%= link_to t('front.more'), problem, class: 'stretched-link' %>
+          <span><%= l(problem.created_at, format: :month_year).capitalize %></span>
         </div>
       </div>
     </div>
