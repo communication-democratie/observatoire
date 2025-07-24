@@ -7,7 +7,7 @@
             Surveiller, <span>signaler</span> et comprendre la <span>publicité</span>
           </h1>
           <p class="lead my-5 pe-lg-5">
-            Cet outil participatif offre à chaque personne la possibilité de se réapproprier les enjeux publicitaires en exprimant son point de vue sur les discours qui leur sont adressés au quotidien.
+            Un outil, permettant aux citoyens de s’exprimer sur les discours publicitaires incitant à la surconsommation, stigmatisants, ou trompeurs. Ensemble reprenons le contrôle sur ces récits.
           </p>
         </div>
       </div>
@@ -18,64 +18,54 @@
   </div>
 <% end %>
 
-<div class="row lead">
-  <div class="col-lg-6">
-    <p class="mt-5 mb-4">
-      L’Observatoire Citoyen de la Publicité (OCP) est une plateforme permettant aux citoyens et aux citoyennes de signaler des publicités qu’ils et elles jugent problématiques sur une grande variété de thématiques. 
-    </p>
-  </div>
-  <div class="col-lg-6">
-    <p class="mt-5 mb-4">
-      Cet outil participatif offre à chaque personne la possibilité de se réapproprier les enjeux publicitaires en exprimant son point de vue sur les discours qui leur sont adressés au quotidien.
-    </p>
-  </div>
-</div>
-
-<h2 class="mt-5 mb-4">Grâce à vos signalements, l’OCP peut...</h2>
 <div class="row">
   <div class="col-lg-3 mb-4">
     <div class="card bg-white border-0 h-100">
       <div class="card-body">
-        <b>Repérer</b> les mauvaises pratiques publicitaires
+        <span>01</span>
+        <h2>Repérons</h2>
+        <p>Repérer les mauvaises pratiques publicitaires</p>
       </div>
     </div>
   </div>
   <div class="col-lg-3 mb-4">
     <div class="card bg-white border-0 h-100">
       <div class="card-body">
-        <b>Publier</b> les campagnes problématiques
+        <span>02</span>
+        <h2>Publions</h2>
+        <p>Publier les campagnes problématiques</p>
       </div>
     </div>
   </div>
   <div class="col-lg-3 mb-4">
     <div class="card bg-white border-0 h-100">
       <div class="card-body">
-      <b>Mobiliser</b> ses organisations membres et partenaires sur leurs sujets d’expertise
+        <span>03</span>
+        <h2>Mobilisons</h2>
+        <p>Mobiliser ses organisations sur leurs sujets d’expertise</p>
       </div>
     </div>
   </div>
   <div class="col-lg-3 mb-4">
     <div class="card bg-white border-0 h-100">
       <div class="card-body">
-      <b>Animer</b> le débat public sur la régulation des contenus publicitaires
+        <span>04</span>
+        <h2>Animons</h2>
+        <p>Animer le débat public sur la régulation des contenus</p>
       </div>
     </div>
   </div>
 </div>
 
-<h2 class="mt-5 mb-4">Vous avez repéré une campagne problématique ?</h2>
-<p>Remplissez le formulaire ci-dessous, puis : </p>
-<ol>
-  <li>Notre équipe analysera votre signalement pour évaluer sa recevabilité</li>
-  <li>Si le signalement est pertinent, il sera publié comme recevable sur notre site internet</li>
-  <li>La campagne que vous avez signalée pourra faire l’objet d’une analyse approfondie par l’une de nos organisations expertes</li>
-</ol>
+<h2>Les dernières campagnes</h2>
+<%= render 'problems/list', problems: @problems %>
+<%= link_to 'Voir toutes', problems_path %>
 
 <div class="row">
   <div class="offset-lg-2 col-lg-8">
     <div class="card bg-form border-0 my-5">
       <div class="card-body p-lg-5">
-        <h2 class="mb-5">Faire un signalement</h2>
+        <h2 class="mb-5">Signaler une pub</h2>
         <%= render "reports/form", report: @report %>
       </div>
     </div>
