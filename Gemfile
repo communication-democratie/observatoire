@@ -1,9 +1,8 @@
 source "https://rubygems.org"
 
-ruby "3.4.2"
+ruby "3.4.4"
 
 gem "activestorage-scaleway-service", "~> 1.1"
-gem "annotaterb", "~> 4.13"
 gem "autoprefixer-rails", "~> 10.4"
 gem "bootsnap", require: false
 gem "bootstrap", "~> 5.3"
@@ -35,6 +34,7 @@ gem "terser", "~> 1.2"
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 
 group :development, :test do
+  gem "annotaterb", "~> 4.13"
   gem "byebug"
   gem "dotenv-rails"
 end
