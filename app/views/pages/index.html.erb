@@ -1,5 +1,5 @@
 <% content_for :hero do %>
-  <div class="container">
+  <header class="hero container">
     <div class="row">
       <div class="col-lg-6">
         <div class="my-5">
@@ -15,59 +15,36 @@
         <%= image_tag 'illustrations/hands.png', class: 'img-fluid', alt: '' %>
       </div>
     </div>
-  </div>
+  </header>
 <% end %>
 
-<div class="row">
-  <div class="col-lg-3 mb-4">
-    <div class="card bg-white border-0 h-100">
-      <div class="card-body">
-        <span>01</span>
-        <h2>Repérons</h2>
-        <p>Repérer les mauvaises pratiques publicitaires</p>
-      </div>
+<section class="list-missions row align-items-start">
+  <% t('front.missions').each_with_index do |item, index| %>
+    <% index = index + 1 %>
+    <div class="mission col-lg-3 ps-3 mb-4 border-start <% if index.even? %>mt-md-4<% end %>">
+      <span><%= index %></span>
+      <%= item.html_safe %>
     </div>
-  </div>
-  <div class="col-lg-3 mb-4">
-    <div class="card bg-white border-0 h-100">
-      <div class="card-body">
-        <span>02</span>
-        <h2>Publions</h2>
-        <p>Publier les campagnes problématiques</p>
-      </div>
-    </div>
-  </div>
-  <div class="col-lg-3 mb-4">
-    <div class="card bg-white border-0 h-100">
-      <div class="card-body">
-        <span>03</span>
-        <h2>Mobilisons</h2>
-        <p>Mobiliser ses organisations sur leurs sujets d’expertise</p>
-      </div>
-    </div>
-  </div>
-  <div class="col-lg-3 mb-4">
-    <div class="card bg-white border-0 h-100">
-      <div class="card-body">
-        <span>04</span>
-        <h2>Animons</h2>
-        <p>Animer le débat public sur la régulation des contenus</p>
-      </div>
-    </div>
-  </div>
-</div>
+  <% end %>
+</section>
 
-<h2>Les dernières campagnes</h2>
-<%= render 'problems/list', problems: @problems %>
-<%= link_to 'Voir toutes', problems_path %>
+<section class="reports mt">
+  <h2>Les dernières <span>campagnes</span></h2>
+  <div class="mt-5 pt-3">
+    <%= render 'problems/list', problems: @problems %>
+    <%= link_to 'Voir toutes', problems_path, class: 'btn rounded-pill btn-primary px-5' %>
+  </div>
+</section>
 
-<div class="row">
-  <div class="offset-lg-2 col-lg-8">
-    <div class="card bg-form border-0 my-5">
-      <div class="card-body p-lg-5">
-        <h2 class="mb-5">Signaler une pub</h2>
-        <%= render "reports/form", report: @report %>
+<section class="report-form">
+  <div class="row">
+    <div class="offset-lg-2 col-lg-8">
+      <div class="card bg-form border-0 my-5">
+        <div class="card-body p-lg-5">
+          <h2 class="mb-5">Signaler une pub</h2>
+          <%= render "reports/form", report: @report %>
+        </div>
       </div>
     </div>
   </div>
-</div>
+</section>

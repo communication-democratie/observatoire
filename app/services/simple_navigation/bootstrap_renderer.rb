@@ -1,44 +1,52 @@
 class SimpleNavigation::BootstrapRenderer < SimpleNavigation::Renderer::Base
   def render(item_container)
     content = '<ul class="navbar-nav">'
+    dropdown = @options.fetch(:dropdown, true)
+
     item_container.items.each do |item|
-      content << make(item)
+      content << make(item, dropdown)
     end
     content << '</ul>'
     content.html_safe
   end
 
+
   protected
 
-  def make(item)
+  def make(item, dropdown)
+    has_dropdown = consider_sub_navigation?(item) && dropdown
     has_sub_navigation = consider_sub_navigation?(item)
     li = "<li class=\"nav-item"
-    li += " dropdown" if has_sub_navigation
+    li += " dropdown" if has_dropdown
     li += "\">"
-    li += make_a(item)
-    li += make_subnavigation(item) if has_sub_navigation
+    li += make_a(item, dropdown)
+    li += make_subnavigation(item, has_dropdown) if has_sub_navigation
     li += '</li>'
     li
   end
 
-  def make_a(item)
+  def make_a(item, dropdown)
     has_sub_navigation = consider_sub_navigation?(item)
     a = "<a href=\"#{ item.url }\" class=\"nav-link"
     a += " active" if item.selected?
-    a += " dropdown-toggle" if has_sub_navigation
+    a += " dropdown-toggle" if has_sub_navigation && dropdown
     a += "\""
-    a += " data-bs-toggle=\"dropdown\" aria-expanded=\"false\"" if has_sub_navigation
+    a += " data-bs-toggle=\"dropdown\" aria-expanded=\"false\"" if has_sub_navigation && dropdown
     a += ">"
     a += item.name
     a += "</a>"
     a
   end
 
-  def make_subnavigation(item)
-    ul = "<ul class=\"dropdown-menu\">"
+  def make_subnavigation(item, dropdown)
+    ul = "<ul class=\"list-unstyled"
+    ul += " dropdown-menu" if dropdown
+    ul += "\">"
     item.sub_navigation.items.each do |i|
       ul += "<li>"
-      ul += "<a href=\"#{ i.url }\" class=\"dropdown-item\">"
+      ul += "<a href=\"#{ i.url }\""
+      ul += "class=\"dropdown-item\"" if dropdown
+      ul += ">"
       ul += i.name
       ul += "</a>"
       ul += "</li>"

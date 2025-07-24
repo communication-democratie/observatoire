@@ -1,12 +1,17 @@
 <footer class="mt-5 pt-5">
   <div class="container py-5">
-    <div class="mb-5 text-center">
-      <a href="/">
-        <%= image_tag 'logo.svg', alt: t('front.website'), class: 'logo' %>
-      </a>
+    <div class="footer-about mb-5 pb-5">
+      <h2 class="col-lg-6"><%= t ('front.footer.about.title') %></h2>
+      <div class="row mt-4">
+        <p class="summary col-lg-6"><%= t ('front.footer.about.summary') %></p>
+        <div class="col-lg-6">
+          <% t('front.footer.about.text').each do |paragraph| %>
+            <p><%= paragraph %></p>
+          <% end %>
+        </div>
+      </div>
     </div>
-    <hr>
-    <div class="row row-cols-2 row-cols-lg-4 align-items-center">
+    <ul class="list-partners list-unstyled d-flex flex-wrap align-items-md-center justify-content-between my-5 py-5 gap-4">
       <% [
         ['amis-terre.png', 'Les amis de la Terre'],
         ['code.svg', 'Communication et démocratie'],
@@ -16,19 +21,29 @@
         ['veblen.png', 'Institut Veblen'],
         ['zerowaste.jpg', 'Zero Waste'],
       ].each do |logo, name| %>
-        <div class="col">
+        <li>
           <%= image_tag "logos/#{logo}",
-                        class: 'img-fluid pe-5 mb-5', 
+                        class: 'img-fluid', 
                         alt: name %>
-        </div>
+        </li>
       <% end %>
-    </div>
+    </ul>
 
-    <a href="https://plausible.io/observatoirecitoyenpublicite.org" target="_blank">Statistiques publiques d'audience</a>
   </div>
-  <div class="footer-navigation">
-    <div class="container">
-      <%= render_navigation %>
+  <div class="footer-menu pt-5 pb-5">
+    <div class="container pt-5">
+      <%= render_navigation(dropdown: false) %>
+    </div>
+    <div class="container d-lg-flex gap-4 mt-5 align-items-lg-baseline justify-content-lg-between">
+      <div class="footer-legal">
+        <p><%= t ('front.footer.legals.copyright') %></p>
+        <p><%= t ('front.footer.legals.credit') %></p>
+        <a href="#"><%= t ('front.footer.legals.title') %></a>
+      </div>
+      <div class="footer-socials">
+        <a href="#" class="linkedin"><span aria-hidden="true">Li</span><span>Linkedin</span></a>
+        <a href="#" class="linkedin"><span aria-hidden="true">Fb</span><span>Linkedin</span></a>
+      </div>
     </div>
   </div>
 </footer>
