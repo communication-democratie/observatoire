@@ -1,5 +1,5 @@
-<footer class="mt-5 py-5 bg-white">
-  <div class="container pt-5">
+<footer class="mt-5 pt-5">
+  <div class="container py-5">
     <div class="mb-5 text-center">
       <a href="/">
         <%= image_tag 'logo.svg', alt: t('front.website'), class: 'logo' %>
@@ -25,5 +25,10 @@
     </div>
 
     <a href="https://plausible.io/observatoirecitoyenpublicite.org" target="_blank">Statistiques publiques d'audience</a>
+  </div>
+  <div class="footer-navigation">
+    <div class="container">
+      <%= render_navigation %>
+    </div>
   </div>
 </footer>

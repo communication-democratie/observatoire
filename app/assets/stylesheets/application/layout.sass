@@ -1,3 +1,13 @@
+// typography
+.badge
+    --bs-badge-font-weight: normal
+    
+// colors
+.bg-form
+    background: $color-light-pink
+.bg-secondary
+    @extend .text-black
+    
 .hero
     background: $color-dark-blue
     *
@@ -29,7 +39,7 @@
         img
             height: 40px
             @include media-breakpoint-up(lg)
-                height: 80px
+                height: 60px
 
 .breadcrumb
     .breadcrumb-item
@@ -60,3 +70,15 @@ footer
             margin-bottom: 5px
             a
                 text-decoration: none
+
+footer
+    background-color: $color-white
+    .footer-navigation
+        @extend .text-white
+        background-color: $color-black
+        div > ul
+            @extend .d-md-flex
+            @extend .flex-md-row
+            @extend .justify-content-md-around
+            li
+                @extend .col-md-3
