@@ -3,7 +3,7 @@
   <%- has_selected_values = facet.values.any? { |value| facet.value_selected?(value.slug) } -%>
   <li class="accordion-item mt-4">
       <h4 class="accordion-header" id="heading<%= facet.name %>">
-        <button class="accordion-button d-flex w-100 align-items-baseline justify-content-between" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%= facet.name %>" aria-expanded="<%= has_selected_values %>" aria-controls="collapse<%= facet.name %>">
+        <button class="accordion-button collapsed d-flex w-100 align-items-baseline justify-content-between" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%= facet.name %>" aria-expanded="<%= has_selected_values %>" aria-controls="collapse<%= facet.name %>">
           <% unless facet.title.blank? %><b><%= facet.title %></b><% end %>
         </button>
       </h4>

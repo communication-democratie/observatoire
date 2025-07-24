@@ -74,3 +74,37 @@ footer
     background-color: $color-light-green
     .meta
         font-size: 16px
+
+.index
+// search
+.faceted__facets
+    .faceted__facet__text
+        @extend .d-flex
+        @extend .gap-2
+        @extend .my-4
+        input[type="search"]
+            --bs-border-width: 0
+            background-color: $color-light-green
+    .faceted__facet__list
+        @extend .d-flex
+        @extend .flex-wrap
+        @extend .gap-2
+        li a
+            @extend .btn-outline-dark
+            @extend .text-black
+            @extend .btn-sm
+            @extend .rounded-pill
+// facets accordions
+.search-filters.accordion
+    --bs-accordion-color: $color-blue
+    --bs-accordion-bg: $color-white
+    --bs-accordion-border-color: transparent
+    --bs-accordion-border-width: 0
+    --bs-accordion-border-radius: 0
+    --bs-accordion-inner-border-radius: 0
+    --bs-accordion-btn-padding-x: 0
+    --bs-accordion-btn-padding-y: 0
+    --bs-accordion-btn-focus-border-color: $color-blue
+    --bs-accordion-btn-focus-box-shadow: none
+    --bs-accordion-active-color: $color-black
+    --bs-accordion-active-bg: $color-blue
