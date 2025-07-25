@@ -40,7 +40,7 @@ class SimpleNavigation::BootstrapRenderer < SimpleNavigation::Renderer::Base
 
   def make_subnavigation(item, dropdown)
     ul = "<ul class=\"list-unstyled"
-    ul += " dropdown-menu" if dropdown
+    ul += " dropdown-menu dropdown-menu-lg-end" if dropdown
     ul += "\">"
     item.sub_navigation.items.each do |i|
       ul += "<li>"
