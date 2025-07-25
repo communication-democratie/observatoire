@@ -232,11 +232,9 @@ section
             label
                 @extend .visually-hidden
             > div
-                @extend .col-6
                 @extend .mb-0
-            .report_link,
-            .report_files
-                @extend .col-12
+                + div
+                    @extend .mt-3
         // checkboxes as buttons
         .form-check
             @extend .ps-0
