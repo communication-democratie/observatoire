@@ -23,7 +23,8 @@
         <%= render "breadcrumb" %>
         <%= yield :hero %>
       </div>
-      <div class="container">
+      <% without_container = content_for(:yield_without_container) %>
+      <div <%= "class=container" unless without_container %>>
         <%= yield %>
       </div>
     </main>
