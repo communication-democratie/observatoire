@@ -1,6 +1,7 @@
 // typography
 .badge
     --bs-badge-font-weight: normal
+    font-size: 16px
     
 // colors
 .bg-form
@@ -144,9 +145,6 @@ section
     border-color: $color-black
     color: $color-black
 
-.badge
-    font-size: 16px
-
 .btn-icon
     @extend .btn
     @extend .rounded-pill
@@ -169,8 +167,14 @@ section
             display: block
             margin: -2px
             width: calc(100% + 4px)
+            img
+                border-radius: var(--bs-card-border-radius) !important
         .card-body
             @extend .pt-4
+        .badge-step
+            position: absolute
+            top: map-get($spacers, 3)
+            left: map-get($spacers, 3)
         &::before
             background: $color-light-blue
             border-radius: var(--bs-card-border-radius)
