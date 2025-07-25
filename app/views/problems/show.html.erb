@@ -1,4 +1,5 @@
 <% content_for :title, @problem %>
+<% content_for :yield_without_container, true %>
 
 <% content_for :hero do %>
   <div class="container">
@@ -8,54 +9,58 @@
   </div>
 <% end %>
 
-<div class="row my-5">
-  <div class="col-lg-6">
-    <%= kamifusen_tag @problem.image, class: 'img-fluid rounded' if @problem.image.attached? %>
-    <ul class="problem-categories list-unstyled mt-5 d-md-flex gap-5 flex-wrap">
-      <%
-      Taxonomy.all.ordered.each do |taxonomy|
-        categories = @problem.categories.where(taxonomy: taxonomy).ordered
-        next if categories.none?
-        %>
-          <li>
-            <span class="h5 fw-bold d-block md-2"><%= taxonomy %></span>
-            <ul class="list-unstyled">
-              <% categories.each do |category| %>
-                <li class="btn badge btn-outline-dark"><%= link_to category, category_path(taxonomy_slug: category.taxonomy.slug, category_slug: category.slug), class: 'text-decoration-none fw-normal text-black' %></li>
-              <% end %>
-            </ul>
-          </li>
-      <% end %>
-    </ul>
-  </div>
-  <div class="col-lg-6">
-    <div class="h2 mb-5">
-      <%= render 'problems/badge', problem: @problem %>
+<div class="container">
+  <div class="row my-5">
+    <div class="col-lg-6">
+      <%= kamifusen_tag @problem.image, class: 'img-fluid rounded' if @problem.image.attached? %>
+      <ul class="problem-categories list-unstyled mt-5 d-md-flex gap-5 flex-wrap">
+        <%
+        Taxonomy.all.ordered.each do |taxonomy|
+          categories = @problem.categories.where(taxonomy: taxonomy).ordered
+          next if categories.none?
+          %>
+            <li>
+              <span class="h5 fw-bold d-block md-2"><%= taxonomy %></span>
+              <ul class="list-unstyled">
+                <% categories.each do |category| %>
+                  <li class="btn badge btn-outline-dark"><%= link_to category, category_path(taxonomy_slug: category.taxonomy.slug, category_slug: category.slug), class: 'text-decoration-none fw-normal text-black' %></li>
+                <% end %>
+              </ul>
+            </li>
+        <% end %>
+      </ul>
     </div>
-    <%= simple_format @problem.description %>
+    <div class="col-lg-6">
+      <div class="h2 mb-5">
+        <%= render 'problems/badge', problem: @problem %>
+      </div>
+      <%= simple_format @problem.description %>
+    </div>
   </div>
 </div>
 
 <% if @problem.reports.any? %>
-  <div class="report-list mt-5 py-4 rounded container">
-    <div class="row">
-      <div class="col-md-3">
-        <h2 class="h4">
-          <%= t('front.problem.reports', count: @problem.reports.count) %> (<%= @problem.reports.count%>)
-        </h2>
-      </div>
-      <div class="col-md-9 mt-3 mt-md-0">
-        <ul class="list-unstyled">
-          <% @problem.reports.ordered.each do |report| %>
-            <li class="bg-white rounded p-2 p-md-4">
-              <%= simple_format report.description %>
-              <p class="meta">
-                <span><%= report.author_pseudonym %></span>
-                <span><%= l report.created_at.to_date %></span>
-              </p>
-            </li>
-          <% end %>
-        </ul>
+  <div class="report-list">
+    <div class="mt-5 py-4 rounded container">
+      <div class="row">
+        <div class="col-md-3">
+          <h2 class="h4">
+            <%= t('front.problem.reports', count: @problem.reports.count) %> (<%= @problem.reports.count%>)
+          </h2>
+        </div>
+        <div class="col-md-9 mt-3 mt-md-0">
+          <ul class="list-unstyled">
+            <% @problem.reports.ordered.each do |report| %>
+              <li class="bg-white rounded p-2 p-md-4">
+                <%= simple_format report.description %>
+                <p class="meta">
+                  <span><%= report.author_pseudonym %></span>
+                  <span><%= l report.created_at.to_date %></span>
+                </p>
+              </li>
+            <% end %>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
