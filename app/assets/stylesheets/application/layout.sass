@@ -144,6 +144,10 @@ section
 .btn-outline-dark
     border-color: $color-black
     color: $color-black
+    &:hover
+        background-color: $color-black
+        &, a
+            color: $color-white !important
 
 .btn-icon
     @extend .btn
@@ -248,6 +252,13 @@ section
         font-size: 16px
 
 // problem show
+.problem-presentation
+    position: relative
+    .badge-step
+        left: map-get($spacers, 4)
+        position: absolute
+        @include media-breakpoint-up(lmdg)
+            top: map-get($spacers, 3)
 .report-list
     background-color: $color-light-green
     .meta
@@ -268,7 +279,7 @@ section
         @extend .gap-2
         li a
             @extend .btn-sm
-            // @extend .btn-outline-dark
+            @extend .btn-outline-dark
             @extend .text-black
             @extend .rounded-pill
             
