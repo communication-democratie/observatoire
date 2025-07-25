@@ -2,15 +2,17 @@
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <h3>Quelle campagne ?</h3>
-  <%= f.input :brand %>
-  <%= f.input :link %>
-  <%= f.input :files, input_html: { multiple: true } %>
+  <h3 class="h4">Quelle campagne ?</h3>
+  <div class="campaign-details group row">
+    <%= f.input :brand %>
+    <%= f.input :link %>
+    <%= f.input :files %>
+  </div>
 
-  <h3>Quelles mauvaises pratiques ?</h3>
+  <h3 class="h4">Quelles mauvaises pratiques ?</h3>
 
   <% Taxonomy.for_reports.each do |taxonomy| %>
-    <div class="mb-3">
+    <div class="group mb-3 d-flex gap-3 flex-wrap">
       <% taxonomy.categories.ordered.each do |category| %>
         <div class="form-check">
           <input  class="form-check-input"
@@ -18,7 +20,7 @@
                   value="<%= category.id %>"
                   name="report[category_ids][]"
                   id="report_<%= taxonomy.id %>_<%= category.id %>">
-          <label  class="form-check-label"
+          <label  class="form-check-label btn rounded-pill bg-white text-black px-3 py-2"
                   for="report_<%= taxonomy.id %>_<%= category.id %>">
             <%= category %>
           </label>
@@ -27,11 +29,11 @@
     </div>
   <% end %>
 
-  <h3>Description</h3>
+  <h3 class="h4">Description</h3>
 
   <%= f.input :description, input_html: { rows: 6 } %>
 
-  <h3>Identifiez-vous</h3>
+  <h3 class="h4">Identifiez-vous</h3>
 
   <div class="row">
     <div class="col-lg-6">
@@ -42,13 +44,14 @@
     </div>
   </div>
 
-  <%= f.button :submit, 'Envoyer', class: 'btn btn-primary' %>
+  <%= f.button :submit, 'Envoyer', class: 'btn-icon' %>
 
-  <p>Remplissez le formulaire ci-dessous, puis : </p>
-  <ol>
-    <li>Notre équipe analysera votre signalement pour évaluer sa recevabilité</li>
-    <li>Si le signalement est pertinent, il sera publié comme recevable sur notre site internet</li>
-    <li>La campagne que vous avez signalée pourra faire l’objet d’une analyse approfondie par l’une de nos organisations expertes</li>
-  </ol>
-
+  <div class="form-details mt-5">
+    <p class="visually-hidden">Remplissez le formulaire ci-dessous, puis : </p>
+    <ol>
+      <% t('front.report_form.details.informations').each do |information| %>
+        <li><%= information %></li>
+      <% end %>
+    </ol>
+  </div>
 <% end %>
