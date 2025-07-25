@@ -229,8 +229,6 @@ section
             column-gap: map-get($spacers, 4)
             row-gap: map-get($spacers, 3)
         .campaign-details
-            label
-                @extend .visually-hidden
             > div
                 @extend .mb-0
                 + div
@@ -271,7 +269,8 @@ section
         @extend .my-4
         input[type="search"]
             --bs-border-width: 0
-            background-color: $color-light-green
+            background-color: $color-light-blue
+        input[type="submit"]
     .faceted__facet__list
         @extend .d-flex
         @extend .flex-wrap
