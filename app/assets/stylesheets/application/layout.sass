@@ -1,6 +1,7 @@
 // typography
 .badge
     --bs-badge-font-weight: normal
+    font-size: 16px
     
 // colors
 .bg-form
@@ -140,6 +141,10 @@ section
             margin-top: 7rem
 
 // components
+.btn-outline-dark
+    border-color: $color-black
+    color: $color-black
+
 .btn-icon
     @extend .btn
     @extend .rounded-pill
@@ -162,8 +167,14 @@ section
             display: block
             margin: -2px
             width: calc(100% + 4px)
+            img
+                border-radius: var(--bs-card-border-radius) !important
         .card-body
             @extend .pt-4
+        .badge-step
+            position: absolute
+            top: map-get($spacers, 3)
+            left: map-get($spacers, 3)
         &::before
             background: $color-light-blue
             border-radius: var(--bs-card-border-radius)
@@ -177,7 +188,7 @@ section
         &:hover .card-content
             transform: translateY(-(map-get($spacers, 2)))
     .problem__thumb
-        aspect-ratio: 16/9
+        aspect-ratio: 1.3304
         object-fit: cover
         filter: grayscale(1)
         .card:hover & 
