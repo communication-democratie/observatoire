@@ -73,23 +73,51 @@ fr:
     show: Voir
     updated: Mise à jour effectuée
   front:
+    footer:
+      about:
+        title: Un projet participatif.
+        summary: L’Observatoire Citoyen de la Publicité (OCP) est un projet participatif qui vise à donner aux citoyen·nes les moyens de mieux comprendre les enjeux liés aux mauvaises pratiques publicitaires.
+        text:
+          - À partir des signalements citoyen·nes, l’OCP offre un espace d’expression et de réflexion à ses organisations (membres ou partenaires du projet) afin de nourrir et d’animer le débat public en lien avec leurs domaines d’expertise. 
+          - L’OCP est également pensé comme une source d’information à destination des citoyen·nes, des médias et des institutions pour mieux cerner les problématiques qui découlent des mauvaises pratiques publicitaires.
+      legals:
+        copyright: Copyright 2025
+        credit: Design by Bernat Font
+        title: Mentions légales
     home: Accueil
-    website: Observatoire Citoyen de la Publicité
+    missions:
+      - "<h2>Repérons</h2><p>Repérer les mauvaises pratiques publicitaires</p>"
+      - "<h2>Publions</h2><p>Publier les campagnes problématiques</p>"
+      - "<h2>Mobilisons</h2><p>Mobiliser ses organisations sur leurs sujets d’expertise</p>"
+      - "<h2>Animons</h2><p>Animer le débat public sur la régulation des contenus</p>"
     more: Plus d'informations
     problem:
       reports:
         one: Signalement reçu
         other: Signalements reçus
+      data:
+        advertisers: Annonceurs
+    report_form:
+      details:
+        instructions: "Remplissez le formulaire ci-dessous, puis :"
+        informations:
+          - Notre équipe analysera votre signalement pour évaluer sa recevabilité
+          - Si le signalement est pertinent, il sera publié comme recevable sur notre site internet
+          - La campagne que vous avez signalée pourra faire l’objet d’une analyse approfondie par l’une de nos organisations expertes
+
+    website: Observatoire Citoyen de la Publicité
   simple_form:
     placeholders:
       report:
+        brand: Marque*
         author_pseudonym: Cela permet d'identifier publiquement vos signalements
         author_email: Cela vous permet de recevoir une confirmation de votre signalement, et d'être tenu au courant du traitement
         files: Déposer l’image ou la vidéo du visuel de la campagne
-        image: Si vous avez une image “montrant” la campagne
+        image: Déposer l’image ou la vidéo du visuel de la campagne*
         link: Lien web vers toutes informations utiles concernant la campagne
         title: Le titre ou l'accroche de la campagne que vous trouvez problématique
         description: Décrivez, en bref et avec vos mots, pourquoi vous trouvez cette campagne problématique
+        time: Quand avez-vous vu la campagne ?
     error_notification:
       default_message: 'Veuillez résoudre les problèmes:'
     'no': Non

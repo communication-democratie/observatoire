@@ -1,3 +1,16 @@
+// typography
+.badge
+    --bs-badge-font-weight: normal
+    
+// colors
+.bg-form
+    background: $color-light-pink
+h2
+    color: $color-dark-blue
+.bg-secondary
+    @extend .text-black
+
+// layoyt
 .hero
     background: $color-dark-blue
     *
@@ -29,7 +42,7 @@
         img
             height: 40px
             @include media-breakpoint-up(lg)
-                height: 80px
+                height: 60px
 
 .breadcrumb
     .breadcrumb-item
@@ -37,28 +50,6 @@
             color: $color-white
         &.active
             color: $color-white
-
-.problem__thumb
-    aspect-ratio: 16/9
-    object-fit: cover
-    filter: grayscale(1)
-    .card:hover & 
-        filter: grayscale(0)
-
-.card
-    &--problem
-        border: 2px solid $color-white
-        picture
-            margin: -2px
-
-footer
-    .logo
-        height: 80px
-
-.top
-    background: $color-yellow
-    text-align: center
-    padding: 10px
 
 .toc
     ul
@@ -69,13 +60,188 @@ footer
             a
                 text-decoration: none
 
+footer
+    background-color: $color-light-blue
+    .footer-about
+        h2
+            font-size: 3.125rem
+            @include media-breakpoint-up(md)
+                font-size: 6.25rem
+            @include media-breakpoint-up(lg)
+                font-size: 5.625rem
+            @include media-breakpoint-up(xl)
+                font-size: 5.625rem
+            @include media-breakpoint-up(xxl)
+                font-size: 6.25rem
+        .summary
+            @extend .h4
+        h2,
+        .summary
+            color: $color-dark-blue
+    .list-partners
+        li 
+            flex: 1
+            img
+                max-height: 70px
+                // todo: remove
+                filter: grayscale(1)
+                mix-blend-mode: color-burn
+        @include media-breakpoint-down(md)
+            row-gap: 20px !important
+            li img
+                height: 40px
+    .footer-menu
+        @extend .text-white
+        background-color: $color-dark-blue
+        div > ul
+            @extend .d-lg-flex
+            @extend .flex-lg-row
+            @extend .justify-content-lg-around
+            > li
+                @extend .col-lg-3
+                > a
+                    @extend .h5
+        a
+            @extend .text-white
+            text-decoration: none
+            &:hover
+                text-decoration: underline
+    .footer-legal
+        @extend .d-lg-flex
+        @extend .gap-3
+    .footer-socials
+        @extend .d-flex
+        @extend .gap-2
+        a
+            @extend .d-flex
+            @extend .align-items-center
+            @extend .justify-content-center
+            @extend .border
+            @extend .border-white
+            @extend .rounded-pill
+            aspect-ratio: 1
+            font-family: $font
+            height: 44px
+            width: 44px
+            span
+                + span
+                    @extend .visually-hidden
+            &:hover
+                background-color: $color-light-blue 
+                color: $color-dark-blue !important
+                text-decoration: none
+
+section 
+    h2
+        margin-bottom: 3.125
+    + section
+        margin-top: 3rem
+        @include media-breakpoint-up(md)
+            margin-top: 7rem
+
+// components
+.btn-icon
+    @extend .btn
+    @extend .rounded-pill
+    @extend .btn-primary
+    @extend .px-4
+    @extend .mt-5
+
+.card
+    &--problem
+        --bs-card-border-width: 0
+        --bs-card-border-radius: 40px
+        padding: 2px
+        > .card-content 
+            background: var(--bs-body-bg)
+            border-radius: var(--bs-card-border-radius)
+            position: relative
+            transition: transform 0.3s ease
+            z-index: 2
+        picture
+            display: block
+            margin: -2px
+            width: calc(100% + 4px)
+        .card-body
+            @extend .pt-4
+        &::before
+            background: $color-light-blue
+            border-radius: var(--bs-card-border-radius)
+            bottom: 0
+            content: ''
+            height: 100%
+            left: 0
+            position: absolute
+            width: 100%
+            z-index: 0
+        &:hover .card-content
+            transform: translateY(-(map-get($spacers, 2)))
+    .problem__thumb
+        aspect-ratio: 16/9
+        object-fit: cover
+        filter: grayscale(1)
+        .card:hover & 
+            filter: grayscale(0)
+
+.top
+    background: $color-yellow
+    text-align: center
+    padding: 10px
+
+// home
+.list-missions
+    .mission
+        border-left-color: $color-light-blue !important
+        border-left-width: 2px !important
+        h2
+            @extend h3
+            color: $color-dark-blue
+        span
+            font-size: 1.25rem
+            color: $color-pink
+        p
+            margin-bottom: 0
+.report-form
+    form
+        h3
+            @extend .mb-4
+            &:not(:first-of-type)
+                @extend .mt-5
+        input
+            font-size: 1rem
+        .group
+            column-gap: map-get($spacers, 4)
+            row-gap: map-get($spacers, 3)
+        .campaign-details
+            label
+                @extend .visually-hidden
+            > div
+                @extend .col-6
+                @extend .mb-0
+            .report_link,
+            .report_files
+                @extend .col-12
+        // checkboxes as buttons
+        .form-check
+            @extend .ps-0
+            .form-check-label
+                border: none
+                cursor: pointer
+                line-height: 1
+            input
+                @extend .visually-hidden
+                &:checked + label
+                    background-color: $color-dark-blue !important
+                    color: $color-white !important
+    .form-details
+        font-size: 16px
+
 // problem show
 .report-list
     background-color: $color-light-green
     .meta
         font-size: 16px
 
-.index
 // search
 .faceted__facets
     .faceted__facet__text
@@ -85,17 +251,16 @@ footer
         input[type="search"]
             --bs-border-width: 0
             background-color: $color-light-green
-        input[type="submit"]
-            @extend .visually-hidden
     .faceted__facet__list
         @extend .d-flex
         @extend .flex-wrap
         @extend .gap-2
         li a
-            @extend .btn-outline-dark
-            @extend .text-black
             @extend .btn-sm
+            // @extend .btn-outline-dark
+            @extend .text-black
             @extend .rounded-pill
+            
 // facets accordions
 .search-filters.accordion
     --bs-accordion-color: $color-blue
