@@ -36,10 +36,20 @@ h2
     @include media-breakpoint-up(lg)
         padding-top: 50px
         padding-bottom: 100px
-    *
+    .nav-item > a
         color: $color-white !important
-    .dropdown-menu
-        background: $color-black
+    .dropdown
+        li
+            @extend .mx-3
+            a
+                @extend .py-3
+                text-align: center
+            + li
+                border-top: 0.5px solid #838790
+        &-menu
+            --bs-dropdown-link-hover-bg: transparent
+        &-item
+            --bs-dropdown-link-color: #838790 
     .navbar-brand
         img
             height: 40px
@@ -142,8 +152,13 @@ section
             margin-top: 7rem
 
 // components
+form
+    input
+        border-radius: 10px !important
+    .form-control
+        font-size: 16px
 .btn-outline-dark
-    border-color: $color-black
+    border: 1px solid $color-black
     color: $color-black
     &:hover
         background-color: $color-black
@@ -196,8 +211,8 @@ section
         aspect-ratio: 1.3304
         object-fit: cover
         filter: grayscale(1)
-        .card:hover & 
-            filter: grayscale(0)
+    .card:hover .problem__thumb
+        filter: grayscale(0)
 
 .top
     background: $color-yellow
@@ -275,12 +290,14 @@ section
         @extend .d-flex
         @extend .flex-wrap
         @extend .gap-2
-        li a
+        > li:first-of-type
+            padding-top: map-get($spacers, 2)
+        .faceted__facet__list__value a
+            @extend .btn
             @extend .btn-sm
             @extend .btn-outline-dark
             @extend .text-black
             @extend .rounded-pill
-            
 // facets accordions
 .search-filters.accordion
     --bs-accordion-color: $color-blue

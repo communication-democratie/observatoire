@@ -19,7 +19,7 @@ fr:
         year: Année
         reports: Signalements
         step: Étape
-        title: Titre
+        title: Filtres
       report:
         author_email: Adresse mail
         author_pseudonym: Pseudonyme
@@ -109,7 +109,6 @@ fr:
   simple_form:
     placeholders:
       report:
-        brand: Marque*
         author_pseudonym: Cela permet d'identifier publiquement vos signalements
         author_email: Cela vous permet de recevoir une confirmation de votre signalement, et d'être tenu au courant du traitement
         files: Déposer l’image ou la vidéo du visuel de la campagne
