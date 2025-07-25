@@ -140,6 +140,13 @@ section
             margin-top: 7rem
 
 // components
+.btn-outline-dark
+    border-color: $color-black
+    color: $color-black
+
+.badge
+    font-size: 16px
+
 .btn-icon
     @extend .btn
     @extend .rounded-pill
@@ -177,7 +184,7 @@ section
         &:hover .card-content
             transform: translateY(-(map-get($spacers, 2)))
     .problem__thumb
-        aspect-ratio: 16/9
+        aspect-ratio: 1.3304
         object-fit: cover
         filter: grayscale(1)
         .card:hover & 
