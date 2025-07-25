@@ -3,7 +3,7 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <h3 class="h4">Quelle campagne ?</h3>
-  <div class="campaign-details group row">
+  <div class="campaign-details">
     <%= f.input :brand %>
     <%= f.input :link %>
     <%= f.input :files %>
