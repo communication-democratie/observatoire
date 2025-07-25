@@ -2,6 +2,7 @@
   <% problems.each do |problem| %>
     <div class="col-lg-4">
       <div class="card card--problem bg-white">
+        <div class="card-content">
         <%= kamifusen_tag problem.image,
                           class: 'card-img-top img-fluid problem__thumb rounded',
                           width: 400 if problem.image.attached? %>
@@ -9,7 +10,16 @@
           <h2 class="card-title h5">
             <%= link_to problem, problem, class: 'stretched-link text-black text-decoration-none' %>
           </h2>
-          <p><%= problem.description.truncate_words(20) %></p>
+          <% Taxonomy.all.ordered.each do |taxonomy|
+             categories = problem.categories.where(taxonomy: taxonomy).ordered
+             next if categories.none?
+          %>
+            <% if taxonomy.to_s === t('front.problem.data.advertisers') %>
+              <% categories.each do |category| %>
+                <p class="subtitle"><%= category %></p>
+              <% end %>
+            <% end %>
+          <% end %>
           <div class="my-4">
             <% problem.main_categories.each do |category| %>
               <span class="badge bg-secondary"><%= category %></span>
@@ -17,6 +27,7 @@
             <%= render 'problems/badge', problem: problem %>
           </div>
           <span><%= l(problem.created_at, format: :month_year).capitalize %></span>
+        </div>
         </div>
       </div>
     </div>

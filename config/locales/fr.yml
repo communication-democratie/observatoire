@@ -95,17 +95,29 @@ fr:
       reports:
         one: Signalement reçu
         other: Signalements reçus
+      data:
+        advertisers: Annonceurs
+    report_form:
+      details:
+        instructions: "Remplissez le formulaire ci-dessous, puis :"
+        informations:
+          - Notre équipe analysera votre signalement pour évaluer sa recevabilité
+          - Si le signalement est pertinent, il sera publié comme recevable sur notre site internet
+          - La campagne que vous avez signalée pourra faire l’objet d’une analyse approfondie par l’une de nos organisations expertes
+
     website: Observatoire Citoyen de la Publicité
   simple_form:
     placeholders:
       report:
+        brand: Marque*
         author_pseudonym: Cela permet d'identifier publiquement vos signalements
         author_email: Cela vous permet de recevoir une confirmation de votre signalement, et d'être tenu au courant du traitement
         files: Déposer l’image ou la vidéo du visuel de la campagne
-        image: Si vous avez une image “montrant” la campagne
+        image: Déposer l’image ou la vidéo du visuel de la campagne*
         link: Lien web vers toutes informations utiles concernant la campagne
         title: Le titre ou l'accroche de la campagne que vous trouvez problématique
         description: Décrivez, en bref et avec vos mots, pourquoi vous trouvez cette campagne problématique
+        time: Quand avez-vous vu la campagne ?
     error_notification:
       default_message: 'Veuillez résoudre les problèmes:'
     'no': Non

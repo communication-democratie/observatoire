@@ -9,7 +9,8 @@ h2
     color: $color-dark-blue
 .bg-secondary
     @extend .text-black
-    
+
+// layoyt
 .hero
     background: $color-dark-blue
     *
@@ -49,24 +50,6 @@ h2
             color: $color-white
         &.active
             color: $color-white
-
-.problem__thumb
-    aspect-ratio: 16/9
-    object-fit: cover
-    filter: grayscale(1)
-    .card:hover & 
-        filter: grayscale(0)
-
-.card
-    &--problem
-        border: 2px solid $color-white
-        picture
-            margin: -2px
-
-.top
-    background: $color-yellow
-    text-align: center
-    padding: 10px
 
 .toc
     ul
@@ -156,6 +139,55 @@ section
         @include media-breakpoint-up(md)
             margin-top: 7rem
 
+// components
+.btn-icon
+    @extend .btn
+    @extend .rounded-pill
+    @extend .btn-primary
+    @extend .px-4
+    @extend .mt-5
+
+.card
+    &--problem
+        --bs-card-border-width: 0
+        --bs-card-border-radius: 40px
+        padding: 2px
+        > .card-content 
+            background: var(--bs-body-bg)
+            border-radius: var(--bs-card-border-radius)
+            position: relative
+            transition: transform 0.3s ease
+            z-index: 2
+        picture
+            display: block
+            margin: -2px
+            width: calc(100% + 4px)
+        .card-body
+            @extend .pt-4
+        &::before
+            background: $color-light-blue
+            border-radius: var(--bs-card-border-radius)
+            bottom: 0
+            content: ''
+            height: 100%
+            left: 0
+            position: absolute
+            width: 100%
+            z-index: 0
+        &:hover .card-content
+            transform: translateY(-(map-get($spacers, 2)))
+    .problem__thumb
+        aspect-ratio: 16/9
+        object-fit: cover
+        filter: grayscale(1)
+        .card:hover & 
+            filter: grayscale(0)
+
+.top
+    background: $color-yellow
+    text-align: center
+    padding: 10px
+
 // home
 .list-missions
     .mission
@@ -169,6 +201,40 @@ section
             color: $color-pink
         p
             margin-bottom: 0
+.report-form
+    form
+        h3
+            @extend .mb-4
+            &:not(:first-of-type)
+                @extend .mt-5
+        input
+            font-size: 1rem
+        .group
+            column-gap: map-get($spacers, 4)
+            row-gap: map-get($spacers, 3)
+        .campaign-details
+            label
+                @extend .visually-hidden
+            > div
+                @extend .col-6
+                @extend .mb-0
+            .report_link,
+            .report_files
+                @extend .col-12
+        // checkboxes as buttons
+        .form-check
+            @extend .ps-0
+            .form-check-label
+                border: none
+                cursor: pointer
+                line-height: 1
+            input
+                @extend .visually-hidden
+                &:checked + label
+                    background-color: $color-dark-blue !important
+                    color: $color-white !important
+    .form-details
+        font-size: 16px
 
 // problem show
 .report-list
