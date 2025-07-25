@@ -14,5 +14,5 @@
   </div>
 </div>
 
-<h2 class="h4 mt-5"><%= Problem.model_name.human(count: 2) %></h2>
+<h2 class="h3 mt-5 mb-4"><%= Problem.model_name.human(count: 2) %></h2>
 <%= render 'problems/list', problems: @category.problems.ordered %>
