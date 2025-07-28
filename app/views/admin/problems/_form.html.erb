@@ -11,19 +11,20 @@
       <%= f.input :year %>
     </div>
   </div>
-  <%= f.input :description %>
-  <%= f.input :image %>
-  <%= f.association :step, include_blank: false, as: :radio_buttons %>
-
   <div class="row">
-    <% Taxonomy.all.ordered.each do |taxonomy| %>
-      <div class="col-lg-3">
+    <div class="col-lg-4">
+      <%= f.input :image %>
+      <%= f.association :step, include_blank: false, as: :radio_buttons %>
+      <% Taxonomy.all.ordered.each do |taxonomy| %>
         <%= f.association :categories,
                           label: taxonomy,
                           as: :check_boxes,
                           collection: taxonomy.categories.ordered %>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
+    <div class="col-lg-8">
+      <%= f.input :description, input_html: { rows: 30 } %>
+    </div>
   </div>
 
   <%= f.button :submit, t('admin.save'), class: button_classes %>

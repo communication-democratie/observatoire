@@ -3,7 +3,7 @@ class Problem::Facets < FacetedSearch::Facets
     super
     @model = Problem.normal_and_important
     filter_with_text :title, {
-      title: Problem.human_attribute_name(:title),
+      title: 'Filtres'
     }
     filter_with_list :step, {
       title: Problem.human_attribute_name(:step),
