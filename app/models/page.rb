@@ -26,6 +26,15 @@ class Page < ApplicationRecord
     redcarpet.render(markdown).html_safe
   end
 
+  def h2_titles
+    @h2_titles ||= Nokogiri::HTML(toc).xpath('//a').map do |node|
+      [
+        node.text,
+        node.attributes['href'].value
+      ]
+    end
+  end
+
   def to_s
     "#{title}"
   end
