@@ -75,17 +75,19 @@ h2
             @include media-breakpoint-up(lg)
                 height: 60px
     .header-cta
-        @extend .btn
-        @extend .ms-lg-3
-        @extend .px-3
-        --bs-btn-border-radius: var(--bs-border-radius-pill)
-        background-color: $color-white
-        color: $color-dark-blue
-        &:hover
-            background-color: $color-dark-blue
-            border-color: $color-white
-            color: $color-white
-            
+        a
+            @extend .btn
+            @extend .ms-lg-3
+            @extend .px-3
+            --bs-btn-border-radius: var(--bs-border-radius-pill)
+            color: $color-dark-blue
+            &.active
+                --bs-btn-active-bg: #{$color-white}
+                color: $color-dark-blue !important
+            &:hover
+                background-color: $color-dark-blue
+                border-color: $color-white
+                color: $color-white !important
 
 .breadcrumb
     .breadcrumb-item

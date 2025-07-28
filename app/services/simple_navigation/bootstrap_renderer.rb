@@ -10,7 +10,6 @@ class SimpleNavigation::BootstrapRenderer < SimpleNavigation::Renderer::Base
     content.html_safe
   end
 
-
   protected
 
   def make(item, dropdown)
@@ -18,6 +17,7 @@ class SimpleNavigation::BootstrapRenderer < SimpleNavigation::Renderer::Base
     has_sub_navigation = consider_sub_navigation?(item)
     li = "<li class=\"nav-item"
     li += " dropdown" if has_dropdown
+    li += " #{item.options.dig(:html, :class)}"
     li += "\">"
     li += make_a(item, dropdown)
     li += make_subnavigation(item, has_dropdown) if has_sub_navigation
@@ -30,6 +30,7 @@ class SimpleNavigation::BootstrapRenderer < SimpleNavigation::Renderer::Base
     a = "<a href=\"#{ item.url }\" class=\"nav-link"
     a += " active" if item.selected?
     a += " dropdown-toggle" if has_sub_navigation && dropdown
+    a += " #{item.options.dig(:link_html, :class)}"
     a += "\""
     a += " data-bs-toggle=\"dropdown\" aria-expanded=\"false\"" if has_sub_navigation && dropdown
     a += ">"
