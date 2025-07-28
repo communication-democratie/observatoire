@@ -212,7 +212,7 @@ hr
 form
     label
         font-size: $meta-font-size
-    input
+    input:not([type="submit"])
         border-radius: 10px !important
     .form-control
         font-size: 16px
@@ -248,11 +248,39 @@ form
         color: $color-dark-blue
 
 .btn-icon
-    @extend .btn
-    @extend .rounded-pill
-    @extend .btn-primary
-    @extend .px-4
     @extend .mt-5
+    @include icon(arrow, after)
+    align-items: center
+    display: flex
+    position: relative
+    text-decoration: none
+    span,
+    input
+        @extend .px-4
+        height: 50px
+        line-height: 100%
+    span,
+    input,
+    &::after
+        @extend .btn
+        @extend .btn-primary
+        @extend .rounded-pill
+        display: flex
+        align-items: center
+        transition: all 0.3s ease
+    &::after
+        height: 50px
+        width: 50px
+        justify-items: center
+        transform: rotate(180deg)
+        transition: all 0.3s ease
+    // &:hover
+    //     span,
+    //     input
+    //         transform: translateX(50px)
+        // &::after
+        //     position: absolute
+        //     left: 0
 
 .card
     &--problem

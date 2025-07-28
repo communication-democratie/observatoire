@@ -43,3 +43,24 @@
   font-weight: 700
   src: asset-url('fonts/be-vietnam-pro-v11-latin-600italic.eot')
   src: asset-url('be-vietnam-pro-v11-latin-600italic.eot?#iefix') format('embedded-opentype'), asset-url('be-vietnam-pro-v11-latin-600italic.woff2') format('woff2'), asset-url('be-vietnam-pro-v11-latin-600italic.woff') format('woff'), asset-url('be-vietnam-pro-v11-latin-600italic.ttf') format('truetype'), asset-url('be-vietnam-pro-v11-latin-600italic.svg#BeVietnamPro') format('svg')
+
+@font-face
+    font-display: block
+    font-family: 'Iconfont'
+    font-weight: normal
+    src: asset-url('Icons/icomoon.ttf') format("ttf"), asset-url('Icons/icomoon.woff') format("woff"), asset-url('IconFont/IconFont.woff2') format("woff2")
+
+// ICONS
+@mixin icon($icon-name: '', $pseudo-element: before)
+    &::#{$pseudo-element}
+        content: map-get($icons, $icon-name)
+        display: inline-block
+        font-family: 'Iconfont'
+        font-style: normal
+        font-variant: normal
+        font-weight: normal
+        line-height: 1
+        speak: never
+        text-transform: none
+        vertical-align: middle
+        @content

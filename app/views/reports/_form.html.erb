@@ -40,8 +40,9 @@
       <%= f.input :author_email %>
     </div>
   </div>
-
-  <%= f.button :submit, 'Envoyer', class: 'btn-icon' %>
+  <div class="btn-icon">
+    <%= f.button :submit, 'Envoyer' %>
+  </div>
 
   <div class="form-details mt-5">
     <p class="visually-hidden"><%= t('front.report_form.fields.more') %></p>
