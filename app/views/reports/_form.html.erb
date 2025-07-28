@@ -2,14 +2,14 @@
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <h3 class="h4">Quelle campagne ?</h3>
+  <h3 class="h4"><%= t('front.report_form.fields.campaigns.title') %></h3>
   <div class="campaign-details">
     <%= f.input :brand %>
     <%= f.input :link %>
     <%= f.input :files %>
   </div>
 
-  <h3 class="h4">Quelles mauvaises pratiques ?</h3>
+  <h3 class="h4"><%= t('front.report_form.fields.bad_practices.title') %></h3>
 
   <% Taxonomy.for_reports.each do |taxonomy| %>
     <div class="group mb-3 d-flex gap-3 flex-wrap">
@@ -29,11 +29,11 @@
     </div>
   <% end %>
 
-  <h3 class="h4">Quel est le problème ?</h3>
+  <h3 class="h4"><%= t('front.report_form.fields.description.title') %></h3>
 
-  <%= f.input :description, placeholder: 'Décrivez, en bref et avec vos mots, pourquoi vous trouvez cette campagne problématique …', input_html: { rows: 6 } %>
+  <%= f.input :description, placeholder: t('front.report_form.fields.description.placeholder'), input_html: { rows: 6 } %>
 
-  <h3 class="h4">Identifiez-vous</h3>
+  <h3 class="h4"><%= t('front.report_form.fields.identification.title') %></h3>
 
   <div class="row">
     <div class="col-lg-6">
@@ -47,7 +47,7 @@
   <%= f.button :submit, 'Envoyer', class: 'btn-icon' %>
 
   <div class="form-details mt-5">
-    <p class="visually-hidden">Remplissez le formulaire ci-dessous, puis : </p>
+    <p class="visually-hidden"><%= t('front.report_form.fields.more') %></p>
     <ol class="ps-3">
       <% t('front.report_form.details.informations').each do |information| %>
         <li><%= information %></li>

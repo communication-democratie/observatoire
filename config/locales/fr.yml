@@ -104,6 +104,16 @@ fr:
       data:
         advertisers: Annonceurs
     report_form:
+      fields:
+        bad_practices: "Quelles mauvaises pratiques ?"
+        campaigns:
+          title: Quelle campagne ?
+        description:
+          title: Quel est le problème ?
+          placeholder: Décrivez, en bref et avec vos mots, pourquoi vous trouvez cette campagne problématique…
+        identification:
+          title: Identifiez-vous
+        more: "Remplissez le formulaire ci-dessous, puis :"
       details:
         instructions: "Remplissez le formulaire ci-dessous, puis :"
         informations:
