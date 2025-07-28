@@ -40,6 +40,10 @@ class Problem < ApplicationRecord
     categories.where(id: Taxonomy.main.categories)
   end
 
+  def important?
+    step.importance == 'high'
+  end
+
   def reported_by
     @reported_by ||= reports.pluck(:author_pseudonym)
                             .uniq
