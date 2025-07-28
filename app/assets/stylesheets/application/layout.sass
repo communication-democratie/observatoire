@@ -118,6 +118,11 @@ footer
         .summary
             color: $color-dark-blue
     .list-partners
+        padding-left: map-get($spacers, 2)
+        padding-right: map-get($spacers, 2)
+        @include media-breakpoint-up(md)
+            padding-left: map-get($spacers, 7)
+            padding-right: map-get($spacers, 7)
         li 
             img
                 max-height: 70px
