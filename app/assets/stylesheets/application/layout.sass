@@ -47,6 +47,8 @@ h2
     @include media-breakpoint-up(lg)
         padding-top: 50px
         padding-bottom: 100px
+    .navbar-nav
+        @extend .gap-3
     .nav-item > a
         color: $color-white !important
     .dropdown
@@ -68,6 +70,9 @@ h2
             height: 40px
             @include media-breakpoint-up(lg)
                 height: 60px
+    .header-cta
+        @extend .btn-light
+        @extend .ms-3
 
 .breadcrumb
     .breadcrumb-item
@@ -98,6 +103,8 @@ h2
                     text-decoration: underline
                     text-decoration-thickness: 2px
                     text-underline-offset: 2px
+
+
 
 footer
     background-color: $color-light-blue
@@ -211,6 +218,17 @@ form
         background-color: $color-white
         border-color: $color-black
         color: $color-black
+
+.btn-light
+    @extend .btn
+    @extend .px-3
+    --bs-btn-border-radius: var(--bs-border-radius-pill)
+    background-color: $color-white
+    color: $color-dark-blue
+    &:hover
+        background-color: $color-light-blue
+        border-color: transparent
+        color: $color-dark-blue
 
 .btn-icon
     @extend .btn
