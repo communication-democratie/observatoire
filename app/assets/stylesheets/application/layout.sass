@@ -129,14 +129,16 @@ footer
     .footer-menu
         @extend .text-white
         background-color: $color-dark-blue
-        div > ul
-            @extend .d-lg-flex
-            @extend .flex-lg-row
-            @extend .justify-content-lg-around
-            > li
-                @extend .col-lg-3
+        div > .navbar-nav
+            @extend .row
+            @extend .flex-md-row
+            > .nav-item
+                @extend .col-md-6
+                @extend .col-lg-4
                 > a
                     @extend .h5
+                @include media-breakpoint-down(lg)
+                    margin-bottom: map-get($spacers, 3)
         a
             @extend .text-white
             text-decoration: none
