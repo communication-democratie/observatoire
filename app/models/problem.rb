@@ -47,7 +47,18 @@ class Problem < ApplicationRecord
                             .sort
   end
 
+
+  def description_to_html
+    markdown.render description
+  end
+
   def to_s
     "#{title}"
+  end
+
+  protected
+
+  def markdown
+    @markdown ||= Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true)
   end
 end

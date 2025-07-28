@@ -34,7 +34,7 @@
       <div class="h2 mb-5">
         <%= render 'problems/badge', problem: @problem %>
       </div>
-      <%= simple_format @problem.description %>
+      <%= sanitize @problem.description_to_html %>
     </div>
   </div>
 </div>
