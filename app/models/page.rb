@@ -17,7 +17,7 @@ class Page < ApplicationRecord
   def html
     renderer = Redcarpet::Render::HTML.new(hard_wrap: true, with_toc_data: true)
     redcarpet = Redcarpet::Markdown.new(renderer, extensions = {})
-    redcarpet.render(markdown).html_safe
+    "<div class=\"markdown\">#{redcarpet.render(markdown)}</div>".html_safe
   end
 
   def toc
