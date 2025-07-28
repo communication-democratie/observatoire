@@ -176,6 +176,9 @@ section
             margin-top: 7rem
 
 // components
+hr
+    border-top: 2px dotted $color-dark-blue
+    opacity: 1
 form
     label
         font-size: $meta-font-size
@@ -356,6 +359,16 @@ form
 // problem show
 .problem-presentation
     position: relative
+    > div:first-of-type
+    .problem-content
+        h2
+            font-size: 2rem
+        h3
+            @extend .h4
+        h4
+            @extend .h5
+        p + h3
+           @extend .pt-3
     .badge-step
         left: map-get($spacers, 4)
         position: absolute

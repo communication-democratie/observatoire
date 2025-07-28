@@ -30,10 +30,8 @@
         <% end %>
       </ul>
     </div>
-    <div class="col-lg-6">
-      <div class="h2 mb-5">
-        <%= render 'problems/badge', problem: @problem %>
-      </div>
+    <div class="problem-content col-lg-6">
+      <%= render 'problems/badge', problem: @problem %>
       <%= sanitize @problem.description_to_html %>
     </div>
   </div>
