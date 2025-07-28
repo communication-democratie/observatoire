@@ -31,9 +31,10 @@
 <section class="reports mt">
   <h2>Les dernières <span>campagnes</span></h2>
   <div class="mt-5 pt-3">
-    
     <%= render 'problems/list', problems: @problems, column_size: 3 %>
-    <%= link_to 'Voir toutes', problems_path, class: 'btn-icon' %>
+    <%= link_to problems_path, class: 'btn-icon' do %>
+      <span>Voir toutes</span>
+    <% end %>
   </div>
 </section>
 
