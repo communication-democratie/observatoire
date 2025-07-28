@@ -21,7 +21,7 @@ class Page < ApplicationRecord
   end
 
   def toc
-    renderer = Redcarpet::Render::HTML_TOC
+    renderer = Redcarpet::Render::HTML_TOC.new(nesting_level: 2)
     redcarpet = Redcarpet::Markdown.new(renderer, extensions = {})
     redcarpet.render(markdown).html_safe
   end
