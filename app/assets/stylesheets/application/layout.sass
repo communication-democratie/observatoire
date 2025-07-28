@@ -47,8 +47,12 @@ h2
     @include media-breakpoint-up(lg)
         padding-top: 50px
         padding-bottom: 100px
+    @include media-breakpoint-down(lg)
+        padding-bottom: map-get($spacers, 3)
     .navbar-nav
-        @extend .gap-3
+        @extend .gap-lg-3
+        @include media-breakpoint-down(lg)
+            padding-top: map-get($spacers, 3)
     .nav-item > a
         color: $color-white !important
     .dropdown
@@ -72,7 +76,7 @@ h2
                 height: 60px
     .header-cta
         @extend .btn-light
-        @extend .ms-3
+        @extend .ms-lg-3
 
 .breadcrumb
     .breadcrumb-item
