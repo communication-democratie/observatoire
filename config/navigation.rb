@@ -7,7 +7,12 @@ SimpleNavigation::Configuration.run do |navigation|
     primary.item  :problems, 'Pubs signalées', problems_path
     primary.item  :analyzed_problems, 'Nos analyses', analyzed_problems_path
     Page.ordered.each do |page|
-      primary.item page.slug.to_sym, page.title, "/#{page.slug}"
+      primary.item page.slug.to_sym, page.title, "/#{page.slug}" do |secondary|
+        secondary.item page.slug.to_sym, page.title, "/#{page.slug}"
+        page.h2_titles.each do |title, anchor|
+          secondary.item anchor.to_sym, title, "/#{page.slug}#{anchor}"        
+        end
+      end
     end
     primary.item  :button, 'Signaler', '/#reporting', html: { class: 'header-cta' }
   end
