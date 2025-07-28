@@ -12,7 +12,18 @@ h2
 .bg-secondary
     @extend .text-black
 
-// layoyt
+// animation
+@keyframes infinite-rotation
+    0%
+        -webkit-transform: translateY(-40%) rotate(0deg)
+        -o-transform: translateY(-40%) rotate(0deg)
+        transform: translateY(-40%) rotate(0deg)
+    100%
+        -webkit-transform: translateY(-40%) rotate(360deg)
+        -o-transform: translateY(-40%) rotate(360deg)
+        transform: translateY(-40%) rotate(360deg)
+
+// layout
 .hero
     background: $color-dark-blue
     *
@@ -108,9 +119,9 @@ footer
             color: $color-dark-blue
     .list-partners
         li 
-            flex: 1
             img
                 max-height: 70px
+                width: 100%
         @include media-breakpoint-down(md)
             row-gap: 20px !important
             li img
@@ -166,6 +177,8 @@ section
 
 // components
 form
+    label
+        font-size: $meta-font-size
     input
         border-radius: 10px !important
     .form-control
@@ -291,6 +304,25 @@ form
             z-index: -1
 
 .report-form
+    .card
+        --bs-card-border-radius: 40px
+        position: relative
+        .animated-icon
+            height: 80px
+            width: 80px
+            position: absolute
+            top: 0
+            right: 40px
+            transform: translateY(-40%)
+            animation: infinite-rotation 16s linear infinite
+        @include media-breakpoint-up(md)
+            --bs-card-border-radius: 80px
+            .animated-icon
+                height: 100px
+                width: 100px
+        @include media-breakpoint-down(md)
+            padding-top: map-get($spacers, 4)
+
     form
         h3
             @extend .mb-4
@@ -327,7 +359,7 @@ form
     .badge-step
         left: map-get($spacers, 4)
         position: absolute
-        @include media-breakpoint-up(lmdg)
+        @include media-breakpoint-up(lg)
             top: map-get($spacers, 3)
 .report-list
     background-color: $color-light-green

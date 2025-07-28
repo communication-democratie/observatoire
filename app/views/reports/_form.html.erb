@@ -47,8 +47,8 @@
   <%= f.button :submit, 'Envoyer', class: 'btn-icon' %>
 
   <div class="form-details mt-5">
-    <p class="visually-hidden">Remplissez le formulaire ci-dessous, puis : </p>
-    <ol>
+    <p class="visually-hidden">Remplissez le formulaire ci-dessous, puis : </p>
+    <ol class="ps-3">
       <% t('front.report_form.details.informations').each do |information| %>
         <li><%= information %></li>
       <% end %>
