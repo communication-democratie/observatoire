@@ -3,7 +3,7 @@
 <% content_for :hero do %>
   <div class="container">
     <div class="row">
-      <h1>Nos analyses</h1>
+      <h1><%= t ('front.analyzed.title_html') %></h1>
     </div>
   </div>
 <% end %>
@@ -12,6 +12,7 @@
   <section class="mt-5">
     <h2><%= category %></h2>
     <%= render 'list',
+                column_size: 3,
                 problems: category.problems
                                   .important
                                   .ordered

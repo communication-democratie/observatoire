@@ -73,6 +73,8 @@ fr:
     show: Voir
     updated: Mise à jour effectuée
   front:
+    analyzed:
+      title_html: "Toutes nos <span>analyses</span>"
     footer:
       about:
         title: Un projet participatif.
@@ -91,6 +93,9 @@ fr:
       - "<h2>Mobilisons</h2><p>Mobiliser ses organisations sur leurs sujets d’expertise</p>"
       - "<h2>Animons</h2><p>Animer le débat public sur la régulation des contenus</p>"
     more: Plus d'informations
+    pages:
+      toc: 
+        title: Aller directement
     problem:
       reports:
         one: Signalement reçu

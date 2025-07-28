@@ -45,11 +45,13 @@ h2
                 @extend .py-3
                 text-align: center
             + li
-                border-top: 0.5px solid #838790
+                border-top: 0.5px solid $color-text-alt
         &-menu
             --bs-dropdown-link-hover-bg: transparent
+            --bs-dropdown-link-active-bg: transparent
+            --bs-dropdown-link-active-color: #{$color-black}
         &-item
-            --bs-dropdown-link-color: #838790 
+            --bs-dropdown-link-color: #{$color-text-alt} 
     .navbar-brand
         img
             height: 40px
@@ -64,13 +66,21 @@ h2
             color: $color-white
 
 .toc
+    text-align: left !important
+    .toc-title
+        color: $color-black
+        font-size: $font-size-base
+        font-family: $font
     ul
         padding: 0
         list-style-type: none
         li
             margin-bottom: 5px
+            + li
+                @extend .mt-3
             a
                 text-decoration: none
+                color: $color-dark-blue
 
 footer
     background-color: $color-light-blue
@@ -253,6 +263,12 @@ form
             color: $color-pink
         p
             margin-bottom: 0
+
+// page show
+.page-content
+    * + h2
+        @extend .mb-4
+        @extend .mt-5
 
 .reports h2
     span

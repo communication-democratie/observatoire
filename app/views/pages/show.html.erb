@@ -9,10 +9,11 @@
 <% end %>
 
 <div class="row markdown">
-  <div class="col-lg-8">
-    <%= @page.html %>
-  </div>
   <div class="col-lg-4 text-end toc">
+    <h2 class="toc-title"><%= t ('front.pages.toc.title') %></h2>
     <%= @page.toc %>
+  </div>
+  <div class="page-content col-lg-8">
+    <%= @page.html %>
   </div>
 </div>
