@@ -359,7 +359,6 @@ form
 // problem show
 .problem-presentation
     position: relative
-    > div:first-of-type
     .problem-content
         h2
             font-size: 2rem
@@ -369,11 +368,16 @@ form
             @extend .h5
         p + h3
            @extend .pt-3
+    .problem-categories
+        > li + li
+            @extend .mt-3
     .badge-step
+        top: map-get($spacers, 3)
         left: map-get($spacers, 4)
         position: absolute
-        @include media-breakpoint-up(lg)
-            top: map-get($spacers, 3)
+    @include media-breakpoint-down(md)
+        div + div
+            padding-top: map-get($spacers, 4)
 .report-list
     background-color: $color-light-green
     .meta

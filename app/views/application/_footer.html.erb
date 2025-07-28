@@ -1,6 +1,6 @@
 <footer class="mt-5 pt-5">
-  <div class="container py-5">
-    <div class="footer-about mb-5 pb-5">
+  <div class="container py-lg-5">
+    <div class="footer-about mb-3 pb-3 mb-lg-5 pb-lg-5">
       <h2 class="col-lg-6"><%= t ('front.footer.about.title') %></h2>
       <div class="row mt-4">
         <p class="summary col-lg-6"><%= t ('front.footer.about.summary') %></p>
@@ -11,7 +11,7 @@
         </div>
       </div>
     </div>
-    <ul class="list-partners list-unstyled d-flex flex-wrap align-items-md-center justify-content-around my-5 py-5 gap-4">
+    <ul class="list-partners list-unstyled d-flex flex-wrap align-items-md-center justify-content-around my-2 my-lg-5 py-2 py-lg-5 gap-4">
       <% [
         ['amis-terre.svg', 'Les amis de la Terre'],
         ['code.svg', 'Communication et démocratie'],
@@ -30,7 +30,7 @@
 
   </div>
   <div class="footer-menu pt-5 pb-5">
-    <div class="container pt-5">
+    <div class="container pt-md-5">
       <%= render_navigation(dropdown: false) %>
     </div>
     <div class="container d-lg-flex gap-4 mt-5 align-items-lg-baseline justify-content-lg-between">
@@ -39,7 +39,7 @@
         <p><%= t ('front.footer.legals.credit') %></p>
         <a href="#"><%= t ('front.footer.legals.title') %></a>
       </div>
-      <div class="footer-socials">
+      <div class="footer-socials mt-3 mt-mb-0">
         <a href="#" class="linkedin"><span aria-hidden="true">Li</span><span>Linkedin</span></a>
         <a href="#" class="linkedin"><span aria-hidden="true">Fb</span><span>Linkedin</span></a>
       </div>
