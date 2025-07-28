@@ -54,8 +54,7 @@
               <li class="bg-white rounded p-2 p-md-4">
                 <%= simple_format report.description %>
                 <p class="meta">
-                  <span><%= report.author_pseudonym %></span>
-                  <span><%= l report.created_at.to_date %></span>
+                  <%= t('front.problem.entry', date: (l report.created_at.to_date), alias: report.author_pseudonym) %>
                 </p>
               </li>
             <% end %>

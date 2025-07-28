@@ -97,6 +97,7 @@ fr:
       toc: 
         title: Aller directement
     problem:
+      entry: Signalé le %{date} par %{alias}
       reports:
         one: Signalement reçu
         other: Signalements reçus
