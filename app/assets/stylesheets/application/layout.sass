@@ -253,6 +253,24 @@ form
             color: $color-pink
         p
             margin-bottom: 0
+
+.reports h2
+    span
+        @extend .ms-1
+        display: inline-block
+        position: relative
+        &::before
+            @extend .rounded-pill
+            background-color: $color-green
+            bottom: -4px
+            content: ''
+            left: -8px
+            position: absolute
+            right: -8px
+            top: -4px
+            transform: rotate(-2deg)
+            z-index: -1
+
 .report-form
     form
         h3
