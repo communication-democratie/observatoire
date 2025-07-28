@@ -157,6 +157,7 @@ form
         border-radius: 10px !important
     .form-control
         font-size: 16px
+
 .btn-outline-dark
     border: 1px solid $color-black
     color: $color-black
@@ -164,6 +165,16 @@ form
         background-color: $color-black
         &, a
             color: $color-white !important
+
+.btn-dark
+    @extend .btn
+    --bs-btn-border-radius: var(--bs-border-radius-pill)
+    background-color: $color-black
+    color: $color-light-blue
+    &:hover
+        background-color: $color-white
+        border-color: $color-black
+        color: $color-black
 
 .btn-icon
     @extend .btn
@@ -176,10 +187,14 @@ form
     &--problem
         --bs-card-border-width: 0
         --bs-card-border-radius: 40px
+        height: 100%
         padding: 2px
         > .card-content 
             background: var(--bs-body-bg)
             border-radius: var(--bs-card-border-radius)
+            display: flex
+            flex-direction: column
+            height: 100%
             position: relative
             transition: transform 0.3s ease
             z-index: 2
@@ -191,6 +206,12 @@ form
                 border-radius: var(--bs-card-border-radius) !important
         .card-body
             @extend .pt-4
+            display: flex
+            flex-direction: column
+            > div
+                margin-top: auto !important
+            .card-date
+                font-size: $meta-font-size
         .badge-step
             position: absolute
             top: map-get($spacers, 3)
@@ -211,7 +232,7 @@ form
         aspect-ratio: 1.3304
         object-fit: cover
         filter: grayscale(1)
-    .card:hover .problem__thumb
+    &:hover .problem__thumb
         filter: grayscale(0)
 
 .top
@@ -286,6 +307,11 @@ form
             --bs-border-width: 0
             background-color: $color-light-blue
         input[type="submit"]
+            color: $color-light-blue
+            background-color: $color-dark-blue
+            &:hover
+                color: $color-dark-blue
+                background-color: $color-light-blue
     .faceted__facet__list
         @extend .d-flex
         @extend .flex-wrap
@@ -298,6 +324,11 @@ form
             @extend .btn-outline-dark
             @extend .text-black
             @extend .rounded-pill
+    .faceted__facet__reinit a
+        @extend .btn-dark
+        @extend .mt-4
+        @extend .px-3
+
 // facets accordions
 .search-filters.accordion
     --bs-accordion-color: $color-blue

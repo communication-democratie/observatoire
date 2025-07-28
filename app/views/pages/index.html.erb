@@ -32,7 +32,7 @@
   <h2>Les dernières <span>campagnes</span></h2>
   <div class="mt-5 pt-3">
     
-    <%= render 'problems/list', problems: @problems %>
+    <%= render 'problems/list', problems: @problems, column_size: 3 %>
     <%= link_to 'Voir toutes', problems_path, class: 'btn-icon' %>
   </div>
 </section>

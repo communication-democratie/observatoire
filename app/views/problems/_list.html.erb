@@ -1,6 +1,8 @@
+<% column_size ||= 4 %>
+
 <div class="row g-4">
   <% problems.each do |problem| %>
-    <div class="col-lg-4">
+    <div class="col-md-6 col-lg-<%= column_size%>">
       <div class="card card--problem bg-white">
         <div class="card-content">
         <%= kamifusen_tag problem.image,
@@ -22,11 +24,11 @@
           <% end %>
           <div class="my-4 d-flex flex-wrap gap-2">
             <% problem.main_categories.each do |category| %>
-              <span class="btn badge btn-outline-dark py-1"><%= category %></span>
+              <span class="btn badge btn-outline-dark py-1"><%= category.to_s.truncate(25) %></span>
             <% end %>
             <%= render 'problems/badge', problem: problem %>
           </div>
-          <span><%= l(problem.created_at, format: :month_year).capitalize %></span>
+          <span class="card-date"><%= l(problem.created_at, format: :month_year).capitalize %></span>
         </div>
         </div>
       </div>
