@@ -142,20 +142,12 @@ footer
         h2,
         .summary
             color: $color-dark-blue
-    .list-partners
+    .shortcode__partners
         padding-left: map-get($spacers, 2)
         padding-right: map-get($spacers, 2)
         @include media-breakpoint-up(md)
             padding-left: map-get($spacers, 7)
             padding-right: map-get($spacers, 7)
-        li 
-            img
-                max-height: 70px
-                width: 100%
-        @include media-breakpoint-down(md)
-            row-gap: 20px !important
-            li img
-                height: 40px
     .footer-menu
         @extend .text-white
         background-color: $color-dark-blue

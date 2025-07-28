@@ -1,0 +1,13 @@
+<%
+bw = local_assigns.dig(:bw)
+path = bw ? 'logos/bw/' : 'logos/color/'
+%>
+<div class="shortcode__partners">
+  <ul class="list-unstyled d-flex flex-wrap align-items-md-center justify-content-md-around my-2 my-lg-5 pb-2 pb-lg-5 gap-4">
+    <% Partners::LIST.each do |logo, name| %>
+      <li>
+        <%= image_tag "#{path}#{logo}", class: 'img-fluid', alt: name %>
+      </li>
+    <% end %>
+  </ul>
+</div>

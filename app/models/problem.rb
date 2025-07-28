@@ -53,16 +53,10 @@ class Problem < ApplicationRecord
 
 
   def description_to_html
-    markdown.render description
+    MarkdownRenderer.new(description).html
   end
 
   def to_s
     "#{title}"
-  end
-
-  protected
-
-  def markdown
-    @markdown ||= Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true)
   end
 end

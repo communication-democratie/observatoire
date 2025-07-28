@@ -14,28 +14,14 @@ class Page < ApplicationRecord
 
   scope :ordered, -> { order(:position) }
 
-  def html
-    renderer = Redcarpet::Render::HTML.new(hard_wrap: true, with_toc_data: true)
-    redcarpet = Redcarpet::Markdown.new(renderer, extensions = {})
-    "<div class=\"markdown\">#{redcarpet.render(markdown)}</div>".html_safe
-  end
-
-  def toc
-    renderer = Redcarpet::Render::HTML_TOC.new(nesting_level: 2)
-    redcarpet = Redcarpet::Markdown.new(renderer, extensions = {})
-    redcarpet.render(markdown).html_safe
-  end
-
-  def h2_titles
-    @h2_titles ||= Nokogiri::HTML(toc).xpath('//a').map do |node|
-      [
-        node.text,
-        node.attributes['href'].value
-      ]
-    end
-  end
+  delegate  :html, :toc, :h2_titles,
+            to: :markdown_renderer
 
   def to_s
     "#{title}"
+  end
+
+  def markdown_renderer
+    @markdown_renderer ||= MarkdownRenderer.new(markdown)
   end
 end

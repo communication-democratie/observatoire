@@ -123,6 +123,11 @@ fr:
 
     website: Observatoire Citoyen de la Publicité
   simple_form:
+    hints:
+      problem: 
+        description: Utilisez du markdown, avec les titres à partir du niveau 2 (##). Vous pouvez utiliser le code [partners] pour les logos des partenaires.
+      page:
+        markdown: Utilisez du markdown, avec les titres à partir du niveau 2 (##). Vous pouvez utiliser le code [partners] pour les logos des partenaires.
     placeholders:
       report:
         author_pseudonym: Cela permet d'identifier publiquement vos signalements

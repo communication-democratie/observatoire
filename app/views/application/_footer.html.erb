@@ -12,24 +12,7 @@
       </div>
     </div>
   </div>
-  <div class="list-partners">
-    <ul class="list-unstyled d-flex flex-wrap align-items-md-center justify-content-md-around my-2 my-lg-5 pb-2 pb-lg-5 gap-4">
-      <% [
-        ['amis-terre.svg', 'Les amis de la Terre'],
-        ['code.svg', 'Communication et démocratie'],
-        ['rap.svg', 'Résistance à l\'agression publicitaire'],
-        ['sherpa.svg', 'Sherpa'],
-        ['veblen.svg', 'Institut Veblen'],
-        ['zerowaste.svg', 'Zero Waste'],
-      ].each do |logo, name| %>
-        <li>
-          <%= image_tag "logos/#{logo}",
-                        class: 'img-fluid', 
-                        alt: name %>
-        </li>
-      <% end %>
-    </ul>
-  </div>
+  <%= render 'shortcodes/partners', bw: true %>
   <div class="footer-menu pt-5 pb-5">
     <div class="container pt-md-5">
       <%= render_navigation(context: :footer, dropdown: false) %>
