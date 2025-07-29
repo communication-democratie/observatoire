@@ -53,6 +53,7 @@ h3
         padding-bottom: map-get($spacers, 3)
     .navbar-nav
         @extend .gap-lg-3
+        @extend .align-items-baseline
         @include media-breakpoint-down(lg)
             padding-top: map-get($spacers, 3)
     .nav-item > a
@@ -77,19 +78,20 @@ h3
             @include media-breakpoint-up(lg)
                 height: 60px
     .header-cta
+        position: relative
+        a,
+        &::before,
+        &::after
+            --bs-btn-border-width: 0px
+            background-color: $color-white !important
+            color: $color-dark-blue !important
         a
-            @extend .btn
-            @extend .ms-lg-3
-            @extend .px-3
-            --bs-btn-border-radius: var(--bs-border-radius-pill)
-            color: $color-dark-blue
+            @extend .stretched-link
             &.active
                 --bs-btn-active-bg: #{$color-white}
-                color: $color-dark-blue !important
-            &:hover
-                background-color: $color-dark-blue
-                border-color: $color-white
-                color: $color-white !important
+        &::before,
+        &::after
+            transform: transformX(0%) rotate(180deg)
 
 .breadcrumb
     .breadcrumb-item
@@ -242,39 +244,55 @@ form
         color: $color-dark-blue
 
 .btn-icon
-    @extend .mt-5
+    @include icon(arrow, before)
     @include icon(arrow, after)
     align-items: center
     display: flex
     position: relative
     text-decoration: none
     span,
-    input
+    input,
+    a
         @extend .px-4
         height: 50px
         line-height: 100%
+        z-index: 2
     span,
     input,
+    a,
+    &::before,
     &::after
         @extend .btn
         @extend .btn-primary
         @extend .rounded-pill
-        display: flex
         align-items: center
-        transition: all 0.3s ease
+        display: flex
+        transition: all 0.5s ease
+    &::before,
     &::after
         height: 50px
-        width: 50px
+        display: flex
         justify-items: center
-        transform: rotate(180deg)
-        transition: all 0.3s ease
-    // &:hover
-    //     span,
-    //     input
-    //         transform: translateX(50px)
-        // &::after
-        //     position: absolute
-        //     left: 0
+        transform-origin: center
+        transition: all 0.5s ease
+        width: 50px
+        z-index: 1
+    &::after
+        transform: translateX(0%) rotate(0deg)
+    &::before
+        position: absolute
+        opacity: 0
+        transform: translateX(100%) rotate(180deg)
+    &:hover
+        span,
+        input,
+        a
+            transform: translateX(50px) rotate(0deg)
+        &::after
+            transform: translateX(-100%) rotate(-180deg)
+        &::before
+            opacity: 1
+            transform: translateX(0) rotate(0deg)
 
 .card
     &--problem
@@ -331,7 +349,7 @@ form
 .top
     background: $color-yellow
     text-align: center
-    padding: 10px
+    padding: 10px©
 
 // home
 .list-missions

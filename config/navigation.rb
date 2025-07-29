@@ -14,6 +14,6 @@ SimpleNavigation::Configuration.run do |navigation|
         end
       end
     end
-    primary.item :button, 'Signaler', '/#reporting', html: { class: 'header-cta' }
+    primary.item :button, 'Signaler', '/#reporting', html: { class: 'header-cta btn-icon' }
   end
 end
