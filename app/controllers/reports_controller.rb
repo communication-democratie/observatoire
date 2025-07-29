@@ -4,6 +4,7 @@ class ReportsController < ApplicationController
     if @report.valid?
       redirect_to root_path, notice: "Merci pour ce signalement !"
     else
+      @problems =  Problem.for_home
       render 'pages/index'
     end
   end
