@@ -1,5 +1,7 @@
 <% content_for :title, @problem %>
 
+<%= simple_format @problem.analyzed_by %>
+
 <div class="row mb-5">
   <div class="col-lg-6">
     <%= image_tag @problem.image, class: 'img-fluid rounded' if @problem.image.attached? %>
