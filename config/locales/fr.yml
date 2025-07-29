@@ -76,6 +76,8 @@ fr:
   front:
     analyzed:
       title_html: "Toutes nos <span>analyses</span>"
+    header:
+      banner: L'OCP est en version beta publique, vos avis sont bienvenus !
     footer:
       about:
         title: Un projet participatif.
@@ -85,7 +87,7 @@ fr:
           - L’OCP est également pensé comme une source d’information à destination des citoyen·nes, des médias et des institutions pour mieux cerner les problématiques qui découlent des mauvaises pratiques publicitaires.
       legals:
         copyright: Copyright 2025
-        credit_html: Design <a href="https://www.bernatfont.com" target="_blank" rel="noreferrer noopener">Bernat Font</a>, code <a href="https://www.noesya.coop" target="_blank" rel="noreferrer noopener">noesya</a>
+        credit_html: Design <a href="https://www.bernatfont.com" target="_blank" rel="noreferrer noopener" title="Bernat Font - Ouverture dans une nouvelle fenêtre">Bernat Font</a>, code <a href="https://www.noesya.coop" target="_blank" rel="noreferrer noopener" title="noesya - Ouverture dans une nouvelle fenêtre">noesya</a>
         title: Mentions légales
     home: Accueil
     missions:

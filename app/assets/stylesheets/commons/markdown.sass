@@ -1,13 +1,12 @@
 .markdown
-    h2:not(.toc-title)
-        border-top: 1px dashed #030370
-        margin-top: 80px !important
-        padding-top: 80px
-    > h2:first-of-type
-        border-top: none
-        margin-top: 0 !important
-        padding-top: 0
+    h2:not(:first-of-type, .toc-title)
+        border-top: 3px dotted #030370
+        margin-top: map-get($spacers, 6)
+        padding-top: map-get($spacers, 6)
+        @include media-breakpoint-up(md)
+            margin-top: 80px
+            padding-top: 80px
     h3
-        margin-top: 50px
+        margin-top: map-get($spacers, 6)
     img
         max-width: 100%

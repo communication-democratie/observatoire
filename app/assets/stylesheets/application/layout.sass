@@ -43,19 +43,28 @@ h3
             &:nth-of-type(2)
                 background: $color-yellow
                 transform: rotate(1deg)
+        @include media-breakpoint-down(md)
+            padding-bottom: map-get($spacers, 3)
 
 .navbar
     background: $color-dark-blue
     @include media-breakpoint-up(lg)
-        padding-top: 50px
-        padding-bottom: 100px
-    @include media-breakpoint-down(lg)
-        padding-bottom: map-get($spacers, 3)
+        padding-top: 20px
+        padding-bottom: 130px
+        @include media-breakpoint-down(xxl)
+            > .container
+                flex-wrap: wrap
+                .collapse
+                    justify-content: start !important
     .navbar-nav
         @extend .gap-lg-3
         @extend .align-items-baseline
         @include media-breakpoint-down(lg)
             padding-top: map-get($spacers, 3)
+        @include media-breakpoint-down(md)
+            > li
+                padding-right: map-get($spacers, 1)
+                width: 100%
     .nav-item > a
         color: $color-white !important
     .dropdown
@@ -71,7 +80,18 @@ h3
             --bs-dropdown-link-active-bg: transparent
             --bs-dropdown-link-active-color: #{$color-black}
         &-item
-            --bs-dropdown-link-color: #{$color-text-alt} 
+            --bs-dropdown-link-color: #{$color-text-alt}
+            @include media-breakpoint-down(md)
+                font-size: $meta-font-size
+        &-toggle
+            @include icon(chevron, after)
+            &::after
+                @extend .ms-2
+                border: none
+                transform: rotate(90deg)
+                transition: transform 0.3s ease
+            &[aria-expanded="true"]::after
+                transform: rotate(270deg)
     .navbar-brand
         img
             height: 40px
@@ -92,13 +112,35 @@ h3
         &::before,
         &::after
             transform: transformX(0%) rotate(180deg)
+        @include media-breakpoint-down(lg)
+            margin-top: map-get($spacers, 3)
+
+.banner
+    @extend .py-2
+    @extend .px-4
+    p
+        margin-bottom: 0
+        margin-left: auto
+        margin-right: auto
+        text-align: center
+        @include media-breakpoint-up(lg)
+            max-width: 70%
+    &--header
+        font-family: $font-kaio
+        background: $color-yellow
 
 .breadcrumb
+    --bs-breadcrumb-item-active-color:#{$color-white}
     .breadcrumb-item
-        + .breadcrumb-item::before
-            color: $color-white
-        &.active
-            color: $color-white
+        a
+            text-decoration: none
+        + .breadcrumb-item
+            --bs-breadcrumb-divider-color: #{$color-white}
+            @include icon(arrow, before)
+            &::before
+                font-size: $meta-font-size
+                float: unset
+                vertical-align: baseline
 
 .toc
     text-align: left !important
@@ -117,12 +159,27 @@ h3
             + li
                 @extend .mt-2
             a
+                @include icon(arrow, before)
                 text-decoration: none
                 color: $color-dark-blue
+                &::before
+                    font-size: 14px
+                    margin-right: map-get($spacers, 1)
+                    transition: transform 0.3s ease
+                    vertical-align: baseline
+                    @include media-breakpoint-up(md)
+                        font-size: $meta-font-size
                 &:hover
-                    text-decoration: underline
-                    text-decoration-thickness: 2px
-                    text-underline-offset: 2px
+                    &::before
+                        transform: rotate(-45deg)
+    @include media-breakpoint-down(lg)
+        margin-bottom: map-get($spacers, 4)
+    @include media-breakpoint-down(md)
+        background: $color-light-blue
+        margin-top: -(map-get($spacers, 2))
+        padding-top: map-get($spacers, 3)
+        &, .toc-title
+            font-size: $meta-font-size
 
 
 
@@ -294,6 +351,16 @@ form
             opacity: 1
             transform: translateX(0) rotate(0deg)
 
+.accordion
+    &-button
+        @include icon(chevron, after)
+        &::after
+            background: none !important
+            transform: rotate(90deg)
+            transition: none
+        &[aria-expanded="true"]::after
+            transform: rotate(270deg)
+
 .card
     &--problem
         --bs-card-border-width: 0
@@ -346,11 +413,6 @@ form
     &:hover .problem__thumb
         filter: grayscale(0)
 
-.top
-    background: $color-yellow
-    text-align: center
-    padding: 10px©
-
 // home
 .list-missions
     .mission
@@ -369,7 +431,6 @@ form
 .page-content
     * + h2
         @extend .mb-4
-        @extend .mt-5
 
 .reports h2
     span
