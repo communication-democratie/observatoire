@@ -1,8 +1,6 @@
 class PagesController < ApplicationController
   def index
-    @problems =  Problem.important
-                        .ordered
-                        .limit(4)
+    @problems =  Problem.for_home
     @report = Report.new
   end
 

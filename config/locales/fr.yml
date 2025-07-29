@@ -15,6 +15,7 @@ fr:
         title: Titre
         markdown: Texte (markdown)
       problem:
+        analyzed_by: Analysée par
         description: Description
         year: Année
         reports: Signalements

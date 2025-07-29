@@ -3,6 +3,7 @@
 # Table name: problems
 #
 #  id          :uuid             not null, primary key
+#  analyzed_by :string
 #  description :text
 #  title       :string
 #  year        :integer
@@ -31,6 +32,7 @@ class Problem < ApplicationRecord
   scope :ordered, -> { order(year: :desc) }
   scope :normal_and_important, -> { joins(:step).where('problem_steps.importance >= 0') }
   scope :important, -> { joins(:step).where('problem_steps.importance > 0') }
+  scope :for_home, -> { important.ordered.limit(4) }
 
   def identifier
     id.split('-').first.upcase

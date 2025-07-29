@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_07_24_154210) do
+ActiveRecord::Schema[8.0].define(version: 2025_07_29_083451) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -182,6 +182,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_24_154210) do
     t.string "title"
     t.uuid "step_id"
     t.integer "year"
+    t.string "analyzed_by"
     t.index ["step_id"], name: "index_problems_on_step_id"
   end
 
