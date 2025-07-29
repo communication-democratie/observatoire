@@ -55,16 +55,20 @@ SimpleNavigation::Configuration.run do |navigation|
                         controller_name == 'problems' && @step.nil?
                       }
     end
-    Taxonomy.ordered.each do |taxonomy|
-      primary.item  taxonomy.id.to_sym,
-                    taxonomy.to_s,
-                    admin_taxonomy_path(taxonomy),
-                    {
-                      icon: 'bi bi-tag-fill',
-                      highlights_on: lambda {
-                        @taxonomy == taxonomy || @category&.taxonomy == taxonomy
+    primary.item  :taxonomies,
+                  Taxonomy.model_name.human(count: 2),
+                  nil,
+                  { icon: 'bi bi-tag-fill' } do |secondary|
+      Taxonomy.ordered.each do |taxonomy|
+        secondary.item  taxonomy.id.to_sym,
+                      taxonomy.to_s,
+                      admin_taxonomy_path(taxonomy),
+                      {
+                        highlights_on: lambda {
+                          @taxonomy == taxonomy || @category&.taxonomy == taxonomy
+                        }
                       }
-                    }
+      end
     end
     primary.item  :pages,
                   'Pages statiques',
