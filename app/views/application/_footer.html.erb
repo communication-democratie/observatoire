@@ -21,11 +21,12 @@
       <div class="footer-legal small">
         <p><%= t ('front.footer.legals.copyright') %></p>
         <p><%= t ('front.footer.legals.credit_html') %></p>
-        <a href="#"><%= t ('front.footer.legals.title') %></a>
+        <a href="https://github.com/communication-democratie/observatoire" target="_blank" rel="noreferrer noopener" title="<%= t "front.a11y.external_link", name: t('front.footer.legals.code') %>"><%= t ('front.footer.legals.code') %></a>
+        <a href="#" title="<%= t ('front.footer.legals.title') %>"><%= t ('front.footer.legals.title') %></a>
       </div>
       <div class="footer-socials mt-3 mt-md-0">
-        <a href="#" class="linkedin"><span aria-hidden="true">Li</span><span>Linkedin</span></a>
-        <a href="#" class="linkedin"><span aria-hidden="true">Fb</span><span>Linkedin</span></a>
+        <a href="#" target="_blank" rel="noreferrer noopener" title="<%= t "front.a11y.external_link", name: t('front.footer.socials.linkedin') %>"><span aria-hidden="true">Li</span><span>Linkedin</span></a>
+        <a href="#" target="_blank" rel="noreferrer noopener" title="<%= t "front.a11y.external_link", name: t('front.footer.socials.facebook') %>"><span aria-hidden="true">Fb</span><span>Facebook</span></a>
       </div>
     </div>
   </div>
