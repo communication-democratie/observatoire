@@ -12,6 +12,7 @@
 #
 class Page < ApplicationRecord
 
+  scope :with_position, -> { where.not(position: nil) }
   scope :ordered, -> { order(:position) }
 
   delegate  :html, :toc, :h2_titles,
