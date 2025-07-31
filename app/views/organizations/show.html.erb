@@ -1,10 +1,22 @@
-<p style="color: green"><%= notice %></p>
+<%= content_for :title, @organization %>
 
-<%= render @organization %>
+<% content_for :hero do %>
+  <div class="container">
+    <h1><%= @organization %></h1>
+  </div>
+<% end %>
 
-<div>
-  <%= link_to "Edit this organization", edit_organization_path(@organization) %> |
-  <%= link_to "Back to organizations", organizations_path %>
+<div class="row markdown">
+  <div class="col-lg-3">
+    <%= image_tag @organization.logo, class: 'img-fluid' if @organization.logo.attached? %>
+  </div>
+  <div class="offset-lg-3 col-lg-6" data-bs-spy="scroll" data-bs-target="#toc-content" >
+    <%= @organization.html %>
+    <%= link_to @organization.website,
+                @organization.website,
+                target: :_blank,
+                rel: 'noreferrer noopener' %>
+  </div>
 
-  <%= button_to "Destroy this organization", @organization, method: :delete %>
+  <%= render 'problems/list', problems: @problems %>
 </div>

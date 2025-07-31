@@ -19,7 +19,9 @@
       <%= f.input :position %>
     </div>
     </div>
-    <%= f.input :markdown, input_html: { rows: 20 } %>
+    <%= f.input :markdown,
+                input_html: { rows: 20 },
+                hint: t('admin.markdown_hint') %>
   </div>
 
   <div class="form-actions">

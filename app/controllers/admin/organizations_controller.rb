@@ -44,6 +44,6 @@ class Admin::OrganizationsController < Admin::ApplicationController
     end
 
     def organization_params
-      params.expect(organization: [ :name, :short_name, :description, :website, :level, :logo, :logo_bw ])
+      params.expect(organization: [ :name, :short_name, :slug, :description, :website, :level, :logo, :logo_bw ])
     end
 end

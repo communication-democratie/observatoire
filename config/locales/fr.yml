@@ -83,6 +83,7 @@ fr:
     save: Enregistrer
     show: Voir
     updated: Mise à jour effectuée
+    markdown_hint: Utilisez du markdown, avec les titres à partir du niveau 2 (##). Vous pouvez utiliser les codes [partners] et [members] pour afficher les logos des organisations.
   front:
     a11y:
       external_link: "%{name} - Ouverture dans une nouvelle fenêtre"
@@ -146,10 +147,7 @@ fr:
     hints:
       organization:
         website: Commençant par https://
-      problem:
-        description: Utilisez du markdown, avec les titres à partir du niveau 2 (##). Vous pouvez utiliser le code [partners] pour les logos des partenaires.
       page:
-        markdown: Utilisez du markdown, avec les titres à partir du niveau 2 (##). Vous pouvez utiliser le code [partners] pour les logos des partenaires.
         position: Position dans le menu. Si laissé vide la page n'apparaitra pas dans le menu.
     placeholders:
       report:
