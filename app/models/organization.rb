@@ -23,6 +23,7 @@ class Organization < ApplicationRecord
 
   has_one_attached :logo
   has_one_attached :logo_bw
+  has_and_belongs_to_many :problems
 
   validates_presence_of :name
 

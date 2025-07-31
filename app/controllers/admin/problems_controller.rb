@@ -48,6 +48,6 @@ class Admin::ProblemsController < Admin::ApplicationController
     end
 
     def problem_params
-      params.expect(problem: [ :title, :year, :description, :analyzed_by, :image, :step_id, category_ids: [] ])
+      params.expect(problem: [ :title, :year, :description, :analyzed_by, :image, :step_id, category_ids: [], organization_ids: [] ])
     end
 end
