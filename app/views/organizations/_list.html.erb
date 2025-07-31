@@ -1,0 +1,14 @@
+<ul class="list-unstyled d-flex flex-wrap align-items-md-center justify-content-md-around my-2 my-lg-5 pb-2 pb-lg-5 gap-4">
+  <% organizations.each do |organization| %>
+    <% 
+    attachment_method = bw ? :logo_bw : :logo
+    attachment = organization.send attachment_method
+    next unless attachment.attached?
+    %>
+    <li>
+      <%= image_tag organization.logo,
+                    class: 'img-fluid',
+                    alt: organization.to_s %>
+    </li>
+  <% end %>
+</ul>
