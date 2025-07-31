@@ -250,8 +250,15 @@ footer
             height: 44px
             width: 44px
             span
-                + span
-                    @extend .visually-hidden
+                @extend .visually-hidden
+            &.facebook
+                @include icon(facebook, before)
+            &.instagram
+                @include icon(instagram, before)
+            &.github
+                @include icon(github, before)
+            &.linkedin
+                @include icon(linkedin, before)
             &:hover
                 background-color: $color-light-blue 
                 color: $color-dark-blue !important

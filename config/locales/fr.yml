@@ -88,13 +88,13 @@ fr:
           - À partir des signalements citoyen·nes, l’OCP offre un espace d’expression et de réflexion à ses organisations (membres ou partenaires du projet) afin de nourrir et d’animer le débat public en lien avec leurs domaines d’expertise. 
           - L’OCP est également pensé comme une source d’information à destination des citoyen·nes, des médias et des institutions pour mieux cerner les problématiques qui découlent des mauvaises pratiques publicitaires.
       legals:
-        code: Github
         copyright: Copyright 2025
         credit_html: Design <a href="https://www.bernatfont.com" target="_blank" rel="noreferrer noopener" title="Bernat Font - Ouverture dans une nouvelle fenêtre">Bernat Font</a>, code <a href="https://www.noesya.coop" target="_blank" rel="noreferrer noopener" title="noesya - Ouverture dans une nouvelle fenêtre">noesya</a>
         title: Mentions légales
       socials:
         instagram: Suivre le projet OCP sur Instagram
         facebook: Suivre le projet OCP sur Facebook
+        github: Consulter le code source sur Github
         linkedin: Suivre le projet OCP sur Linkedin
     home: Accueil
     missions:
