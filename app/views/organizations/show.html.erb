@@ -18,5 +18,10 @@
                 rel: 'noreferrer noopener' %>
   </div>
 
-  <%= render 'problems/list', problems: @problems %>
+  <% if @problems.any? %>
+    <section class="mt-5">
+      <h2>Analyses</h2>
+      <%= render 'problems/list', problems: @problems %>
+    </section>
+  <% end %>
 </div>
