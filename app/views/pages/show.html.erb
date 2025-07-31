@@ -12,10 +12,12 @@
   <div class="col-lg-4 text-end toc">
     <div class="sticky-lg-top">
       <h2 class="toc-title"><%= t ('front.pages.toc.title') %></h2>
-      <%= @page.toc %>
+        <nav id="toc-content">
+          <%= @page.toc %>
+        </nav>
     </div>
   </div>
-  <div class="page-content col-lg-8">
+  <div class="page-content col-lg-8" data-bs-spy="scroll" data-bs-target="#toc-content" >
     <%= @page.html %>
   </div>
 </div>

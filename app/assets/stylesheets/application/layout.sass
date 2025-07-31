@@ -74,7 +74,7 @@ h3
                 @extend .py-3
                 text-align: center
             + li
-                border-top: 0.5px solid $color-text-alt
+                border-top: 0.5px solid $color-border-alt
         &-menu
             --bs-dropdown-link-hover-bg: transparent
             --bs-dropdown-link-active-bg: transparent
@@ -161,17 +161,19 @@ h3
             a
                 @include icon(arrow, before)
                 text-decoration: none
-                color: $color-dark-blue
+                color: $color-text-alt
                 &::before
                     font-size: 14px
                     margin-right: map-get($spacers, 1)
                     transition: transform 0.3s ease
                     vertical-align: baseline
+                    transform: rotate(-45deg)
                     @include media-breakpoint-up(md)
                         font-size: $meta-font-size
-                &:hover
+                &.active
+                    color: $color-dark-blue
                     &::before
-                        transform: rotate(-45deg)
+                        transform: rotate(0)
     @include media-breakpoint-down(lg)
         margin-bottom: map-get($spacers, 4)
     @include media-breakpoint-down(md)

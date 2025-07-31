@@ -27,9 +27,11 @@ class MarkdownRenderer
 
   def h2_titles
     @h2_titles ||= Nokogiri::HTML(toc).xpath('//a').map do |node|
+      slug = node.text.parameterize
       [
         node.text,
-        node.attributes['href'].value
+        node.attributes['href'].value,
+        node.set_attribute('id', slug)
       ]
     end
   end
