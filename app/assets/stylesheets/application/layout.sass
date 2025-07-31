@@ -286,6 +286,35 @@ form
     .form-control
         font-size: 16px
 
+details
+    background-color: $color-light-blue
+    border-radius: 20px
+    margin-bottom: map-get($spacers, 2)
+    padding: map-get($spacers, 3) map-get($spacers, 4)
+    summary
+        @include icon(chevron, after)
+        color: $color-dark-blue
+        display: flex
+        align-items: baseline
+        gap: map-get($spacers, 2)
+        font-family: $font-kaio
+        position: relative
+        &::after
+            background: none !important
+            margin-left: auto
+            transform: rotate(90deg)
+            transition: transform 0.3s ease
+    &[open] summary
+        margin-bottom: map-get($spacers, 2)
+        &::after
+            transform: rotate(270deg)
+    + p
+        margin-top: map-get($spacers, 3)
+    @include media-breakpoint-up(md)
+        border-radius: $border-radius-lg
+        summary
+            gap: map-get($spacers, 3)
+
 .btn-outline-dark
     border: 1px solid $color-black
     color: $color-black
