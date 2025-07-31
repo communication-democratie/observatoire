@@ -9,7 +9,7 @@
     <% organizations.each do |organization| %>
       <tr>
         <td><%= link_to organization, [:admin, organization] %></td>
-        <td><%= organization.level %></td>
+        <td><%= organization.level_i18n %></td>
       </tr>
     <% end %>
   </tbody>

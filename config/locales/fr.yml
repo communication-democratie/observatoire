@@ -13,9 +13,11 @@ fr:
         taxonomy: Taxonomie
       organization:
         description: Description
+        level: Niveau
+        logo: Logo
+        logo_bw: Logo noir et blanc
         name: Nom
         short_name: Nom court
-        level: Niveau
         website: Site web
       page: 
         title: Titre
@@ -74,6 +76,7 @@ fr:
     create: Créer
     created: Création effectuée
     dashboard: Tableau de bord
+    delete: Supprimer
     deleted: Suppression effectuée
     edit: Modifier
     save: Enregistrer
@@ -141,7 +144,7 @@ fr:
   simple_form:
     hints:
       organization:
-        website: https://...
+        website: Commençant par https://
       problem: 
         description: Utilisez du markdown, avec les titres à partir du niveau 2 (##). Vous pouvez utiliser le code [partners] pour les logos des partenaires.
       page:
@@ -165,6 +168,10 @@ fr:
       text: requis
     'yes': Oui
   enums:
+    organization:
+      level:
+        member: Membre
+        partner: Partenaire
     problem:
       step:
         importance:

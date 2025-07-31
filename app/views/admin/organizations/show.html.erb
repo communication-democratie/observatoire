@@ -1,14 +1,36 @@
 <% content_for :title, @organization %>
 
-<p>
-  <%= @organization.short_name %>,
-  <%= @organization.level %>
-</p>
-<p><%= link_to @organization.website, @organization.website %></p>
 
-<%= @organization.html %>
+<div class="row">
+  <div class="col-lg-8">
+    <%= @organization.html %>
+    <div class="row mt-5">
+      <div class="col-lg-6">
+        <div class="card mt-4 p-5">
+          <%= image_tag @organization.logo, class: 'img-fluid' if @organization.logo.attached? %>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="card mt-4 p-5">
+          <%= image_tag @organization.logo_bw, class: 'img-fluid' if @organization.logo_bw.attached? %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-4">
+    <p><%= @organization.short_name %></p>
+    <p><%= @organization.level_i18n %></p>
+    <%= link_to @organization.website, @organization.website %><br>
+  </div>
+</div>
 
 <% content_for :buttons do %>
-  <%= link_to t('admin.edit'), edit_admin_organization_path(@organization), class: button_classes %>
-  <%= button_to t('admin.destroy'), @organization, method: :delete %>
+  <%= link_to t('admin.edit'),
+              edit_admin_organization_path(@organization),
+              class: button_classes %>
+  <%= link_to t('admin.delete'),
+              [:admin, @organization],
+              method: :delete, 
+              data: { confirm: 'Vraiment ?' },
+              class: button_classes_danger %>
 <% end %>

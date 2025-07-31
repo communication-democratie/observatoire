@@ -20,6 +20,12 @@ class Organization < ApplicationRecord
     member: 0,
     partner: 1
   }
+
+  has_one_attached :logo
+  has_one_attached :logo_bw
+
+  validates_presence_of :name
+
   delegate  :html, :toc, :h2_titles,
             to: :markdown_renderer
 
