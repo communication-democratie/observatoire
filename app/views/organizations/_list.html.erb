@@ -6,9 +6,11 @@
     next unless attachment.attached?
     %>
     <li>
-      <%= image_tag rails_blob_path(attachment),
-                    class: 'img-fluid',
-                    alt: organization.to_s %>
+      <%= link_to organization_path(slug: organization.slug) do %>
+        <%= image_tag rails_blob_path(attachment),
+                      class: 'img-fluid',
+                      alt: organization.to_s %>
+      <% end %>
     </li>
   <% end %>
 </ul>

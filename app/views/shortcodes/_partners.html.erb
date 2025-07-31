@@ -1,6 +1,6 @@
 <%
 bw = local_assigns.dig(:bw)
-organizations = Organization.partner
+organizations = Organization.partner.ordered
 %>
 <div class="shortcode__partners">
   <%= render 'organizations/list', organizations: organizations, bw: bw %>

@@ -16,11 +16,11 @@ Rails.application.routes.draw do
   get 'pubs' => 'problems#index', as: :problems
   get 'pubs/:id' => 'problems#show', as: :problem
   get 'analyses' => 'problems#analyzed', as: :analyzed_problems
+  get 'organisations/:slug' => 'organizations#show', as: :organization
   get ':taxonomy_slug' => 'categories#index', as: :taxonomy, constraints: lambda { |request|
     request.path.remove("/").in? Taxonomy.pluck(:slug)
   }
   get ':taxonomy_slug/:category_slug' => 'categories#show', as: :category
-  get 'organisations/:slug' => 'organisations#show', as: :organization
 
   get 'up' => "rails/health#show", as: :rails_health_check
   
