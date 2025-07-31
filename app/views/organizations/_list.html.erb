@@ -2,11 +2,11 @@
   <% organizations.each do |organization| %>
     <%
     attachment_method = bw ? :logo_bw : :logo
-    attachment = organization.send attachment_method
+    attachment = organization.public_send(attachment_method)
     next unless attachment.attached?
     %>
     <li>
-      <%= image_tag rails_blob_path(organization.logo),
+      <%= image_tag rails_blob_path(attachment),
                     class: 'img-fluid',
                     alt: organization.to_s %>
     </li>

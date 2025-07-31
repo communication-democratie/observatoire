@@ -1,0 +1,7 @@
+<%
+bw = local_assigns.dig(:bw)
+organizations = Organization.member
+%>
+<div class="shortcode__members">
+  <%= render 'organizations/list', organizations: organizations, bw: bw %>
+</div>
