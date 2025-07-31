@@ -1,6 +1,8 @@
 <% content_for :title, @problem %>
 
-<%= simple_format @problem.analyzed_by %>
+<% if @problem.organizations.any? %>
+  <%= render 'problems/analyzed_by', problem: @problem %>
+<% end %>
 
 <div class="row mb-5">
   <div class="col-lg-6">

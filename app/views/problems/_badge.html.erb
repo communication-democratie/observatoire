@@ -1,6 +1,6 @@
 <span class="badge badge-step bg-secondary py-1">
   <% if problem.organizations.any? %>
-    Analysée par <%= problem.organizations.map { |organization| organization.short_name }.to_sentence %>
+    <%= render 'problems/analyzed_by', problem: problem %>
   <% else %>
     <%= problem.step %>
   <% end %>

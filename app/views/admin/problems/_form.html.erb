@@ -13,7 +13,6 @@
   <div class="row">
     <div class="col-lg-4">
       <%= f.input :image %>
-      <%= f.input :analyzed_by %>
       <%= f.association :organizations, as: :check_boxes %>
       <%= f.association :step, include_blank: false, as: :radio_buttons %>
       <% Taxonomy.all.ordered.each do |taxonomy| %>

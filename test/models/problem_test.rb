@@ -3,7 +3,6 @@
 # Table name: problems
 #
 #  id          :uuid             not null, primary key
-#  analyzed_by :string
 #  description :text
 #  title       :string
 #  year        :integer
