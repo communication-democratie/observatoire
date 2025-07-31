@@ -138,6 +138,7 @@ fr:
         description: Utilisez du markdown, avec les titres à partir du niveau 2 (##). Vous pouvez utiliser le code [partners] pour les logos des partenaires.
       page:
         markdown: Utilisez du markdown, avec les titres à partir du niveau 2 (##). Vous pouvez utiliser le code [partners] pour les logos des partenaires.
+        position: Position dans le menu. Si laissé vide la page n'apparaitra pas dans le menu.
     placeholders:
       report:
         author_pseudonym: Cela permet d'identifier publiquement vos signalements
