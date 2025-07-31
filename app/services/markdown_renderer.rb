@@ -1,6 +1,11 @@
 class MarkdownRenderer
   attr_reader :markdown
 
+  SHORTCODES = [
+    :partners,
+    :members
+  ]
+
   def initialize(markdown)
     @markdown = markdown
   end
@@ -39,12 +44,13 @@ class MarkdownRenderer
   protected
 
   def convert_shortcodes(html)
-    html.split('[partners]')
-        .join(shortcode_partners)
-        .html_safe
-  end
-
-  def shortcode_partners
-    ApplicationController.render partial: "shortcodes/partners"
+    SHORTCODES.each do |code|
+      placeholder = "[#{code}]"
+      content = ApplicationController.render partial: "shortcodes/#{code}"
+      html = html.split(placeholder)
+                 .join(content)
+                .html_safe
+    end
+    html
   end
 end

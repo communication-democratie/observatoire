@@ -5,7 +5,9 @@
   <div class="row">
     <div class="col-lg-8">
       <%= f.input :name %>
-      <%= f.input :description, input_html: { rows: 6} %>
+      <%= f.input :description,
+                  input_html: { rows: 6},
+                  hint: t('admin.markdown_hint') %>
       <div class="row">
         <div class="col-lg-6">
           <%= f.input :logo %>
