@@ -1,0 +1,35 @@
+# == Schema Information
+#
+# Table name: organizations
+#
+#  id          :uuid             not null, primary key
+#  description :text
+#  level       :integer          default("member")
+#  name        :string
+#  short_name  :string
+#  slug        :string
+#  website     :string
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+class Organization < ApplicationRecord
+
+  scope :ordered, -> { order(:name) }
+
+  enum :level, {
+    member: 0,
+    partner: 1
+  }
+  delegate  :html, :toc, :h2_titles,
+            to: :markdown_renderer
+
+  def to_s
+    "#{name}"
+  end
+
+  protected
+
+  def markdown_renderer
+    @markdown_renderer ||= MarkdownRenderer.new(description)
+  end
+end

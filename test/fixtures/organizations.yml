@@ -1,0 +1,29 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# == Schema Information
+#
+# Table name: organizations
+#
+#  id          :uuid             not null, primary key
+#  description :text
+#  level       :integer          default("member")
+#  name        :string
+#  short_name  :string
+#  slug        :string
+#  website     :string
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+one:
+  name: MyString
+  short_name: MyString
+  description: MyText
+  website: MyString
+  level: 1
+
+two:
+  name: MyString
+  short_name: MyString
+  description: MyText
+  website: MyString
+  level: 1

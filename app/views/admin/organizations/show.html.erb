@@ -1,0 +1,14 @@
+<% content_for :title, @organization %>
+
+<p>
+  <%= @organization.short_name %>,
+  <%= @organization.level %>
+</p>
+<p><%= link_to @organization.website, @organization.website %></p>
+
+<%= @organization.html %>
+
+<% content_for :buttons do %>
+  <%= link_to t('admin.edit'), edit_admin_organization_path(@organization), class: button_classes %>
+  <%= button_to t('admin.destroy'), @organization, method: :delete %>
+<% end %>

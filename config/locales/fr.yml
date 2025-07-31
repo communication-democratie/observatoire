@@ -11,6 +11,12 @@ fr:
         slug: Slug
         title: Titre
         taxonomy: Taxonomie
+      organization:
+        description: Description
+        name: Nom
+        short_name: Nom court
+        level: Niveau
+        website: Site web
       page: 
         title: Titre
         markdown: Texte (markdown)
@@ -134,6 +140,8 @@ fr:
     website: Observatoire Citoyen de la Publicité
   simple_form:
     hints:
+      organization:
+        website: https://...
       problem: 
         description: Utilisez du markdown, avec les titres à partir du niveau 2 (##). Vous pouvez utiliser le code [partners] pour les logos des partenaires.
       page:

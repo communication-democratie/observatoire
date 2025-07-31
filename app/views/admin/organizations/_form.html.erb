@@ -1,0 +1,22 @@
+<%= simple_form_for [:admin, @organization] do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="row">
+    <div class="col-lg-8">
+      <%= f.input :name %>
+    </div>
+    <div class="col-lg-4">
+      <%= f.input :short_name %>
+    </div>
+  </div>
+  <div class="form-inputs">
+    <%= f.input :description, input_html: { rows: 6} %>
+    <%= f.input :website %>
+    <%= f.input :level, include_blank: false %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

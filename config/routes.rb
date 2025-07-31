@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     end
     resources :reports, only: [:index, :show, :edit, :update]
     resources :taxonomies, :categories, :problems, :pages
+    resources :organizations
     root to: "dashboard#index"
   end
 
@@ -15,14 +16,15 @@ Rails.application.routes.draw do
   get 'pubs' => 'problems#index', as: :problems
   get 'pubs/:id' => 'problems#show', as: :problem
   get 'analyses' => 'problems#analyzed', as: :analyzed_problems
-  get ":taxonomy_slug" => 'categories#index', as: :taxonomy, constraints: lambda { |request|
+  get ':taxonomy_slug' => 'categories#index', as: :taxonomy, constraints: lambda { |request|
     request.path.remove("/").in? Taxonomy.pluck(:slug)
   }
-  get ":taxonomy_slug/:category_slug" => 'categories#show', as: :category
+  get ':taxonomy_slug/:category_slug' => 'categories#show', as: :category
+  get 'organisations/:slug' => 'organisations#show', as: :organization
 
-  get "up" => "rails/health#show", as: :rails_health_check
+  get 'up' => "rails/health#show", as: :rails_health_check
   
-  root to: "pages#index"
+  root to: 'pages#index'
   
   match "*slug" => "pages#show", via: :get, constraints: lambda { |request|
     request.path.exclude? 'rails/active_storage'
