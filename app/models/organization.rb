@@ -13,6 +13,7 @@
 #  updated_at  :datetime         not null
 #
 class Organization < ApplicationRecord
+  include WithSlug
 
   scope :ordered, -> { order(:name) }
 
