@@ -44,16 +44,16 @@ class MarkdownRenderer
   protected
 
   def convert_shortcodes(html)
-    SHORTCODES.each do |code|
-      placeholder = "[#{code}]"
+    SHORTCODES.each do |shortcode|
+      placeholder = "[#{shortcode}]"
       html = html.split(placeholder)
-                 .join(render(code))
+                 .join(render(shortcode))
                  .html_safe
     end
     html
   end
 
-  def render(code)
-    ApplicationController.render partial: "shortcodes/#{code}"
+  def render(shortcode)
+    ApplicationController.render partial: "shortcodes/#{shortcode}"
   end
 end
