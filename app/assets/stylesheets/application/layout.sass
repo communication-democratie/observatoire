@@ -3,7 +3,7 @@
     --bs-badge-font-weight: normal
     font-family: $font
     font-size: 16px
-    
+
 // colors
 .bg-form
     background: $color-light-pink
@@ -39,7 +39,7 @@ h3
             padding: 5px 30px
             border-radius: 50px
             display: inline-block
-            transform: rotate(-1deg) 
+            transform: rotate(-1deg)
             &:nth-of-type(2)
                 background: $color-yellow
                 transform: rotate(1deg)
@@ -206,6 +206,7 @@ footer
         h2,
         .summary
             color: $color-dark-blue
+    .shortcode__members,
     .shortcode__partners
         padding-left: map-get($spacers, 2)
         padding-right: map-get($spacers, 2)
@@ -238,7 +239,7 @@ footer
         @include media-breakpoint-down(md)
             > a
                 display: block
-                + * 
+                + *
                     margin-top: 1rem
     .footer-socials
         @extend .d-flex
@@ -265,11 +266,11 @@ footer
             &.linkedin
                 @include icon(linkedin, before)
             &:hover
-                background-color: $color-light-blue 
+                background-color: $color-light-blue
                 color: $color-dark-blue !important
                 text-decoration: none
 
-section 
+section
     h2
         margin-bottom: 3.125rem
     + section
@@ -415,7 +416,7 @@ details
         --bs-card-border-radius: 40px
         height: 100%
         padding: 2px
-        > .card-content 
+        > .card-content
             background: var(--bs-body-bg)
             border-radius: var(--bs-card-border-radius)
             display: flex
