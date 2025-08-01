@@ -12,10 +12,11 @@
 #  updated_at  :datetime         not null
 #
 class Taxonomy < ApplicationRecord
+  include WithSlug
 
   has_many :categories
 
-  validates_presence_of :title, :slug
+  validates_presence_of :title
 
   scope :for_reports, -> { where(for_reports: true) }
   scope :ordered, -> { order(:position) }

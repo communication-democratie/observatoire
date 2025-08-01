@@ -1,0 +1,35 @@
+<%= simple_form_for [:admin, @organization] do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="row">
+    <div class="col-lg-8">
+      <%= f.input :name %>
+      <%= f.input :description,
+                  input_html: { rows: 6},
+                  hint: t('admin.markdown_hint') %>
+      <div class="row">
+        <div class="col-lg-6">
+          <%= f.input :logo %>
+        </div>
+        <div class="col-lg-6">
+          <%= f.input :logo_bw %>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <%= f.input :slug, 
+                  input_html: f.object.persisted? ? {} : {
+                    class: 'js-slug-input',
+                    data: { source: '#organization_name' }
+                  } %>
+      <%= f.input :short_name %>
+      <%= f.input :level, include_blank: false %>
+      <%= f.input :website %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, t('admin.save'), class: button_classes %>
+  </div>
+<% end %>

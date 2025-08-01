@@ -14,4 +14,8 @@ module ApplicationHelper
   def button_classes
     'btn btn-primary'
   end
+
+  def button_classes_danger
+    'btn btn-danger'
+  end
 end

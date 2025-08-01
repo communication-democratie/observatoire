@@ -11,16 +11,24 @@ fr:
         slug: Slug
         title: Titre
         taxonomy: Taxonomie
-      page: 
+      organization:
+        description: Description
+        level: Niveau
+        logo: Logo
+        logo_bw: Logo noir et blanc
+        name: Nom
+        short_name: Nom court
+        website: Site web
+      page:
         title: Titre
         markdown: Texte (markdown)
       problem:
-        analyzed_by: Analysée par
         description: Description
-        year: Année
+        organizations: Analysée par
         reports: Signalements
         step: Étape
         title: Titre
+        year: Année
       report:
         author_email: Adresse mail
         author_pseudonym: Pseudonyme
@@ -68,11 +76,13 @@ fr:
     create: Créer
     created: Création effectuée
     dashboard: Tableau de bord
+    delete: Supprimer
     deleted: Suppression effectuée
     edit: Modifier
     save: Enregistrer
     show: Voir
     updated: Mise à jour effectuée
+    markdown_hint: Utilisez du markdown, avec les titres à partir du niveau 2 (##). Vous pouvez utiliser les codes [partners] et [members] pour afficher les logos des organisations.
   front:
     a11y:
       external_link: "%{name} - Ouverture dans une nouvelle fenêtre"
@@ -85,7 +95,7 @@ fr:
         title: Un projet participatif.
         summary: L’Observatoire Citoyen de la Publicité (OCP) est un projet participatif qui vise à donner aux citoyen·nes les moyens de mieux comprendre les enjeux liés aux mauvaises pratiques publicitaires.
         text:
-          - À partir des signalements citoyen·nes, l’OCP offre un espace d’expression et de réflexion à ses organisations (membres ou partenaires du projet) afin de nourrir et d’animer le débat public en lien avec leurs domaines d’expertise. 
+          - À partir des signalements citoyen·nes, l’OCP offre un espace d’expression et de réflexion à ses organisations (membres ou partenaires du projet) afin de nourrir et d’animer le débat public en lien avec leurs domaines d’expertise.
           - L’OCP est également pensé comme une source d’information à destination des citoyen·nes, des médias et des institutions pour mieux cerner les problématiques qui découlent des mauvaises pratiques publicitaires.
       legals:
         copyright: Copyright 2025
@@ -104,7 +114,7 @@ fr:
       - "<h2>Animons</h2><p>Animer le débat public sur la régulation des contenus</p>"
     more: Plus d'informations
     pages:
-      toc: 
+      toc:
         title: Aller directement
     problem:
       entry: Signalé le %{date} par %{alias}
@@ -134,10 +144,9 @@ fr:
     website: Observatoire Citoyen de la Publicité
   simple_form:
     hints:
-      problem: 
-        description: Utilisez du markdown, avec les titres à partir du niveau 2 (##). Vous pouvez utiliser le code [partners] pour les logos des partenaires.
+      organization:
+        website: Commençant par https://
       page:
-        markdown: Utilisez du markdown, avec les titres à partir du niveau 2 (##). Vous pouvez utiliser le code [partners] pour les logos des partenaires.
         position: Position dans le menu. Si laissé vide la page n'apparaitra pas dans le menu.
     placeholders:
       report:
@@ -157,6 +166,10 @@ fr:
       text: requis
     'yes': Oui
   enums:
+    organization:
+      level:
+        member: Membre
+        partner: Partenaire
     problem:
       step:
         importance:

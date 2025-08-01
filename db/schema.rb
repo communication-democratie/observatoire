@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_07_29_083451) do
+ActiveRecord::Schema[8.0].define(version: 2025_07_31_155512) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -156,6 +156,23 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_29_083451) do
     t.index ["scheduled_at"], name: "index_good_jobs_on_scheduled_at", where: "(finished_at IS NULL)"
   end
 
+  create_table "organizations", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "name"
+    t.string "short_name"
+    t.text "description"
+    t.string "website"
+    t.integer "level", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "slug"
+  end
+
+  create_table "organizations_problems", id: false, force: :cascade do |t|
+    t.uuid "organization_id", null: false
+    t.uuid "problem_id", null: false
+    t.index ["problem_id", "organization_id"], name: "index_organizations_problems_on_problem_id_and_organization_id"
+  end
+
   create_table "pages", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "title"
     t.string "slug"
@@ -182,7 +199,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_29_083451) do
     t.string "title"
     t.uuid "step_id"
     t.integer "year"
-    t.string "analyzed_by"
     t.index ["step_id"], name: "index_problems_on_step_id"
   end
 

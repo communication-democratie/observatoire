@@ -3,7 +3,6 @@
 # Table name: problems
 #
 #  id          :uuid             not null, primary key
-#  analyzed_by :string
 #  description :text
 #  title       :string
 #  year        :integer
@@ -24,9 +23,10 @@ class Problem < ApplicationRecord
 
   has_many :reports
   has_and_belongs_to_many :categories
-  
+  has_and_belongs_to_many :organizations
+
   has_one_attached :image
-  
+
   validates_presence_of :year
 
   scope :ordered, -> { order(year: :desc) }

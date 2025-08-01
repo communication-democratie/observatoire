@@ -1,0 +1,7 @@
+<% content_for :title, "Organizations" %>
+
+<%= render 'admin/organizations/list', organizations: @organizations %>
+
+<% content_for :buttons do %>
+  <%= link_to t('admin.create'), new_admin_organization_path, class: button_classes %>
+<% end %>

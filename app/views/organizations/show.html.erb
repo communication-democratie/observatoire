@@ -1,0 +1,27 @@
+<%= content_for :title, @organization %>
+
+<% content_for :hero do %>
+  <div class="container">
+    <h1><%= @organization %></h1>
+  </div>
+<% end %>
+
+<div class="row markdown">
+  <div class="col-lg-3">
+    <%= image_tag @organization.logo, class: 'img-fluid' if @organization.logo.attached? %>
+  </div>
+  <div class="offset-lg-3 col-lg-6" data-bs-spy="scroll" data-bs-target="#toc-content" >
+    <%= @organization.html %>
+    <%= link_to @organization.website,
+                @organization.website,
+                target: :_blank,
+                rel: 'noreferrer noopener' %>
+  </div>
+
+  <% if @problems.any? %>
+    <section class="mt-5">
+      <h2>Analyses</h2>
+      <%= render 'problems/list', problems: @problems %>
+    </section>
+  <% end %>
+</div>

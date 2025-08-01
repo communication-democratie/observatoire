@@ -1,0 +1,16 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th><%= Organization.human_attribute_name(:title) %></th>
+      <th><%= Organization.human_attribute_name(:level) %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% organizations.each do |organization| %>
+      <tr>
+        <td><%= link_to organization, [:admin, organization] %></td>
+        <td><%= organization.level_i18n %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

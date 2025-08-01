@@ -1,6 +1,8 @@
 <% content_for :title, @problem %>
 
-<%= simple_format @problem.analyzed_by %>
+<% if @problem.organizations.any? %>
+  <%= render 'problems/analyzed_by', problem: @problem %>
+<% end %>
 
 <div class="row mb-5">
   <div class="col-lg-6">
@@ -36,6 +38,17 @@
     <%= render 'admin/reports/list', reports: @problem.reports %>
   </div>
 </div>
+
+<% if @problem.organizations.any? %>
+  <div class="card">
+    <div class="card-header">
+      <h2 class="h4"><%= Problem.human_attribute_name(:organizations) %></h2>
+    </div>
+    <div class="card-body">
+      <%= render 'admin/organizations/list', organizations: @problem.organizations %>
+    </div>
+  </div>
+<% end %>
 
 <% content_for :buttons do %>
   <%= link_to t('admin.edit'), edit_admin_problem_path(@problem), class: button_classes %>

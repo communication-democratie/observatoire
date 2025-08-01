@@ -11,6 +11,7 @@
 #  updated_at :datetime         not null
 #
 class Page < ApplicationRecord
+  include WithSlug
 
   scope :with_position, -> { where.not(position: nil) }
   scope :ordered, -> { order(:position) }
