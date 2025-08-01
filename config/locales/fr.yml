@@ -23,7 +23,6 @@ fr:
         title: Titre
         markdown: Texte (markdown)
       problem:
-        analyzed_by: Analysée par (champ déprécié)
         description: Description
         organizations: Analysée par
         reports: Signalements
