@@ -1,0 +1,22 @@
+config_version = "0"
+
+exclude_patterns = [
+  "node_modules/**",
+  "vendor/**",
+  "db/**",
+  "config/**",
+  "docs/**",
+  "test/**"
+]
+
+test_patterns = [
+  "test/**"
+]
+
+[[source]]
+name = "default"
+default = true
+
+[[plugin]]
+name = "eslint"
+version = "5.16.0"
