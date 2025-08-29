@@ -257,12 +257,14 @@ footer
             width: 44px
             span
                 @extend .visually-hidden
+            &.email
+                @include icon(email, before)
             &.facebook
                 @include icon(facebook, before)
-            &.instagram
-                @include icon(instagram, before)
             &.github
                 @include icon(github, before)
+            &.instagram
+                @include icon(instagram, before)
             &.linkedin
                 @include icon(linkedin, before)
             &:hover
