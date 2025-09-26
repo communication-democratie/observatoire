@@ -20,7 +20,7 @@
           next if categories.none?
           %>
             <li>
-              <span class="h5 fw-bold d-block md-2"><%= taxonomy %></span>
+              <span class="h5 d-block md-2"><%= taxonomy %></span>
               <ul class="list-unstyled">
                 <% categories.each do |category| %>
                   <li class="btn badge btn-outline-dark"><%= link_to category, category_path(taxonomy_slug: category.taxonomy.slug, category_slug: category.slug), class: 'text-decoration-none fw-normal text-black' %></li>
