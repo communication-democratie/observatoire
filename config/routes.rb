@@ -13,8 +13,8 @@ Rails.application.routes.draw do
   end
 
   resources :reports, only: :create
-  get 'pubs' => 'problems#index', as: :problems
-  get 'pubs/:id' => 'problems#show', as: :problem
+  get 'publicites' => 'problems#index', as: :problems
+  get 'publicites/:id' => 'problems#show', as: :problem
   get 'analyses' => 'problems#analyzed', as: :analyzed_problems
   get 'organisations/:slug' => 'organizations#show', as: :organization
   get ':taxonomy_slug' => 'categories#index', as: :taxonomy, constraints: lambda { |request|
