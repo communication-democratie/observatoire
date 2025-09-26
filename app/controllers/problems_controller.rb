@@ -3,7 +3,7 @@ class ProblemsController < ApplicationController
     @facets = Problem::Facets.new params[:facets]
     @problems = @facets.results.ordered.page params[:page]
     breadcrumb
-    add_breadcrumb 'Pubs signalées', problems_path
+    add_breadcrumb 'Publicités signalées', problems_path
   end
 
   def analyzed
