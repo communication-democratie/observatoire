@@ -1,18 +1,24 @@
-<footer class="mt-5 pt-5">
-  <div class="container py-4 pb-5 py-lg-5">
-    <div class="footer-about mb-3 pb-3 mb-lg-5 pb-lg-5">
-      <h2 class="col-lg-6"><%= t ('front.footer.about.title') %></h2>
-      <div class="row mt-4">
-        <p class="summary col-lg-6"><%= t ('front.footer.about.summary') %></p>
-        <div class="col-lg-6">
-          <% t('front.footer.about.text').each do |paragraph| %>
-            <p><%= paragraph %></p>
-          <% end %>
+<%
+is_home = controller_name == 'pages' && action_name == 'index'
+%>
+
+<footer class="mt-5">
+  <% if is_home %>
+    <div class="container py-4 pb-5 py-lg-5">
+      <div class="footer-about mb-3 pb-3 mb-lg-5 pb-lg-5">
+        <h2 class="col-lg-6"><%= t ('front.footer.about.title') %></h2>
+        <div class="row mt-4">
+          <p class="summary col-lg-6"><%= t ('front.footer.about.summary') %></p>
+          <div class="col-lg-6">
+            <% t('front.footer.about.text').each do |paragraph| %>
+              <p><%= paragraph %></p>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <%= render 'shortcodes/partners', bw: true %>
+    <%= render 'shortcodes/members', bw: true %>
+  <% end %>
   <div class="footer-menu pt-5 pb-5">
     <div class="container py-md-5">
       <%= render_navigation(context: :footer, dropdown: false) %>
