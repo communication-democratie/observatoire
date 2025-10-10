@@ -505,22 +505,15 @@ details
     .card
         --bs-card-border-radius: 40px
         position: relative
-        .animated-icon
-            height: 80px
-            width: 80px
+        .icon
+            height: auto
+            width: 120px
             position: absolute
-            top: 0
+            top: -30px
             right: 40px
-            transform: translateY(-40%)
-            animation: infinite-rotation 16s linear infinite
-        @include media-breakpoint-up(md)
-            --bs-card-border-radius: 80px
-            .animated-icon
-                height: 100px
-                width: 100px
+            transform: rotate(10deg)
         @include media-breakpoint-down(md)
             padding-top: map-get($spacers, 4)
-
     form
         h3
             @extend .mb-4

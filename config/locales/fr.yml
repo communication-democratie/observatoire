@@ -89,14 +89,14 @@ fr:
     analyzed:
       title_html: "Toutes nos <span>analyses</span>"
     header:
-      banner: L'OCP est en version beta publique, vos avis sont bienvenus !
+      banner: Bienvenue ! Signalez votre première campagne :)
     footer:
       about:
-        title: Un projet participatif.
-        summary: L’Observatoire Citoyen de la Publicité (OCP) est un projet participatif qui vise à donner aux citoyen·nes les moyens de mieux comprendre les enjeux liés aux mauvaises pratiques publicitaires.
+        title: Un outil citoyen.
+        summary: L’Observatoire Citoyen de la Publicité est un projet participatif qui offre aux citoyen·nes un moyen de signaler les discours publicitaires problématiques.
         text:
-          - À partir des signalements citoyen·nes, l’OCP offre un espace d’expression et de réflexion à ses organisations (membres ou partenaires du projet) afin de nourrir et d’animer le débat public en lien avec leurs domaines d’expertise.
-          - L’OCP est également pensé comme une source d’information à destination des citoyen·nes, des médias et des institutions pour mieux cerner les problématiques qui découlent des mauvaises pratiques publicitaires.
+          - Cet outil d’expression et d’analyse contribue à nourrir et à animer le débat public. Il offre aux citoyen·nes, aux médias et aux décideur·ses politiques une source d’information fiable sur les discours publicitaires trompeurs, stigmatisants ou incitant à la surconsommation.
+          - L’OCP rassemble une coalition d’organisations membres et partenaires, expertes dans leurs domaines respectifs, afin de couvrir un large spectre de discours problématiques.
       legals:
         copyright: Copyright 2025
         credit_html: Design <a href="https://www.bernatfont.com" target="_blank" rel="noreferrer noopener" title="Bernat Font - Ouverture dans une nouvelle fenêtre">Bernat Font</a>, code <a href="https://www.noesya.coop" target="_blank" rel="noreferrer noopener" title="noesya - Ouverture dans une nouvelle fenêtre">noesya</a>
@@ -109,10 +109,10 @@ fr:
         linkedin: Suivre le projet OCP sur Linkedin
     home: Accueil
     missions:
-      - "<h2>Repérons</h2><p>Repérer les mauvaises pratiques publicitaires</p>"
-      - "<h2>Publions</h2><p>Publier les campagnes problématiques</p>"
-      - "<h2>Mobilisons</h2><p>Mobiliser ses organisations sur leurs sujets d’expertise</p>"
-      - "<h2>Animons</h2><p>Animer le débat public sur la régulation des contenus</p>"
+      - "<h2>Repérons</h2><p>Repérons et signalons les mauvaises pratiques publicitaires</p>"
+      - "<h2>Épinglons</h2><p>Épinglons et rendons publiques les campagnes problématiques</p>"
+      - "<h2>Mobilisons</h2><p>Mobilisons nos expertises pour donner du poids à vos signalements</p>"
+      - "<h2>Agissons</h2><p>Agissons et plaidons pour reprendre le contrôle de la publicité</p>"
     more: Plus d'informations
     pages:
       toc:
