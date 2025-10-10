@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-ruby "3.4.6"
+ruby "3.4.7"
 
 gem "activestorage-scaleway-service", "~> 1.1"
 gem "autoprefixer-rails", "~> 10.4"
@@ -21,7 +21,7 @@ gem "kaminari", "~> 1.2"
 gem "mazer-rails", "~> 0.2.0"
 gem "ostruct", "~> 0.6.1"
 gem "pg", "~> 1.1"
-gem "puma", ">= 5.0"
+gem "puma", "~> 7.0"
 gem "rails", "~> 8.0.1"
 gem "rails-i18n", "~> 8.0"
 gem "redcarpet"
