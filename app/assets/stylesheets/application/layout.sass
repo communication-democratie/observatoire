@@ -235,6 +235,8 @@ footer
     .footer-legal
         @extend .d-lg-flex
         @extend .gap-3
+        flex: 2
+        flex-wrap: wrap
         p
             @extend .mb-lg-0
         @include media-breakpoint-down(md)
@@ -245,6 +247,8 @@ footer
     .footer-socials
         @extend .d-flex
         @extend .gap-2
+        flex: 1
+        flex-wrap: wrap
         a
             @extend .d-flex
             @extend .align-items-center
@@ -272,6 +276,8 @@ footer
                 @include icon(mastodon, before)
             &.bluesky
                 @include icon(bluesky, before)
+            &.x
+                @include icon(x, before)
             &:hover
                 background-color: $color-light-blue
                 color: $color-dark-blue !important
