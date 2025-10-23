@@ -21,11 +21,15 @@ is_home = controller_name == 'pages' && action_name == 'index'
   <% end %>
   <div class="footer-menu pt-5 pb-5">
     <div class="container py-md-5">
-      <%= render_navigation(context: :footer, dropdown: false) %>
+      <div class="row">
+        <div class="col-md-8">
+          <%= render_navigation(context: :footer, dropdown: false) %>
+        </div>
+        <div class="col-md-4 footer-newsletter">
+          <%= render "newsletter-form" %>
+        </div>
+      </div>
     </div>
-    <%# <div class="container">
-      <iframe width="540" height="305" src="https://303b07f2.sibforms.com/serve/MUIFAHgIYeD07MIQ9tUqG_RO3hNAbcSI3X8iMcMZJIXJ-zPsWkIdXWm6KzC_3opPqK2G76ZzNGm9EvcYT-ZPCa5mpQmSxqoFjFf-kTtmSgfDvVveR917iFQ55T_V4byQWQybT5GCPBmTIBex4XDBA7THPaj7ZpuKzHpkln9XKU008vjxcH1WfHFDZ_nacEijmTj74YLNlR3qc5AH" frameborder="0" scrolling="auto" allowfullscreen style="display: block;max-width: 100%;"></iframe>
-    </div> %>
     <div class="container d-md-flex gap-4 mt-5 align-items-md-end align-items-lg-center justify-content-md-between">
       <div class="footer-legal small">
         <p><%= t ('front.footer.legals.copyright') %></p>
