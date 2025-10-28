@@ -81,7 +81,7 @@ SimpleNavigation::Configuration.run do |navigation|
     primary.item  :analytics,
                   'Analytics',
                   admin_analytics_path,
-                  { icon: 'bi bi-building-fill' }
+                  { icon: 'bi bi-bar-chart-fill' }
     primary.item  :settings,
                   'Réglages',
                   nil,
