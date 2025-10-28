@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :reports, only: [:index, :show, :edit, :update]
     resources :taxonomies, :categories, :problems, :pages
     resources :organizations
+    get 'analytics' => 'analytics#index'
     root to: "dashboard#index"
   end
 

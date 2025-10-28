@@ -78,6 +78,10 @@ SimpleNavigation::Configuration.run do |navigation|
                   'Organisations',
                   admin_organizations_path,
                   { icon: 'bi bi-building-fill' }
+    primary.item  :analytics,
+                  'Analytics',
+                  admin_analytics_path,
+                  { icon: 'bi bi-building-fill' }
     primary.item  :settings,
                   'Réglages',
                   nil,
