@@ -21,20 +21,31 @@ is_home = controller_name == 'pages' && action_name == 'index'
   <% end %>
   <div class="footer-menu pt-5 pb-5">
     <div class="container py-md-5">
-      <%= render_navigation(context: :footer, dropdown: false) %>
+      <div class="row">
+        <div class="col-md-8">
+          <%= render_navigation(context: :footer, dropdown: false) %>
+        </div>
+        <div class="col-md-4 footer-newsletter">
+          <%= render "newsletter-form" %>
+        </div>
+      </div>
     </div>
     <div class="container d-md-flex gap-4 mt-5 align-items-md-end align-items-lg-center justify-content-md-between">
       <div class="footer-legal small">
         <p><%= t ('front.footer.legals.copyright') %></p>
         <p><%= t ('front.footer.legals.credit_html') %></p>
-        <a href="/mentions-legales" title="<%= t ('front.footer.legals.title') %>"><%= t ('front.footer.legals.title') %></a>
+        <a href="/mentions-legales-et-politique-de-confidentialite" title="<%= t ('front.footer.legals.title') %>"><%= t ('front.footer.legals.title') %></a>
         <a href="https://www.ecoindex.fr" target="_blank">Ecoindex A</a>
       </div>
       <div class="footer-socials mt-3 mt-md-0">
         <a href="mailto:contact@observatoirecitoyenpublicite.org" class="email" target="_blank" rel="noreferrer noopener" title="<%= t "front.a11y.external_link", name: t('front.footer.socials.email') %>"><span>Email</span></a>
         <a href="https://github.com/communication-democratie/observatoire" class="github" target="_blank" rel="noreferrer noopener" title="<%= t "front.a11y.external_link", name: t('front.footer.socials.github') %>"><span>Github</span></a>
+        <a href="https://mastodon.social/@observatoirecitoyenpublicite@piaille.fr " class="mastodon" target="_blank" rel="noreferrer noopener" title="<%= t "front.a11y.external_link", name: t('front.footer.socials.mastodon') %>"><span>Mastodon</span></a>
+        <a href="https://bsky.app/profile/observatoirecitoyenpublicite.org" class="bluesky" target="_blank" rel="noreferrer noopener" title="<%= t "front.a11y.external_link", name: t('front.footer.socials.bluesky') %>"><span>Bluesky</span></a>
         <a href="https://www.linkedin.com/company/observatoire-citoyen-publicite" class="linkedin" target="_blank" rel="noreferrer noopener" title="<%= t "front.a11y.external_link", name: t('front.footer.socials.linkedin') %>"><span>Linkedin</span></a>
         <a href="https://www.instagram.com/observatoire_citoyen_publicite/" class="instagram" target="_blank" rel="noreferrer noopener" title="<%= t "front.a11y.external_link", name: t('front.footer.socials.instagram') %>"><span>Instagram</span></a>
+        <a href="https://www.facebook.com/observatoirecitoyenpublicite/" class="facebook" target="_blank" rel="noreferrer noopener" title="<%= t "front.a11y.external_link", name: t('front.footer.socials.facebook') %>"><span>Facebook</span></a>
+        <a href="https://x.com/Obs_Publicite" class="x" target="_blank" rel="noreferrer noopener" title="<%= t "front.a11y.external_link", name: t('front.footer.socials.x') %>"><span>X, ex-Twitter</span></a>
       </div>
     </div>
   </div>

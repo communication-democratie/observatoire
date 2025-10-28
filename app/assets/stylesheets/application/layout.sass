@@ -235,6 +235,8 @@ footer
     .footer-legal
         @extend .d-lg-flex
         @extend .gap-3
+        flex: 2
+        flex-wrap: wrap
         p
             @extend .mb-lg-0
         @include media-breakpoint-down(md)
@@ -245,6 +247,8 @@ footer
     .footer-socials
         @extend .d-flex
         @extend .gap-2
+        flex: 1
+        flex-wrap: wrap
         a
             @extend .d-flex
             @extend .align-items-center
@@ -268,11 +272,27 @@ footer
                 @include icon(instagram, before)
             &.linkedin
                 @include icon(linkedin, before)
+            &.mastodon
+                @include icon(mastodon, before)
+            &.bluesky
+                @include icon(bluesky, before)
+            &.x
+                @include icon(x, before)
             &:hover
                 background-color: $color-light-blue
                 color: $color-dark-blue !important
                 text-decoration: none
-
+    .footer-newsletter
+        .sib-form, #sib-container, .sib-form-block
+            padding: 0
+        .sib-form-block > p 
+            @extend .h5
+        .input, &.input::placeholder
+            font-family: $font-family-sans-serif
+            color: $color-dark-blue
+        .entry__specification
+            font-family: $font-family-sans-serif !important
+            color: $color-white !important
 section
     h2
         margin-bottom: 3.125rem
@@ -505,22 +525,15 @@ details
     .card
         --bs-card-border-radius: 40px
         position: relative
-        .animated-icon
-            height: 80px
-            width: 80px
+        .icon
+            height: auto
+            width: 120px
             position: absolute
-            top: 0
+            top: -30px
             right: 40px
-            transform: translateY(-40%)
-            animation: infinite-rotation 16s linear infinite
-        @include media-breakpoint-up(md)
-            --bs-card-border-radius: 80px
-            .animated-icon
-                height: 100px
-                width: 100px
+            transform: rotate(10deg)
         @include media-breakpoint-down(md)
             padding-top: map-get($spacers, 4)
-
     form
         h3
             @extend .mb-4

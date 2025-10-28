@@ -457,7 +457,7 @@ DEPENDENCIES
   mazer-rails (~> 0.2.0)
   ostruct (~> 0.6.1)
   pg (~> 1.1)
-  puma (>= 5.0)
+  puma (~> 7.0)
   rails (~> 8.0.1)
   rails-i18n (~> 8.0)
   redcarpet
@@ -472,7 +472,7 @@ DEPENDENCIES
   web-console
 
 RUBY VERSION
-   ruby 3.4.6p54
+   ruby 3.4.7p58
 
 BUNDLED WITH
    2.6.9
