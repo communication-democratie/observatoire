@@ -214,6 +214,9 @@ footer
         @include media-breakpoint-up(md)
             padding-left: map-get($spacers, 7)
             padding-right: map-get($spacers, 7)
+        @include media-breakpoint-down(md)
+            li img
+                min-width: unset
     .footer-menu
         @extend .text-white
         background-color: $color-dark-blue
