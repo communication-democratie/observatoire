@@ -44,7 +44,7 @@ class SimpleNavigation::BootstrapRenderer < SimpleNavigation::Renderer::Base
     ul += " dropdown-menu dropdown-menu-lg-end" if dropdown
     ul += "\">"
     item.sub_navigation.items.each do |i|
-      ul += "<li>"
+      ul += "<li class='mt-2 mt-md-0'>"
       ul += "<a href=\"#{ i.url }\""
       ul += "class=\"dropdown-item\"" if dropdown
       ul += ">"
