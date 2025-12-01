@@ -53,7 +53,6 @@ class Problem < ApplicationRecord
                             .sort
   end
 
-
   def description_to_html
     MarkdownRenderer.new(description).html
   end
