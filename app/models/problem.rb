@@ -29,7 +29,7 @@ class Problem < ApplicationRecord
 
   validates_presence_of :year
 
-  scope :ordered, -> { order(year: :desc) }
+  scope :ordered, -> { order(created_at: :desc) }
   scope :normal_and_important, -> { joins(:step).where('problem_steps.importance >= 0') }
   scope :important, -> { joins(:step).where('problem_steps.importance > 0') }
   scope :for_home, -> { important.ordered.limit(4) }
