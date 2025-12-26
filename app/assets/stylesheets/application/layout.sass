@@ -655,6 +655,8 @@ details
         p + h3
            @extend .pt-3
     .problem-categories
+        li
+            margin-bottom: map-get($spacers, 2)
         > li + li
             @include media-breakpoint-down(lg)
                 margin-top: map-get($spacers, 3)
