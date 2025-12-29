@@ -49,7 +49,7 @@
         <div class="col-md-9 mt-3 mt-md-0">
           <ul class="list-unstyled">
             <% @problem.reports.ordered.each do |report| %>
-              <li class="bg-white rounded p-2 p-md-4">
+              <li class="bg-white rounded p-2 p-md-4 mb-3">
                 <%= simple_format report.description %>
                 <p class="meta">
                   <%= t('front.problem.entry', date: (l report.created_at.to_date), alias: report.author_pseudonym) %>
