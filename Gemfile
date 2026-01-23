@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-ruby "3.4.7"
+ruby "4.0.1"
 
 gem "activestorage-scaleway-service", "~> 1.1"
 gem "autoprefixer-rails", "~> 10.4"
@@ -19,7 +19,6 @@ gem "jquery-rails", "~> 4.6"
 gem "kamifusen", "~> 1.13"
 gem "kaminari", "~> 1.2"
 gem "mazer-rails", "~> 0.2"
-gem "openssl", "~> 4.0" # Removable in Ruby 4.0+
 gem "ostruct", "~> 0.6" # Removed from bundled gems in Ruby 4.0, needed for simple-navigation
 gem "pg", "~> 1.6"
 gem "puma", "~> 7.1"

@@ -280,7 +280,6 @@ GEM
       racc (~> 1.4)
     nokogiri (1.19.0-x86_64-linux-musl)
       racc (~> 1.4)
-    openssl (4.0.0)
     ostruct (0.6.3)
     pg (1.6.3)
     pg (1.6.3-aarch64-linux)
@@ -466,7 +465,6 @@ DEPENDENCIES
   kamifusen (~> 1.13)
   kaminari (~> 1.2)
   mazer-rails (~> 0.2)
-  openssl (~> 4.0)
   ostruct (~> 0.6)
   pg (~> 1.6)
   puma (~> 7.1)
@@ -484,7 +482,7 @@ DEPENDENCIES
   webdrivers
 
 RUBY VERSION
-   ruby 3.4.7p58
+  ruby 4.0.1
 
 BUNDLED WITH
-   2.6.9
+  4.0.4
