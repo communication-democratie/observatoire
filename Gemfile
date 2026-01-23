@@ -23,7 +23,7 @@ gem "openssl", "~> 4.0" # Removable in Ruby 4.0+
 gem "ostruct", "~> 0.6" # Removed from bundled gems in Ruby 4.0, needed for simple-navigation
 gem "pg", "~> 1.6"
 gem "puma", "~> 7.1"
-gem "rails", "~> 8.1"
+gem "rails", "~> 8.1.0"
 gem "rails-i18n", "~> 8.1"
 gem "redcarpet"
 gem "simple_form", "~> 5.4"
