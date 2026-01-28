@@ -232,6 +232,9 @@ GEM
       activerecord
       kaminari-core (= 1.2.2)
     kaminari-core (1.2.2)
+    kaminari-i18n (0.5.0)
+      kaminari
+      rails
     logger (1.7.0)
     loofah (2.25.0)
       crass (~> 1.0.2)
@@ -464,6 +467,7 @@ DEPENDENCIES
   jquery-rails (~> 4.6)
   kamifusen (~> 1.13)
   kaminari (~> 1.2)
+  kaminari-i18n
   mazer-rails (~> 0.2)
   ostruct (~> 0.6)
   pg (~> 1.6)
