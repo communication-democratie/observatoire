@@ -6,6 +6,7 @@
       <div class="card card--problem bg-white">
         <div class="card-content">
         <%= kamifusen_tag problem.image,
+                          alt: '',
                           class: 'card-img-top img-fluid problem__thumb rounded',
                           width: 400 if problem.image.attached? %>
         <div class="card-body">
@@ -19,13 +20,16 @@
           %>
             <% if taxonomy.to_s === t('front.problem.data.advertisers') %>
               <% categories.each do |category| %>
-                <p class="subtitle pt-1"><%= category %></p>
+                <p class="subtitle pt-1" aria-label="<%= t('front.problem.data.advertisers') %>">
+                  <span><%= category %></span>
+                </p>
               <% end %>
             <% end %>
           <% end %>
           <div class="my-4 d-flex flex-wrap gap-2">
             <% problem.main_categories.each do |category| %>
-              <span class="btn badge btn-outline-dark py-1"><%= category.to_s.truncate(25) %></span>
+              <% is_truncated = category.to_s.length > 25 %>
+              <span class="btn badge btn-outline-dark py-1" <%- if is_truncated %> aria-label="<%= category.to_s %>"<% end %>><%= category.to_s.truncate(25) %></span>
             <% end %>
             <%= render 'problems/badge', problem: problem if problem.important? %>
           </div>
