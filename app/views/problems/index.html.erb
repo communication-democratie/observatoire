@@ -13,7 +13,9 @@
     <%= render 'faceted_search/facets', facets: @facets %>
   </div>
   <div class="col-md-9">
-    <%= render 'problems/list', problems: @problems %>
-    <%= paginate @problems %>
+    <div class="mb-5">
+      <%= render 'problems/list', problems: @problems %>
+    </div>
+    <%= paginate @problems, theme: 'bootstrap-5' %>
   </div>
 </div>

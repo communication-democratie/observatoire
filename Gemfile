@@ -18,6 +18,7 @@ gem "jbuilder"
 gem "jquery-rails", "~> 4.6"
 gem "kamifusen", "~> 1.13"
 gem "kaminari", "~> 1.2"
+gem "kaminari-i18n"
 gem "mazer-rails", "~> 0.2"
 gem "ostruct", "~> 0.6" # Removed from bundled gems in Ruby 4.0, needed for simple-navigation
 gem "pg", "~> 1.6"
