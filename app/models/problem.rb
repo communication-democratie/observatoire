@@ -27,7 +27,7 @@ class Problem < ApplicationRecord
 
   has_one_attached :image
 
-  validates_presence_of :year
+  validates_presence_of :title, :year
 
   scope :ordered, -> { order(created_at: :desc) }
   scope :normal_and_important, -> { joins(:step).where('problem_steps.importance >= 0') }
