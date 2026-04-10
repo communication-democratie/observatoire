@@ -2,9 +2,8 @@
   <div class="sidebar-wrapper active d-flex flex-column">
     <div class="sidebar-header position-relative text-center">
       <div class="logo">
-        <%= link_to root_path, target: :blank do %>
-          <%#= image_tag 'logo.svg', alt: t('front.website'), class: 'p-4' %>
-          OCP
+        <%= link_to admin_root_path do %>
+          <%= image_tag 'logo.svg' %>
         <% end %>
       </div>
     </div>
