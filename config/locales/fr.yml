@@ -35,6 +35,7 @@ fr:
         brand: Marque
         created_at: Date de signalement
         description: Description
+        id: Identifiant
         link: Lien web
         problem: Campagne
         slug: Slug

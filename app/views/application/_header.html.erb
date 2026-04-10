@@ -13,7 +13,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse ms-auto justify-content-end" id="navbar">
-      <%= render_navigation %>
+      <%= SimpleNavigationPatch.mutex.synchronize { render_navigation } %>
     </div>
   </div>
 </nav>

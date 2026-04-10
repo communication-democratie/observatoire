@@ -8,7 +8,7 @@
       </div>
     </div>
     <div class="sidebar-menu flex-grow-1">
-      <%= render_navigation context: :admin %>
+      <%= SimpleNavigationPatch.mutex.synchronize { render_navigation context: :admin } %>
     </div>
   </div>
 </div>

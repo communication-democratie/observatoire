@@ -37,6 +37,10 @@ class Report < ApplicationRecord
   has_one_attached :image
   has_many_attached :files
 
+  def short_id
+    id.to_s.split('-').first
+  end
+
   def to_s
     title.blank? ? "#{id}" : "#{title}"
   end
