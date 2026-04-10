@@ -6,8 +6,7 @@ SimpleNavigation::Configuration.run do |navigation|
   navigation.active_leaf_class = 'active-leaf'
 
   def badge(text, count)
-    return text if count.zero?
-    "#{text} <span class=\"badge rounded-pill text-bg-dark\">#{count} </span>"
+    "<span class=\"badge rounded-pill text-bg-primary\" style=\"width:40px\">#{count} </span> #{text}"
   end
 
   navigation.items do |primary|
@@ -19,6 +18,12 @@ SimpleNavigation::Configuration.run do |navigation|
                   Report.model_name.human(count: 2),
                   nil,
                   { icon: 'bi bi-question-circle-fill' } do |secondary|
+      secondary.item  :reports_all,
+                      badge('Tous', Report.count),
+                      admin_reports_path,
+                      highlights_on: lambda {
+                        controller_name == 'reports' && @step.nil?
+                      }
       Report::Step.ordered.each do |step|
         secondary.item  step.id.to_sym,
                         badge(step.to_s, step.reports.count),
@@ -28,17 +33,26 @@ SimpleNavigation::Configuration.run do |navigation|
                         }
 
       end
-      secondary.item  :reports_all,
-                      'Tous',
-                      admin_reports_path,
-                      highlights_on: lambda {
-                        controller_name == 'reports' && @step.nil?
-                      }
     end
     primary.item  :problems,
                   Problem.model_name.human(count: 2),
                   admin_problems_path,
                   { icon: 'bi bi-exclamation-circle-fill' } do |secondary|
+      secondary.item  :problems_new,
+                      'Créer',
+                      new_admin_problem_path,
+                      highlights_on: lambda {
+                        controller_name == 'problems' &&
+                        action_name == 'new'
+                      }
+      secondary.item  :problems_all,
+                      badge('Toutes', Problem.count),
+                      admin_problems_path,
+                      highlights_on: lambda {
+                        controller_name == 'problems' && 
+                        action_name == 'index' && 
+                        @step.nil?
+                      }
       Problem::Step.ordered.each do |step|
         secondary.item  step.id.to_sym,
                         badge(step.to_s, step.problems.count),
@@ -48,12 +62,6 @@ SimpleNavigation::Configuration.run do |navigation|
                         }
 
       end
-      secondary.item  :problems_all,
-                      'Tous',
-                      admin_problems_path,
-                      highlights_on: lambda {
-                        controller_name == 'problems' && @step.nil?
-                      }
     end
     primary.item  :taxonomies,
                   Taxonomy.model_name.human(count: 2),
