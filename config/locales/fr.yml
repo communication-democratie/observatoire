@@ -7,7 +7,7 @@ fr:
     attributes:
       category:
         description: Description
-        problems: Problèmes
+        problems: Campagnes
         slug: Slug
         title: Titre
         taxonomy: Taxonomie
@@ -36,7 +36,7 @@ fr:
         created_at: Date de signalement
         description: Description
         link: Lien web
-        problem: Problème
+        problem: Campagne
         slug: Slug
         step: Étape
         title: Titre
@@ -61,8 +61,8 @@ fr:
         one: Campagne
         other: Campagnes
       problem/step:
-        one: Étape d'un problème
-        other: Étapes d'un problème
+        one: Étape d'une campagne
+        other: Étapes d'une campagne
       report:
         one: Signalement
         other: Signalements
