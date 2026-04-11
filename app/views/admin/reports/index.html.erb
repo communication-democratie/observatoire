@@ -4,3 +4,4 @@ title += " — #{@step}" if @step
 %>
 <% content_for :title, title %>
 <%= render 'admin/reports/list', reports: @reports %>
+<%= paginate @reports, theme: 'bootstrap-5' %>

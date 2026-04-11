@@ -4,6 +4,7 @@ title += " — #{@step}" if @step
 %>
 <% content_for :title, title %>
 <%= render 'admin/problems/list', problems: @problems %>
+<%= paginate @problems, theme: 'bootstrap-5' %>
 
 <% content_for :buttons do %>
   <%= link_to t('admin.create'), new_admin_problem_path, class: button_classes %>

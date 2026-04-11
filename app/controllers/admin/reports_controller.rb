@@ -7,6 +7,7 @@ class Admin::ReportsController < Admin::ApplicationController
       @step = Report::Step.find(params[:step])
       @reports = @reports.where(step: @step)
     end
+    @reports = @reports.page(params[:page]).per(100)
   end
 
   def show

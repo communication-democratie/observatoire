@@ -1,9 +1,9 @@
 .sidebar-wrapper
-    z-index: 1200
+    z-index: 1200 !important
     .logo
         img
-            width: 100%
-            height: auto
+            width: 100% !important
+            height: auto !important
     .menu 
         .submenu
             padding-left: 19px
@@ -16,3 +16,9 @@
                 &.active-leaf
                     a
                         color: black
+
+body.theme-dark
+    .sidebar-wrapper
+        .sidebar-header
+            img
+                filter: saturate(0) invert(1)
