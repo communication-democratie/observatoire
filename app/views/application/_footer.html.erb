@@ -6,7 +6,7 @@ is_home = controller_name == 'pages' && action_name == 'index'
   <% if is_home %>
     <div class="container py-4 pb-5 py-lg-5">
       <div class="footer-about mb-3 pb-3 mb-lg-5 pb-lg-5">
-        <h2 class="col-lg-6"><%= t ('front.footer.about.title') %></h2>
+        <h2><%= t ('front.footer.about.title') %></h2>
         <div class="row mt-4">
           <p class="summary col-lg-6"><%= t ('front.footer.about.summary') %></p>
           <div class="col-lg-6">
@@ -23,6 +23,7 @@ is_home = controller_name == 'pages' && action_name == 'index'
     <div class="container py-md-5">
       <div class="row">
         <div class="col-md-8">
+          <%= image_tag 'logo-blanc.svg', alt: t('front.website'), class: 'logo' %>
           <%= render_navigation(context: :footer, dropdown: false) %>
         </div>
         <div class="col-md-4 footer-newsletter">

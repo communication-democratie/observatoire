@@ -1,0 +1,71 @@
+.list-missions
+    .mission
+        border-left-color: $color-light-blue !important
+        border-left-width: 2px !important
+        h2
+            @extend h3
+            color: $color-dark-blue
+        span
+            font-size: 1.25rem
+            color: $color-pink
+        p
+            margin-bottom: 0
+        
+    @include media-breakpoint-down(md)
+        margin-top: var(--bs-gutter-x)
+
+        .mission
+            border-left-width: 3px !important
+            margin: 0 var(--bs-gutter-x)
+            width: 75svw
+
+            span
+                font-size: 1.375rem
+                font-weight: bold
+                &::before
+                    content: '0'
+            > * + *
+                margin-top: map-get($spacers, 3) !important
+
+.report-form
+    .card
+        --bs-card-border-radius: 40px
+        position: relative
+        .icon
+            height: auto
+            width: 120px
+            position: absolute
+            top: -30px
+            right: 40px
+            transform: rotate(10deg)
+        @include media-breakpoint-down(md)
+            padding-top: map-get($spacers, 4)
+    form
+        h3
+            @extend .mb-4
+            &:not(:first-of-type)
+                @extend .mt-5
+        input
+            font-size: 1rem
+        .group
+            column-gap: map-get($spacers, 4)
+            row-gap: map-get($spacers, 3)
+        .campaign-details
+            > div
+                @extend .mb-0
+                + div
+                    @extend .mt-3
+        // checkboxes as buttons
+        .form-check
+            @extend .ps-0
+            .form-check-label
+                border: none
+                cursor: pointer
+                line-height: 1
+            input
+                @extend .visually-hidden
+                &:checked + label
+                    background-color: $color-dark-blue !important
+                    color: $color-white !important
+    .form-details
+        font-size: 16px
