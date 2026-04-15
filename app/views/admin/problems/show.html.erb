@@ -10,6 +10,9 @@
   </div>
   <div class="col-lg-6">
     <%= simple_format @problem.description %>
+    <% if @problem.pdf.attached? %>
+      <%= link_to @problem.pdf.filename, @problem.pdf, target: :_blank %>
+    <% end %>
   </div>
 </div>
 

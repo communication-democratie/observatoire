@@ -24,7 +24,9 @@ fr:
         markdown: Texte (markdown)
       problem:
         description: Description
+        image: Image
         organizations: Analysée par
+        pdf: Analyse (pdf)
         reports: Signalements
         step: Étape
         title: Titre
