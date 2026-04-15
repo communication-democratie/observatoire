@@ -1,5 +1,9 @@
 <% content_for :title, 'Nos analyses' %>
 
+<% content_for :head do %>
+  <link rel="canonical" href="<%= analyzed_problems_path %>" />
+<% end %>
+
 <% content_for :hero do %>
   <div class="container">
     <div class="row">
