@@ -1,18 +1,4 @@
 <ul class="problem-categories list-unstyled">
-  <% if problem.organizations.any? %>
-      <li class="mb-4">
-        <span class="h5 d-block md-2">Analysée par</span>
-        <ul class="list-unstyled">
-          <% problem.organizations.each do |organization| %>
-            <li class="btn badge btn-outline-dark">
-              <%= link_to organization,
-                          organization_path(organization.slug),
-                          class: 'text-decoration-none fw-normal text-black' %>
-            </li>
-          <% end %>
-        </ul>
-      </li>
-  <% end %>
   <%
   Taxonomy.all.ordered.each do |taxonomy|
     categories = problem.categories.where(taxonomy: taxonomy).ordered

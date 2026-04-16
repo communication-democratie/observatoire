@@ -13,6 +13,7 @@
   <div class="problem-presentation row my-2 my-md-5">
     <div class="col-lg-6">
       <%= kamifusen_tag @problem.image, class: 'img-fluid rounded mb-5' if @problem.image.attached? %>
+      <%= render 'problems/analyzed_by', problem: @problem %>
       <%= render 'problems/categories', problem: @problem %>
     </div>
     <div class="problem-content col-lg-6">
