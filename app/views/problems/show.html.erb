@@ -33,8 +33,10 @@
     <div class="problem-content col-lg-6">
       <%= render 'problems/badge', problem: @problem %>
       <%= sanitize @problem.description_to_html %>
+
       <% if @problem.pdf.attached? %>
-        <%= link_to @problem.pdf.filename, @problem.pdf, target: :_blank %>
+        <h2>Analyse complète à télécharger</h2>
+        <%= link_to "#{@problem.pdf.filename} (#{number_to_human_size @problem.pdf.byte_size})", @problem.pdf, target: :_blank %>
       <% end %>
     </div>
   </div>
