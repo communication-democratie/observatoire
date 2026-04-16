@@ -1,7 +1,3 @@
 <span class="badge badge-step bg-secondary py-1">
-  <% if problem.organizations.any? %>
-    <%= render 'problems/analyzed_by', problem: problem %>
-  <% else %>
-    <%= problem.step %>
-  <% end %>
+  <%= problem.step %>
 </span>

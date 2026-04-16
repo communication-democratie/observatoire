@@ -7,7 +7,6 @@ class ProblemsController < ApplicationController
   end
 
   def analyzed
-    @steps = Problem::Step.analyzed
     @categories = Taxonomy.find_by(slug: 'mauvaises-pratiques')
                           .categories
                           .ordered
@@ -18,7 +17,11 @@ class ProblemsController < ApplicationController
   def show
     @problem = Problem.find(params.expect(:id))
     breadcrumb
-    add_breadcrumb Problem.model_name.human(count: 2), problems_path
+    if @problem.important?
+      add_breadcrumb 'Nos analyses', analyzed_problems_path
+    else
+      add_breadcrumb 'Publicités signalées', problems_path
+    end
     add_breadcrumb @problem
   end
 end
