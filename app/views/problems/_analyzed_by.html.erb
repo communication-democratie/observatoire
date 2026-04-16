@@ -1,5 +1,5 @@
 <% if problem.organizations.any? %>
-  <div class="mb-5">
+  <div class="h3 mb-5">
     Analysée par <%= sanitize problem.organizations.map { |organization| link_to(organization.to_s, organization_path(organization.slug)) }.to_sentence %>
   </div>
 <% end %>
