@@ -1,0 +1,116 @@
+.navbar
+    background: $color-dark-blue
+
+    .navbar-toggler
+        width: 50px
+        span
+            @include icon(menu, before)
+            color: $color-green
+            font-size: 12px
+        &[aria-expanded="true"] span
+            @include icon(close, before)
+            font-size: $font-size-base
+    
+    .navbar-nav
+        @extend .gap-lg-3
+        @extend .align-items-baseline
+        @include media-breakpoint-down(lg)
+            padding-top: map-get($spacers, 3)
+        @include media-breakpoint-down(md)
+            > li
+                padding-right: map-get($spacers, 1)
+                width: 100%
+    
+    .nav-item > a
+        color: $color-white !important
+
+    .dropdown
+        li
+            @extend .mx-3
+            a
+                @extend .py-3
+                text-align: center
+            + li
+                border-top: 0.5px solid $color-border-alt
+        &-menu
+            --bs-dropdown-link-hover-bg: transparent
+            --bs-dropdown-link-active-bg: transparent
+            --bs-dropdown-link-active-color: #{$color-black}
+        &-item
+            --bs-dropdown-link-color: #{$color-text-alt}
+            @include media-breakpoint-down(md)
+                font-size: $meta-font-size
+        &-toggle
+            @include icon(chevron, after)
+            &::after
+                @extend .ms-2
+                border: none
+                transform: rotate(90deg)
+                transition: transform 0.3s ease
+            &[aria-expanded="true"]::after
+                transform: rotate(270deg)
+
+    .navbar-brand
+        img
+            height: 40px
+            @include media-breakpoint-up(lg)
+                height: 60px
+    
+    .header-cta
+        position: relative
+        a,
+        &::before,
+        &::after
+            --bs-btn-border-width: 0px
+            background-color: $color-white !important
+            color: $color-dark-blue !important
+        a
+            @extend .stretched-link
+            &.active
+                --bs-btn-active-bg: #{$color-white}
+        &::before,
+        &::after
+            transform: transformX(0%) rotate(180deg)
+        
+        @include media-breakpoint-down(lg)
+            margin-top: map-get($spacers, 3)
+    
+    @include media-breakpoint-down(md)
+        .navbar-toggler[aria-expanded="true"] + .navbar-collapse
+            padding-bottom: map-get($spacers, 5)
+        
+        .navbar-nav
+            padding-top: map-get($spacers, 5)
+        
+        .nav-item:not(.header-cta) > a
+            font-family: $font-kaio
+            font-size: 1.375rem
+        
+        .header-cta
+            margin-top: map-get($spacers, 4)
+
+        .dropdown-menu
+            --bs-dropdown-bg: transparent
+            margin-top: 0
+            border: none
+            .dropdown-item
+                --bs-dropdown-link-color: #{$color-white}
+            > li
+                margin-left: 0 !important
+                margin-right: 0 !important
+                a
+                    padding: 0 !important
+                    text-align: left
+                &:first-child
+                    margin-top: 0 !important
+                + li
+                    border-top: none
+    
+    @include media-breakpoint-up(lg)
+        padding-top: 20px
+        padding-bottom: 130px
+        @include media-breakpoint-down(xxl)
+            > .container
+                flex-wrap: wrap
+                .collapse
+                    justify-content: start !important

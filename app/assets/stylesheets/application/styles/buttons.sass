@@ -1,0 +1,80 @@
+.btn-outline-dark
+    border: 1px solid $color-black
+    color: $color-black
+    &:hover
+        background-color: $color-black
+        &, a
+            color: $color-white !important
+
+.btn-dark
+    @extend .btn
+    --bs-btn-border-radius: var(--bs-border-radius-pill)
+    background-color: $color-black
+    color: $color-light-blue
+    &:hover
+        background-color: $color-white
+        border-color: $color-black
+        color: $color-black
+
+.btn-light
+    @extend .btn
+    @extend .px-3
+    --bs-btn-border-radius: var(--bs-border-radius-pill)
+    background-color: $color-white
+    color: $color-dark-blue
+    &:hover,
+    &:active
+        background-color: $color-light-blue
+        border-color: transparent
+        color: $color-dark-blue
+
+.btn-icon
+    @include icon(arrow, before)
+    @include icon(arrow, after)
+    align-items: center
+    display: flex
+    position: relative
+    text-decoration: none
+    span,
+    input,
+    a
+        @extend .px-4
+        height: 50px
+        line-height: 100%
+        z-index: 2
+    span,
+    input,
+    a,
+    &::before,
+    &::after
+        @extend .btn
+        @extend .btn-primary
+        @extend .rounded-pill
+        align-items: center
+        display: flex
+        transition: all 0.5s ease
+    &::before,
+    &::after
+        height: 50px
+        display: flex
+        justify-items: center
+        transform-origin: center
+        transition: all 0.5s ease
+        width: 50px
+        z-index: 1
+    &::after
+        transform: translateX(0%) rotate(-180deg)
+    &::before
+        position: absolute
+        opacity: 0
+        transform: translateX(100%) rotate(180deg)
+    &:hover
+        span,
+        input,
+        a
+            transform: translateX(50px) rotate(0deg)
+        &::after
+            transform: translateX(-100%) rotate(-180deg)
+        &::before
+            opacity: 1
+            transform: translateX(0) rotate(0deg)
