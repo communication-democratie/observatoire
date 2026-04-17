@@ -23,7 +23,9 @@ is_home = controller_name == 'pages' && action_name == 'index'
     <div class="container py-md-5">
       <div class="row">
         <div class="col-md-8">
-          <%= image_tag 'logo-blanc.svg', alt: t('front.website'), class: 'logo' %>
+          <a href="/">
+            <%= image_tag 'logo-blanc.svg', alt: t('front.website'), class: 'logo' %>
+          </a>
           <%= render_navigation(context: :footer, dropdown: false) %>
         </div>
         <div class="col-md-4 footer-newsletter">
