@@ -12,8 +12,8 @@
   </div>
   <div class="row">
     <div class="col-lg-4">
-      <%= f.input :image %>
-      <%= f.input :pdf %>
+      <%= f.input :image, as: :single_deletable_file %>
+      <%= f.input :pdf, as: :single_deletable_file %>
       <%= f.association :organizations, as: :check_boxes %>
       <%= f.association :step, include_blank: false, as: :radio_buttons %>
     </div>
