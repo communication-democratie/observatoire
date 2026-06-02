@@ -23,6 +23,7 @@ fr:
         title: Titre
         markdown: Texte (markdown)
       problem:
+        created_at: Date
         description: Description
         image: Image
         organizations: Analysée par

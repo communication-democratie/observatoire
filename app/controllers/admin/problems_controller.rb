@@ -2,7 +2,7 @@ class Admin::ProblemsController < Admin::ApplicationController
   before_action :set_problem, only: %i[ show edit update destroy ]
 
   def index
-    @problems = Problem.all
+    @problems = Problem.ordered
     if params[:step]
       @step = Problem::Step.find(params[:step])
       @problems = @problems.where(step: @step)
