@@ -78,7 +78,7 @@ class Problem < ApplicationRecord
   protected
 
   def set_reported_at
-    date = first_report&.created_at || date = created_at
+    date = first_report&.created_at || created_at
     update_column :reported_at, date
   end
 end
