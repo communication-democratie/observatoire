@@ -16,6 +16,9 @@
   </div>
 </div>
 
+<label class="form-label">Date</label>
+<p><%= l @problem.created_at.to_date %></p>
+
 <div class="row">
   <% Taxonomy.all.ordered.each do |taxonomy| %>
     <div class="col-lg-3">
@@ -54,5 +57,6 @@
 <% end %>
 
 <% content_for :buttons do %>
+  <%= link_to 'Page publique', problem_path(@problem), class: 'btn btn-outline-primary', target: :_blank %>
   <%= link_to t('admin.edit'), edit_admin_problem_path(@problem), class: button_classes %>
 <% end %>

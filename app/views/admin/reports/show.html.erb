@@ -2,14 +2,22 @@
 
 <div class="row mb-5">
   <div class="col-lg-6">
+    <label class="form-label">Description</label>
     <%= simple_format @report.description %>
-    <hr>
     <% if @report.link.present? %>
-      <a href="<%= @report.link %>" target="_blank"><%= @report.link %></a>
-      <hr>
+      <label class="form-label">Lien</label>
+      <p><a href="<%= @report.link %>" target="_blank"><%= @report.link %></a></p>
     <% end %>
-    <%= @report.author_pseudonym %><br>
-    <%= @report.author_email %><br>
+    <hr>
+    <label class="form-label">Pseudonyme</label>
+    <p><%= @report.author_pseudonym %></p>
+
+    <label class="form-label">Email</label>
+    <p><%= @report.author_email %></p>
+
+    <label class="form-label">Date</label>
+    <p><%= l @report.created_at.to_date %></p>
+
     <div class="my-5">
       <% Taxonomy.for_reports.each do |taxonomy| %>
         <div class="mb-3">

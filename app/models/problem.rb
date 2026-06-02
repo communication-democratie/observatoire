@@ -28,7 +28,10 @@ class Problem < ApplicationRecord
   has_one_attached_deletable :image
   has_one_attached_deletable :pdf
 
-  validates_presence_of :title, :year
+  validates_presence_of :title
+
+  after_save :set_date
+  after_touch :set_date
 
   scope :ordered, -> { order(created_at: :desc) }
   scope :normal_and_important, -> { joins(:step).where('problem_steps.importance >= 0') }
@@ -60,5 +63,13 @@ class Problem < ApplicationRecord
 
   def to_s
     "#{title}"
+  end
+
+  protected
+
+  def set_date
+    first_report = reports.ordered.last
+    return if first_report.nil?
+    update_column :created_at, first_report.created_at
   end
 end
