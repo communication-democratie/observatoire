@@ -4,8 +4,8 @@
 #
 #  id          :uuid             not null, primary key
 #  description :text
+#  reported_at :datetime
 #  title       :string
-#  year        :integer
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  step_id     :uuid
@@ -30,10 +30,10 @@ class Problem < ApplicationRecord
 
   validates_presence_of :title
 
-  after_save :set_date
-  after_touch :set_date
+  after_save :set_reported_at
+  after_touch :set_reported_at
 
-  scope :ordered, -> { order(created_at: :desc) }
+  scope :ordered, -> { order(reported_at: :desc) }
   scope :normal_and_important, -> { joins(:step).where('problem_steps.importance >= 0') }
   scope :important, -> { joins(:step).where('problem_steps.importance > 0') }
   scope :for_home, -> { important.ordered.limit(4) }
@@ -71,9 +71,9 @@ class Problem < ApplicationRecord
 
   protected
 
-  def set_date
+  def set_reported_at
     first_report = reports.ordered.last
-    return if first_report.nil?
-    update_column :created_at, first_report.created_at
+    date = first_report.present? ? first_report.created_at : date = created_at
+    update_column :reported_at, date
   end
 end
