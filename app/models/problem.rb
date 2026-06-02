@@ -61,6 +61,10 @@ class Problem < ApplicationRecord
     MarkdownRenderer.new(description).html
   end
 
+  def emails
+    @emails ||= reports.ordered.pluck(:author_email).uniq.compact_blank
+  end
+
   def to_s
     "#{title}"
   end

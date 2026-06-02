@@ -38,10 +38,39 @@
 
 <div class="card">
   <div class="card-header">
-    <h2 class="h4"><%= Report.model_name.human(count: 2) %></h2>
+    <h2 class="h4">
+      <%= @problem.reports.count %>
+      <% if @problem.reports.many? %>
+        <%= Report.model_name.human(count: 2).downcase %>
+      <% else %>
+        <%= Report.model_name.human.downcase %>
+      <% end %>
+    </h2>
   </div>
   <div class="card-body">
-    <%= render 'admin/reports/list', reports: @problem.reports %>
+    <table class="table">
+      <thead>
+        <tr>
+          <th><%= Report.human_attribute_name(:id) %></th>
+          <th><%= Report.human_attribute_name(:description) %></th>
+          <th><%= Report.human_attribute_name(:author_pseudonym) %></th>
+          <th><%= Report.human_attribute_name(:created_at) %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @problem.reports.ordered.each do |report| %>
+          <tr>
+            <td><%= link_to report.short_id, [:admin, report] %></td>
+            <td><%= report.description.to_s.truncate(80) %></td>
+            <td><%= report.author_pseudonym %></td>
+            <td><%= l report.created_at.to_date %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <hr>
+    <label class="form-label">Adresses email</label>
+    <textarea class="form-control"><%= @problem.emails.join('; ') %></textarea>
   </div>
 </div>
 
