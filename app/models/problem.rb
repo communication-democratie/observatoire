@@ -65,6 +65,12 @@ class Problem < ApplicationRecord
     @emails ||= reports.ordered.pluck(:author_email).uniq.compact_blank
   end
 
+  # First is last :)
+  # this is because the order is desc
+  def first_report
+    @first_report ||= reports.ordered.last
+  end
+
   def to_s
     "#{title}"
   end
@@ -72,8 +78,7 @@ class Problem < ApplicationRecord
   protected
 
   def set_reported_at
-    first_report = reports.ordered.last
-    date = first_report.present? ? first_report.created_at : date = created_at
+    date = first_report&.created_at || date = created_at
     update_column :reported_at, date
   end
 end
