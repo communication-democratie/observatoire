@@ -23,11 +23,13 @@ fr:
         title: Titre
         markdown: Texte (markdown)
       problem:
+        created_at: Date
         description: Description
         image: Image
         organizations: Analysée par
         pdf: Analyse (pdf)
         reports: Signalements
+        reported_at: Date de signalement
         step: Étape
         title: Titre
         year: Année

@@ -28,7 +28,7 @@ class Report < ApplicationRecord
   include WithSteps
 
   has_and_belongs_to_many :categories
-  belongs_to :problem, optional: true
+  belongs_to :problem, optional: true, touch: true
 
   validates_presence_of :brand, :description, :author_pseudonym, on: :create
 

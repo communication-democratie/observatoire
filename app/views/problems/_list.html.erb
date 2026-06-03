@@ -30,7 +30,7 @@ column_size ||= 4
                 <span class="btn badge btn-outline-dark py-1"><%= category.to_s.truncate(25) %></span>
               <% end %>
             </div>
-            <span class="card-date"><%= l(problem.created_at, format: :month_year).capitalize %></span>
+            <span class="card-date"><%= l(problem.reported_at, format: :month_year).capitalize %></span>
           </div>
         </div>
       </div>

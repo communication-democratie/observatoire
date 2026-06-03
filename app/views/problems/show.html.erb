@@ -42,6 +42,9 @@
                 <%= simple_format report.description %>
                 <p class="meta">
                   <%= t('front.problem.entry', date: (l report.created_at.to_date), alias: report.author_pseudonym) %>
+                  <% if report.link.present? %>
+                    • <%= link_to 'Lien web', report.link, target: :_blank %>
+                  <% end %>
                 </p>
               </li>
             <% end %>
