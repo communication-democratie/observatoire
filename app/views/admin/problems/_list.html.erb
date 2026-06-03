@@ -1,4 +1,4 @@
-<table class="table">
+<table class="table table-striped">
   <thead>
     <tr>
       <th><%= Problem.human_attribute_name(:image) %></th>
@@ -11,7 +11,7 @@
   <tbody>
     <% problems.each do |problem| %>
       <tr>
-        <td><%= image_tag problem.image, class: 'img-fluid', width: 200 if problem.image.attached?  %></td>
+        <td><%= image_tag problem.image, class: 'thumb', width: 200 if problem.image.attached?  %></td>
         <td><%= link_to problem.title, [:admin, problem] %></td>
         <td><%= l problem.reported_at.to_date, format: '%m/%Y' %></td>
         <td><%= problem.reports.count %></td>
