@@ -41,7 +41,21 @@ class Report < ApplicationRecord
     id.to_s.split('-').first
   end
 
+  def link_correct?
+    link_uri.kind_of?(URI::HTTP) || link_uri.kind_of?(URI::HTTPS)
+  end
+
+  def link_label
+    link_uri.host
+  end
+
   def to_s
     title.blank? ? "#{id}" : "#{title}"
+  end
+
+  protected
+
+  def link_uri
+    @link_uri ||= URI.parse(link)
   end
 end
