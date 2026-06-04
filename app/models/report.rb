@@ -42,7 +42,11 @@ class Report < ApplicationRecord
   end
 
   def link_correct?
-    link_uri.kind_of?(URI::HTTP) || link_uri.kind_of?(URI::HTTPS)
+    link_uri.present? && 
+    (
+      link_uri.kind_of?(URI::HTTP) || 
+      link_uri.kind_of?(URI::HTTPS)
+    )
   end
 
   def link_label
@@ -57,5 +61,7 @@ class Report < ApplicationRecord
 
   def link_uri
     @link_uri ||= URI.parse(link)
+  rescue
+    false
   end
 end
