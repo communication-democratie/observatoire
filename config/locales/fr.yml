@@ -103,7 +103,7 @@ fr:
           - Cet outil d’expression et d’analyse contribue à nourrir et à animer le débat public. Il offre aux citoyen·nes, aux médias et aux décideur·ses politiques une source d’information fiable sur les discours publicitaires trompeurs, stigmatisants ou incitant à la surconsommation.
           - L’OCP rassemble une coalition d’organisations membres et partenaires, expertes dans leurs domaines respectifs, afin de couvrir un large spectre de discours problématiques.
       legals:
-        copyright: Copyright 2025
+        copyright: Copyright %{year}
         credit_html: Design <a href="https://www.bernatfont.com" target="_blank" rel="noreferrer noopener" title="Bernat Font - Ouverture dans une nouvelle fenêtre">Bernat Font</a>, code <a href="https://www.noesya.coop" target="_blank" rel="noreferrer noopener" title="noesya - Ouverture dans une nouvelle fenêtre">noesya</a>
         title: Mentions légales et confidentialité
       socials:
