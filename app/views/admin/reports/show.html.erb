@@ -2,6 +2,9 @@
 
 <div class="row mb-5">
   <div class="col-lg-6">
+    <label class="form-label"><%= Report.human_attribute_name(:brand) %></label>
+    <p><%= @report.brand %></p>
+
     <label class="form-label">Description</label>
     <%= simple_format @report.description %>
     <% if @report.link.present? %>
