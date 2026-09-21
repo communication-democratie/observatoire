@@ -1,7 +1,7 @@
 class Problem::Facets < FacetedSearch::Facets
   def initialize(params)
     super
-    @model = Problem.normal_and_important
+    @model = Problem.normal_and_important.with_reports_visible_in_front
     filter_with_text :title, {
       title: 'Filtres'
     }

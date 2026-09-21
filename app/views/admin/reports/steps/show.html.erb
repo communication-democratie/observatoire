@@ -3,6 +3,10 @@
 <div class="row">
   <div class="col-lg-6">
     <%= simple_format @step.description %>
+    <p>
+      <strong><%= Report::Step.human_attribute_name(:ignore_in_front) %> :</strong>
+      <%= @step.ignore_in_front? ? t('simple_form.yes') : t('simple_form.no') %>
+    </p>
   </div>
 </div>
 

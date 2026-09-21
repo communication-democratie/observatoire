@@ -33,6 +33,7 @@ class Report < ApplicationRecord
   validates_presence_of :brand, :description, :author_pseudonym, on: :create
 
   scope :ordered, -> { order(created_at: :desc) }
+  scope :visible_in_front, -> { joins(:step).merge(Report::Step.visible_in_front) }
 
   has_one_attached :image
   has_many_attached :files

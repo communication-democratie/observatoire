@@ -34,6 +34,7 @@ class Problem < ApplicationRecord
   after_touch :set_reported_at
 
   scope :ordered, -> { order(reported_at: :desc) }
+  scope :with_reports_visible_in_front, -> { where(id: Report.visible_in_front.select(:problem_id)) }
   scope :normal_and_important, -> { joins(:step).where('problem_steps.importance >= 0') }
   scope :important, -> { joins(:step).where('problem_steps.importance > 0') }
   scope :for_home, -> { important.ordered.limit(4) }

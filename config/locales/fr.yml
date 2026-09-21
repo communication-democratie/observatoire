@@ -46,8 +46,9 @@ fr:
         step: Étape
         title: Titre
         files: Images ou vidéos
-      report_step:
+      report/step:
         description: Description
+        ignore_in_front: Ignorer dans l'affichage en front
         position: Position
         title: Titre
       taxonomy:
@@ -84,6 +85,7 @@ fr:
     delete: Supprimer
     deleted: Suppression effectuée
     edit: Modifier
+    ignored_in_front: Ignoré en front
     save: Enregistrer
     show: Voir
     updated: Mise à jour effectuée

@@ -14,8 +14,16 @@ module FacetedSearch
       taxonomy.to_s
     end
 
+    # Only show categories that have matching results with the current params,
+    # plus the currently selected ones (mirrors DefaultList#values).
     def values
-      taxonomy.categories.ordered
+      @values ||= begin
+        results = (params_array.blank? ? facets.results : facets.results_except(param_name)).reorder(nil)
+        base = taxonomy.categories.ordered.joins(:problems)
+        base.where(problems: { id: results })
+            .or(base.where(slug: params_array))
+            .distinct
+      end
     end
 
     def find_by
