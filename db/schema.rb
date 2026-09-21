@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_06_02_140606) do
+ActiveRecord::Schema[8.1].define(version: 2026_09_21_000000) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -216,6 +216,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_06_02_140606) do
   create_table "report_steps", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.datetime "created_at", null: false
     t.text "description"
+    t.boolean "ignore_in_front", default: false, null: false
     t.integer "position", default: 0
     t.string "title"
     t.datetime "updated_at", null: false
