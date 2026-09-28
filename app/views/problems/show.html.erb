@@ -41,11 +41,13 @@
             <% reports.each do |report| %>
               <li class="bg-white rounded p-2 p-md-4 mb-3">
                 <%= simple_format report.description %>
+                <% if report.link_correct? %>
+                  <p class="meta">
+                    Lien utile : <%= link_to report.link_label, report.link, target: :_blank %>
+                  </p>
+                <% end %>
                 <p class="meta">
                   <%= t('front.problem.entry', date: (l report.created_at.to_date), alias: report.author_pseudonym) %>
-                  <% if report.link_correct? %>
-                    • <%= link_to report.link_label, report.link, target: :_blank %>
-                  <% end %>
                 </p>
               </li>
             <% end %>

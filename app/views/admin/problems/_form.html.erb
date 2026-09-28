@@ -7,8 +7,15 @@
     <div class="col-lg-4">
       <%= f.input :image, as: :single_deletable_file %>
       <%= f.input :pdf, as: :single_deletable_file %>
-      <%= f.association :step, include_blank: false, as: :radio_buttons %>
-      <%= f.association :organizations, as: :check_boxes %>
+      <%= f.association :step, 
+                        collection: Problem::Step.ordered,
+                        as: :radio_buttons, 
+                        include_blank: false
+                        %>
+      <%= f.association :organizations, 
+                        collection: Organization.ordered,
+                        as: :check_boxes
+                        %>
     </div>
     <div class="col-lg-8">
       <%= f.input :description,
