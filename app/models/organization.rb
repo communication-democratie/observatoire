@@ -4,7 +4,7 @@
 #
 #  id          :uuid             not null, primary key
 #  description :text
-#  level       :integer          default(0)
+#  level       :integer          default("member")
 #  name        :string
 #  short_name  :string
 #  slug        :string

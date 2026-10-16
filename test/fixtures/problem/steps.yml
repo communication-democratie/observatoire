@@ -7,7 +7,7 @@
 #  id          :uuid             not null, primary key
 #  color       :string           default("#666666")
 #  description :text
-#  importance  :integer          default(0)
+#  importance  :integer          default("medium")
 #  position    :integer          default(0)
 #  title       :string
 #  created_at  :datetime         not null
