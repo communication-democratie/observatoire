@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-ruby "4.0.7"
+ruby "4.0.9"
 
 gem "activestorage-scaleway-service", "~> 1.1"
 gem "autoprefixer-rails", "~> 10.6"
@@ -17,7 +17,7 @@ gem "image_processing", "~> 2.2"
 gem "jbuilder"
 gem "jquery-rails", "~> 4.6"
 gem "kamifusen", "~> 1.13"
-gem "kaminari", "~> 1.2"
+gem "kaminari", "~> 1.3"
 gem "kaminari-i18n"
 gem "mazer-rails", "~> 0.2"
 gem "mini_magick", "~> 5.4"
