@@ -9,13 +9,28 @@
 <% end %>
 
 <% @categories.each do |category| %>
+  <%
+  problems = category.problems.important
+  steps = problems.pluck(:step_id)
+  selected_facets = {}
+  selected_facets[@taxonomy.slug] = category.slug
+  selected_facets[:step] = steps.join(',')
+  %>
   <section class="mt-5">
-    <h2><%= category %></h2>
-    <%= render 'list',
-                column_size: 3,
-                problems: category.problems
-                                  .important
-                                  .ordered
-                                  .limit(3) %>
+    <h2><%= link_to category, problems_path(facets: selected_facets) %></h2>
+    <div class="row g-4">
+      <% problems.ordered.limit(3).each do |problem| %>
+        <div class="col-md-6 col-lg-3">
+          <%= render problem %>
+        </div>
+      <% end %>
+      <% if problems.count > 3 %>
+        <div class="col-md-6 col-lg-3 d-md-flex justify-content-center align-items-center">
+          <%= link_to problems_path(facets: selected_facets), class: 'btn-icon d-inline-flex' do %>
+            <span>Voir toutes</span>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
   </section>
 <% end %>

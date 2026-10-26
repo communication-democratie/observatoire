@@ -7,9 +7,8 @@ class ProblemsController < ApplicationController
   end
 
   def analyzed
-    @categories = Taxonomy.find_by(slug: 'mauvaises-pratiques')
-                          .categories
-                          .ordered
+    @taxonomy = Taxonomy.find_by(slug: 'mauvaises-pratiques')
+    @categories = @taxonomy.categories.ordered
     breadcrumb
     add_breadcrumb 'Nos analyses'
   end
