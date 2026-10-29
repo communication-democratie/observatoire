@@ -28,25 +28,27 @@
 class Report < ApplicationRecord
   include WithSteps
 
+  has_one_attached :image
+  has_many_attached :files
+
   has_and_belongs_to_many :categories
   belongs_to :problem, optional: true, touch: true
 
   validates_presence_of :brand, :description, :author_pseudonym, on: :create
 
+  after_commit :notify_step_changed_to_author, on: :update, if: :saved_change_to_step_id
+
   scope :ordered, -> { order(created_at: :desc) }
   scope :visible_in_front, -> { joins(:step).merge(Report::Step.visible_in_front) }
-
-  has_one_attached :image
-  has_many_attached :files
 
   def short_id
     id.to_s.split('-').first
   end
 
   def link_correct?
-    link_uri.present? && 
+    link_uri.present? &&
     (
-      link_uri.kind_of?(URI::HTTP) || 
+      link_uri.kind_of?(URI::HTTP) ||
       link_uri.kind_of?(URI::HTTPS)
     )
   end
@@ -65,5 +67,9 @@ class Report < ApplicationRecord
     @link_uri ||= URI.parse(link)
   rescue
     false
+  end
+
+  def notify_step_changed_to_author
+    ReportMailer.step_changed(self).deliver_later if author_email.present?
   end
 end
