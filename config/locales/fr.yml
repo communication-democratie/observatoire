@@ -91,7 +91,7 @@ fr:
     save: Enregistrer
     show: Voir
     updated: Mise à jour effectuée
-    markdown_hint: Utilisez du markdown, avec les titres à partir du niveau 2 (##). Vous pouvez utiliser les codes [partners] et [members] pour afficher les logos des organisations.
+    markdown_hint: Utilisez du markdown, avec les titres à partir du niveau 2 (##). Vous pouvez utiliser les codes [funders], [partners] et [members] pour afficher les logos des organisations.
   front:
     a11y:
       external_link: "%{name} - Ouverture dans une nouvelle fenêtre"
@@ -181,6 +181,7 @@ fr:
   enums:
     organization:
       level:
+        funder: Financeur
         member: Membre
         partner: Partenaire
     problem:

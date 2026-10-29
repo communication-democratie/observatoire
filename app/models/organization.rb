@@ -19,7 +19,8 @@ class Organization < ApplicationRecord
 
   enum :level, {
     member: 0,
-    partner: 1
+    partner: 1,
+    funder: 2
   }
 
   has_one_attached :logo

@@ -1,0 +1,7 @@
+<%
+bw = local_assigns.dig(:bw)
+organizations = Organization.funder.ordered
+%>
+<div class="shortcode__funders">
+  <%= render 'organizations/list', organizations: organizations, bw: bw %>
+</div>
