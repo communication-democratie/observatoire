@@ -54,6 +54,6 @@ module Observatoire
 
     config.sass.preferred_syntax = :sass
 
-    config.internal_domains = ENV['INTERNAL_DOMAINS'].to_s.split(',')
+    config.internal_domains = ["@noesya.coop"]
   end
 end
