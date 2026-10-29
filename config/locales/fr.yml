@@ -85,6 +85,7 @@ fr:
     delete: Supprimer
     deleted: Suppression effectuée
     edit: Modifier
+    export: Exporter (.xlsx)
     ignored_in_front: Ignoré en front
     save: Enregistrer
     show: Voir

@@ -7,7 +7,14 @@ class Admin::ReportsController < Admin::ApplicationController
       @step = Report::Step.find(params[:step])
       @reports = @reports.where(step: @step)
     end
-    @reports = @reports.page(params[:page]).per(100)
+    respond_to do |format|
+      format.html { @reports = @reports.page(params[:page]).per(100) }
+      format.xlsx {
+        @reports = @reports.includes(:problem, :step)
+        filename = "reports-#{Time.current.strftime("%Y%m%d%H%M%S")}.xlsx"
+        response.headers['Content-Disposition'] = "attachment; filename=#{filename}"
+      }
+    end
   end
 
   def show
