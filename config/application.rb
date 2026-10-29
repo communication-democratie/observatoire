@@ -55,5 +55,14 @@ module Observatoire
     config.sass.preferred_syntax = :sass
 
     config.internal_domains = ["@noesya.coop"]
+
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.smtp_settings = {
+        address: "smtp-relay.brevo.com",
+        port: 587,
+        user_name: ENV['SMTP_USER'],
+        password: ENV['SMTP_PASSWORD'],
+        authentication: :plain
+    }
   end
 end
