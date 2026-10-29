@@ -1,11 +1,6 @@
 <% content_for :title, 'Publicités signalées' %>
-
-<% content_for :head do %>
-  <link rel="canonical" href="<%= problems_path %>" />
-  <% if @facets.has_params? %>
-    <meta name="robots" content="noindex">
-  <% end %>
-<% end %>
+<% content_for :canonical, problems_path %>
+<% content_for :noindex, @facets.has_params? %>
 
 <% content_for :hero do %>
   <div class="container">

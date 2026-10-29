@@ -1,0 +1,41 @@
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+
+<% if content_for? :canonical %>
+  <link rel="canonical" href="<%= yield :canonical %>">
+<% end %>
+
+<% if content_for? :noindex %>
+  <meta name="robots" content="noindex, nofollow">
+<% end %>
+
+<%
+if content_for?(:title)
+  title = raw("#{yield(:title)} - #{t('front.website')}")
+else
+  title = t('front.website')
+end
+%>
+<title><%= title %></title>
+
+<% if content_for? :meta_description %>
+  <meta name="description" content="<%= yield :meta_description %>">
+<% end %>
+
+<meta property="og:title" content="<%= title %>">
+<% if content_for?(:meta_description) %>
+  <meta property="og:description" content="<%= yield :meta_description %>">
+<% end %>
+<meta property="og:site_name" content="<%= t('front.website') %>">
+<% shared_image = content_for?(:shared_image) ? content_for(:shared_image)
+                                              : "/images/shared-image.png" %>
+<meta property="og:image" content="<%= shared_image %>">
+
+<meta name="twitter:title" content="<%= title %>">
+<% if content_for?(:meta_description) %>
+  <meta name="twitter:description" content="<%= yield :meta_description %>">
+<% end %>
