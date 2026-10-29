@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  mount GoodJob::Engine => 'good_job'
+
   namespace :admin do
     namespace :reports do
       resources :steps
@@ -24,9 +26,9 @@ Rails.application.routes.draw do
   get ':taxonomy_slug/:category_slug' => 'categories#show', as: :category
 
   get 'up' => "rails/health#show", as: :rails_health_check
-  
+
   root to: 'pages#index'
-  
+
   match "*slug" => "pages#show", via: :get, constraints: lambda { |request|
     request.path.exclude? 'rails/active_storage'
   }

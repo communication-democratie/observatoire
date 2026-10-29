@@ -53,5 +53,7 @@ module Observatoire
     end
 
     config.sass.preferred_syntax = :sass
+
+    config.internal_domains = ENV['INTERNAL_DOMAINS'].to_s.split(',')
   end
 end
