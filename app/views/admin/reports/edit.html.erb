@@ -7,9 +7,10 @@
   <%= f.association :step,
                     collection: Report::Step.ordered,
                     as: :radio_buttons %>
-  <%= f.association :problem, 
+  <%= f.association :problem,
                     collection: Problem.ordered %>
+
+  <%= f.input :internal_note %>
 
   <%= f.button :submit, t('admin.save'), class: button_classes %>
 <% end %>
-

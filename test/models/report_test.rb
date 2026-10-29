@@ -7,6 +7,7 @@
 #  author_pseudonym :string
 #  brand            :string
 #  description      :text
+#  internal_note    :text
 #  link             :string
 #  title            :string
 #  created_at       :datetime         not null

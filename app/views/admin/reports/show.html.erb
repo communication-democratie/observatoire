@@ -46,19 +46,26 @@
       <%= Report.human_attribute_name(:step) %>
       </p>
       <%
-      Report::Step.ordered.each do |step| 
+      Report::Step.ordered.each do |step|
       active = step == @report.step
       classes = active ? 'btn btn-primary' : 'btn btn-light'
       %>
-      <%= link_to step, 
-                  admin_report_path(@report, report: { step_id: step.id } ), 
-                  method: :put, 
+      <%= link_to step,
+                  admin_report_path(@report, report: { step_id: step.id } ),
+                  method: :put,
                   disabled: !active,
                   class: classes %>
       <% end %>
     </div>
   </div>
   <div class="col-lg-6">
+    <% if @report.internal_note.present? %>
+      <div class="mb-5">
+        <p><%= Report.human_attribute_name(:internal_note) %></p>
+        <%= simple_format @report.internal_note %>
+      </div>
+    <% end %>
+
     <% if @report.image.attached? %>
       <div class="mb-5">
         <p>Image</p>
@@ -81,7 +88,7 @@
               </div>
             <% end %>
             <%= file.filename %>
-            — 
+            —
             <%= link_to 'Télécharger', rails_blob_url(file, disposition: :attachment) %>
           </div>
         <% end %>

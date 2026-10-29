@@ -38,6 +38,6 @@ class Admin::ReportsController < Admin::ApplicationController
   end
 
   def report_params
-    params.expect(report: [ :problem_id, :step_id ])
+    params.expect(report: [ :problem_id, :step_id, :internal_note ])
   end
 end
