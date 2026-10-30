@@ -99,8 +99,6 @@ fr:
     save: Enregistrer
     show: Voir
     updated: Mise à jour effectuée
-    no_parent: Aucune (étape principale)
-    position_hint: Laissez vide pour placer l'étape à la fin, parmi celles qui ont la même étape parente.
     markdown_hint: Utilisez du markdown, avec les titres à partir du niveau 2 (##). Vous pouvez utiliser les codes [partners] et [members] pour afficher les logos des organisations.
   front:
     a11y:
@@ -166,7 +164,12 @@ fr:
 
     website: Observatoire Citoyen de la Publicité
   simple_form:
+    include_blanks:
+      report_step:
+        parent_id: Aucune (étape principale)
     hints:
+      report_step:
+        position: Laissez vide pour placer l'étape à la fin, parmi celles qui ont la même étape parente.
       organization:
         website: Commençant par https://
       page:
