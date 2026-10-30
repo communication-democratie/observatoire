@@ -5,3 +5,7 @@ title += " — #{@step}" if @step
 <% content_for :title, title %>
 <%= render 'admin/reports/list', reports: @reports %>
 <%= paginate @reports, theme: 'bootstrap-5' %>
+
+<% content_for :buttons do %>
+  <%= link_to t('admin.export'), request.params.merge(format: :xlsx), class: button_classes %>
+<% end %>

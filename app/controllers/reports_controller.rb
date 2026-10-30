@@ -12,10 +12,11 @@ class ReportsController < ApplicationController
   private
 
   def report_params
-    params.expect(report: [ 
+    params.expect(report: [
       :title, :description, :link, :image, :brand,
-      :author_pseudonym, :author_email, files: [],
-      category_ids: []
+      :author_pseudonym, :author_email,
+      :should_opt_in_newsletter, :should_opt_in_pixel_tracking,
+      files: [], category_ids: []
     ])
   end
 end

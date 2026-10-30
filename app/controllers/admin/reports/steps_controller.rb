@@ -44,6 +44,9 @@ class Admin::Reports::StepsController < Admin::ApplicationController
     end
 
     def step_params
-      params.expect(report_step: [ :title, :description, :parent_id, :position, :ignore_in_front ])
+      params.expect(report_step: [
+        :title, :description, :parent_id, :position, :ignore_in_front,
+        :email_notification_active, :email_notification_subject, :email_notification_text
+      ])
     end
 end

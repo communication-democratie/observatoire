@@ -14,7 +14,9 @@ class ProblemsController < ApplicationController
   end
 
   def show
-    @problem = Problem.with_reports_visible_in_front.find(params.expect(:id))
+    scope = Problem.with_reports_visible_in_front
+    @problem = scope.find_by(slug: params.expect(:id))
+    @problem ||= scope.find(params.expect(:id))
     breadcrumb
     if @problem.important?
       add_breadcrumb 'Nos analyses', analyzed_problems_path

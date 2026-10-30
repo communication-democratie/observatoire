@@ -10,7 +10,7 @@
             color: $color-pink
         p
             margin-bottom: 0
-        
+
     @include media-breakpoint-down(md)
         margin-top: var(--bs-gutter-x)
 
@@ -56,16 +56,17 @@
                 + div
                     @extend .mt-3
         // checkboxes as buttons
-        .form-check
-            @extend .ps-0
-            .form-check-label
-                border: none
-                cursor: pointer
-                line-height: 1
-            input
-                @extend .visually-hidden
-                &:checked + label
-                    background-color: $color-dark-blue !important
-                    color: $color-white !important
+        .taxonomy-group
+            .form-check
+                @extend .ps-0
+                .form-check-label
+                    border: none
+                    cursor: pointer
+                    line-height: 1
+                input
+                    @extend .visually-hidden
+                    &:checked + label
+                        background-color: $color-dark-blue !important
+                        color: $color-white !important
     .form-details
         font-size: 16px

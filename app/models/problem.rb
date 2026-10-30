@@ -20,6 +20,7 @@
 #
 class Problem < ApplicationRecord
   include WithSteps
+  include WithSlug
 
   has_many :reports
   has_and_belongs_to_many :categories
@@ -28,8 +29,9 @@ class Problem < ApplicationRecord
   has_one_attached_deletable :image
   has_one_attached_deletable :pdf
 
-  validates_presence_of :title
+  validates_presence_of :title, :slug
 
+  before_validation :set_slug, on: :create
   after_save :set_reported_at
   after_touch :set_reported_at
 
@@ -45,6 +47,10 @@ class Problem < ApplicationRecord
 
   def main_categories
     categories.where(id: Taxonomy.main.categories)
+  end
+
+  def advertiser_categories
+    categories.where(id: Taxonomy.advertiser.categories)
   end
 
   def important?
@@ -77,6 +83,11 @@ class Problem < ApplicationRecord
   end
 
   protected
+
+  def computed_slug
+    advertisers = advertiser_categories.map(&:slug).join('-')
+    [advertisers, to_s.parameterize].compact_blank.join('-')
+  end
 
   def set_reported_at
     date = first_report&.created_at || created_at

@@ -40,8 +40,11 @@ fr:
         created_at: Date de signalement
         description: Description
         id: Identifiant
+        internal_note: Remarque interne OCP
         link: Lien web
         problem: Campagne
+        should_opt_in_newsletter: J'accepte de recevoir la newsletter de l'OCP
+        should_opt_in_pixel_tracking: J'accepte d'être suivi(e) via des pixels de suivi des emails
         slug: Slug
         step: Étape
         title: Titre
@@ -49,6 +52,9 @@ fr:
       report/step:
         children: Sous-étapes
         description: Description
+        email_notification_active: Notification de changement d'état ?
+        email_notification_subject: Sujet de la notification
+        email_notification_text: Texte de la notification
         ignore_in_front: Ignorer dans l'affichage en front
         parent: Étape parente
         parent_id: Étape parente
@@ -95,11 +101,12 @@ fr:
     delete: Supprimer
     deleted: Suppression effectuée
     edit: Modifier
+    export: Exporter (.xlsx)
     ignored_in_front: Ignoré en front
     save: Enregistrer
     show: Voir
     updated: Mise à jour effectuée
-    markdown_hint: Utilisez du markdown, avec les titres à partir du niveau 2 (##). Vous pouvez utiliser les codes [partners] et [members] pour afficher les logos des organisations.
+    markdown_hint: Utilisez du markdown, avec les titres à partir du niveau 2 (##). Vous pouvez utiliser les codes [funders], [partners] et [members] pour afficher les logos des organisations.
   front:
     a11y:
       external_link: "%{name} - Ouverture dans une nouvelle fenêtre"
@@ -155,6 +162,9 @@ fr:
         identification:
           title: Identifiez-vous
         more: "Remplissez le formulaire ci-dessous, puis :"
+        opt_in:
+          newsletter: J'accepte de recevoir la newsletter de l'OCP et confirme avoir pris connaissance de notre <a href="/mentions-legales-et-politique-de-confidentialite" target="_blank">politique de confidentialité</a>.
+          pixel_tracking: J'accepte d'être suivi(e) via des pixels de suivi des emails afin de recevoir des communications personnalisées.
       details:
         instructions: "Remplissez le formulaire ci-dessous, puis :"
         informations:
@@ -194,6 +204,7 @@ fr:
   enums:
     organization:
       level:
+        funder: Financeur
         member: Membre
         partner: Partenaire
     problem:

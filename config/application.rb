@@ -7,7 +7,7 @@ require "active_job/railtie"
 require "active_record/railtie"
 require "active_storage/engine"
 require "action_controller/railtie"
-# require "action_mailer/railtie"
+require "action_mailer/railtie"
 # require "action_mailbox/engine"
 # require "action_text/engine"
 require "action_view/railtie"
@@ -53,5 +53,16 @@ module Observatoire
     end
 
     config.sass.preferred_syntax = :sass
+
+    config.internal_domains = ["@noesya.coop"]
+
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.smtp_settings = {
+        address: "smtp-relay.brevo.com",
+        port: 587,
+        user_name: ENV['SMTP_USER'],
+        password: ENV['SMTP_PASSWORD'],
+        authentication: :plain
+    }
   end
 end
