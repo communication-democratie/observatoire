@@ -2,18 +2,20 @@
 #
 # Table name: reports
 #
-#  id               :uuid             not null, primary key
-#  author_email     :string
-#  author_pseudonym :string
-#  brand            :string
-#  description      :text
-#  internal_note    :text
-#  link             :string
-#  title            :string
-#  created_at       :datetime         not null
-#  updated_at       :datetime         not null
-#  problem_id       :uuid
-#  step_id          :uuid
+#  id                           :uuid             not null, primary key
+#  author_email                 :string
+#  author_pseudonym             :string
+#  brand                        :string
+#  description                  :text
+#  internal_note                :text
+#  link                         :string
+#  should_opt_in_newsletter     :boolean          default(FALSE)
+#  should_opt_in_pixel_tracking :boolean          default(FALSE)
+#  title                        :string
+#  created_at                   :datetime         not null
+#  updated_at                   :datetime         not null
+#  problem_id                   :uuid
+#  step_id                      :uuid
 #
 # Indexes
 #
@@ -35,7 +37,9 @@ class Report < ApplicationRecord
   belongs_to :problem, optional: true, touch: true
 
   validates_presence_of :brand, :description, :author_pseudonym, on: :create
+  validate :opt_in_newsletter_requires_author_email
 
+  after_commit :subscribe_author_email_later, on: :create, if: :should_opt_in_newsletter?
   after_commit :notify_step_changed_to_author, on: :update, if: :saved_change_to_step_id
 
   scope :ordered, -> { order(created_at: :desc) }
@@ -72,4 +76,16 @@ class Report < ApplicationRecord
   def notify_step_changed_to_author
     ReportMailer.step_changed(self, step).deliver_later if author_email.present?
   end
+
+  def opt_in_newsletter_requires_author_email
+    if should_opt_in_newsletter? && author_email.blank?
+      errors.add(:author_email, :blank)
+    end
+  end
+
+  def subscribe_author_email_later
+    return unless author_email.present?
+    Brevo::SubscribeJob.perform_later(self)
+  end
+
 end

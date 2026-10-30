@@ -2,18 +2,20 @@
 #
 # Table name: reports
 #
-#  id               :uuid             not null, primary key
-#  author_email     :string
-#  author_pseudonym :string
-#  brand            :string
-#  description      :text
-#  internal_note    :text
-#  link             :string
-#  title            :string
-#  created_at       :datetime         not null
-#  updated_at       :datetime         not null
-#  problem_id       :uuid
-#  step_id          :uuid
+#  id                           :uuid             not null, primary key
+#  author_email                 :string
+#  author_pseudonym             :string
+#  brand                        :string
+#  description                  :text
+#  internal_note                :text
+#  link                         :string
+#  should_opt_in_newsletter     :boolean          default(FALSE)
+#  should_opt_in_pixel_tracking :boolean          default(FALSE)
+#  title                        :string
+#  created_at                   :datetime         not null
+#  updated_at                   :datetime         not null
+#  problem_id                   :uuid
+#  step_id                      :uuid
 #
 # Indexes
 #

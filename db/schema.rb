@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_10_30_101144) do
+ActiveRecord::Schema[8.1].define(version: 2026_10_30_141458) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -259,6 +259,8 @@ ActiveRecord::Schema[8.1].define(version: 2026_10_30_101144) do
     t.uuid "step_id"
     t.string "brand"
     t.text "internal_note"
+    t.boolean "should_opt_in_newsletter", default: false
+    t.boolean "should_opt_in_pixel_tracking", default: false
     t.index ["problem_id"], name: "index_reports_on_problem_id"
     t.index ["step_id"], name: "index_reports_on_step_id"
   end

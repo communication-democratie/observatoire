@@ -43,6 +43,8 @@ fr:
         internal_note: Remarque interne OCP
         link: Lien web
         problem: Campagne
+        should_opt_in_newsletter: J'accepte de recevoir la newsletter de l'OCP
+        should_opt_in_pixel_tracking: J'accepte d'être suivi(e) via des pixels de suivi des emails
         slug: Slug
         step: Étape
         title: Titre
@@ -160,6 +162,9 @@ fr:
         identification:
           title: Identifiez-vous
         more: "Remplissez le formulaire ci-dessous, puis :"
+        opt_in:
+          newsletter: J'accepte de recevoir la newsletter de l'OCP et confirme avoir pris connaissance de notre <a href="/mentions-legales-et-politique-de-confidentialite" target="_blank">politique de confidentialité</a>.
+          pixel_tracking: J'accepte d'être suivi(e) via des pixels de suivi des emails afin de recevoir des communications personnalisées.
       details:
         instructions: "Remplissez le formulaire ci-dessous, puis :"
         informations:
