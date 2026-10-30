@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_10_16_162920) do
+ActiveRecord::Schema[8.1].define(version: 2026_10_29_000000) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -234,10 +234,14 @@ ActiveRecord::Schema[8.1].define(version: 2026_10_16_162920) do
   create_table "report_steps", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "title"
     t.text "description"
-    t.integer "position", default: 0
+    t.integer "position", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "ignore_in_front", default: false, null: false
+    t.uuid "parent_id"
+    t.index ["parent_id", "position"], name: "index_report_steps_on_parent_id_and_position", unique: true, where: "(parent_id IS NOT NULL)"
+    t.index ["parent_id"], name: "index_report_steps_on_parent_id"
+    t.index ["position"], name: "index_report_steps_on_position_without_parent", unique: true, where: "(parent_id IS NULL)"
   end
 
   create_table "reports", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -269,6 +273,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_10_16_162920) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "categories", "taxonomies"
   add_foreign_key "problems", "problem_steps", column: "step_id"
+  add_foreign_key "report_steps", "report_steps", column: "parent_id"
   add_foreign_key "reports", "problems"
   add_foreign_key "reports", "report_steps", column: "step_id"
 end

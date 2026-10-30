@@ -47,8 +47,11 @@ fr:
         title: Titre
         files: Images ou vidéos
       report/step:
+        children: Sous-étapes
         description: Description
         ignore_in_front: Ignorer dans l'affichage en front
+        parent: Étape parente
+        parent_id: Étape parente
         position: Position
         title: Titre
       taxonomy:
@@ -56,6 +59,13 @@ fr:
         for_reports: Utiliser pour les signalements
         title: Titre
         position: Position
+    errors:
+      models:
+        report/step:
+          attributes:
+            parent_id:
+              descendant: ne peut pas être une de ses propres sous-étapes
+              itself: ne peut pas être l'étape elle-même
     models:
       category:
         one: Catégorie
@@ -154,7 +164,12 @@ fr:
 
     website: Observatoire Citoyen de la Publicité
   simple_form:
+    include_blanks:
+      report_step:
+        parent_id: Aucune (étape principale)
     hints:
+      report_step:
+        position: Laissez vide pour placer l'étape à la fin, parmi celles qui ont la même étape parente.
       organization:
         website: Commençant par https://
       page:

@@ -11,6 +11,7 @@ module WithSteps
 
   def initialize_step
     step_class = association(:step).klass
-    self.step ||= step_class.ordered.first
+    scope = step_class.respond_to?(:root) ? step_class.root : step_class
+    self.step ||= scope.ordered.first
   end
 end

@@ -3,11 +3,31 @@
 <div class="row">
   <div class="col-lg-6">
     <%= simple_format @step.description %>
+    <% if @step.parent.present? %>
+      <p>
+        <strong><%= Report::Step.human_attribute_name(:parent) %> :</strong>
+        <%= link_to @step.parent, admin_reports_step_path(@step.parent) %>
+      </p>
+    <% end %>
+    <p>
+      <strong><%= Report::Step.human_attribute_name(:position) %> :</strong>
+      <%= @step.position %>
+    </p>
     <p>
       <strong><%= Report::Step.human_attribute_name(:ignore_in_front) %> :</strong>
       <%= @step.ignore_in_front? ? t('simple_form.yes') : t('simple_form.no') %>
     </p>
   </div>
+  <% if @step.children.any? %>
+    <div class="col-lg-6">
+      <h2 class="h4"><%= Report::Step.human_attribute_name(:children) %></h2>
+      <ul>
+        <% @step.children.each do |child| %>
+          <li><%= link_to child, admin_reports_step_path(child) %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 </div>
 
 <% content_for :buttons do %>

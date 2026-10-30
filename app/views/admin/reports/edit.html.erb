@@ -5,7 +5,7 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <%= f.association :step,
-                    collection: Report::Step.ordered,
+                    collection: Report::Step.tree.map { |step, depth| ["#{'— ' * depth}#{step}", step.id] },
                     as: :radio_buttons %>
   <%= f.association :problem, 
                     collection: Problem.ordered %>
