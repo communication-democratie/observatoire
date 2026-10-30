@@ -77,16 +77,16 @@
       <%= Report.human_attribute_name(:step) %>
     </p>
     <div class="d-grid gap-2">
-      <%
-      Report::Step.tree.each do |step, depth|
-      active = step == @report.step
-      classes = active ? 'btn btn-primary text-start' : 'btn btn-light text-start'
-      %>
-      <%= link_to "#{'— ' * depth}#{step}",
-                  admin_report_path(@report, report: { step_id: step.id } ),
-                  method: :put,
-                  disabled: !active,
-                  class: classes %>
+      <% Report::Step.tree.each do |step, depth| %>
+        <%
+          active = step == @report.step
+          classes = active ? 'btn btn-primary text-start' : 'btn btn-light text-start'
+        %>
+        <%= link_to "#{'— ' * depth}#{step}",
+                    admin_report_path(@report, report: { step_id: step.id } ),
+                    method: :put,
+                    disabled: !active,
+                    class: classes %>
       <% end %>
     </div>
   </div>
