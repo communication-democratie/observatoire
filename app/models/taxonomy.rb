@@ -22,6 +22,10 @@ class Taxonomy < ApplicationRecord
   scope :ordered, -> { order(:position) }
   scope :main, -> { ordered.first }
 
+  def self.advertiser
+    find_by(slug: 'annonceurs')
+  end
+
   def to_s
     "#{title}"
   end

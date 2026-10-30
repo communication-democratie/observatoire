@@ -1,4 +1,5 @@
 <% content_for :title, @problem %>
+<% content_for :canonical, problem_url(@problem.slug) %>
 <% content_for :yield_without_container, true %>
 <% if @problem.image.attached? %>
   <% content_for :shared_image, @problem.image.url %>
