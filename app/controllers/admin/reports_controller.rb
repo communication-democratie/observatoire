@@ -5,7 +5,7 @@ class Admin::ReportsController < Admin::ApplicationController
     @reports = Report.all.ordered
     if params[:step]
       @step = Report::Step.find(params[:step])
-      @reports = @reports.where(step: @step)
+      @reports = @reports.where(step: @step.self_and_descendants)
     end
     @reports = @reports.page(params[:page]).per(100)
   end

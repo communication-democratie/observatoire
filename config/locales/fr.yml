@@ -47,8 +47,11 @@ fr:
         title: Titre
         files: Images ou vidéos
       report/step:
+        children: Sous-étapes
         description: Description
         ignore_in_front: Ignorer dans l'affichage en front
+        parent: Étape parente
+        parent_id: Étape parente
         position: Position
         title: Titre
       taxonomy:
@@ -56,6 +59,13 @@ fr:
         for_reports: Utiliser pour les signalements
         title: Titre
         position: Position
+    errors:
+      models:
+        report/step:
+          attributes:
+            parent_id:
+              descendant: ne peut pas être une de ses propres sous-étapes
+              itself: ne peut pas être l'étape elle-même
     models:
       category:
         one: Catégorie
@@ -89,6 +99,8 @@ fr:
     save: Enregistrer
     show: Voir
     updated: Mise à jour effectuée
+    no_parent: Aucune (étape principale)
+    position_hint: Laissez vide pour placer l'étape à la fin, parmi celles qui ont la même étape parente.
     markdown_hint: Utilisez du markdown, avec les titres à partir du niveau 2 (##). Vous pouvez utiliser les codes [partners] et [members] pour afficher les logos des organisations.
   front:
     a11y:

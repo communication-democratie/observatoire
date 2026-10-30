@@ -5,8 +5,10 @@ SimpleNavigation::Configuration.run do |navigation|
   navigation.selected_class = 'active'
   navigation.active_leaf_class = 'active-leaf'
 
-  def badge(text, count)
-    "<span class=\"badge rounded-pill text-bg-primary\" style=\"width:40px\">#{count} </span> #{text}"
+  def badge(text, count, depth = 0)
+    content = "<span class=\"badge rounded-pill text-bg-primary\" style=\"width:40px\">#{count} </span> #{text}"
+    return content if depth.zero?
+    "<span style=\"padding-left: #{depth}rem\">#{content}</span>"
   end
 
   navigation.items do |primary|
@@ -24,9 +26,9 @@ SimpleNavigation::Configuration.run do |navigation|
                       highlights_on: lambda {
                         controller_name == 'reports' && @step.nil?
                       }
-      Report::Step.ordered.each do |step|
+      Report::Step.tree.each do |step, depth|
         secondary.item  step.id.to_sym,
-                        badge(step.to_s, step.reports.count),
+                        badge(step.to_s, step.reports_count, depth),
                         admin_reports_path(step: step.id),
                         highlights_on: lambda {
                           controller_name == 'reports' && @step == step

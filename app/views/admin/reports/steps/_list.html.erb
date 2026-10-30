@@ -1,12 +1,14 @@
 <table class="table">
   <tbody>
-    <% steps.each do |step| %>
+    <% steps.each do |step, depth| %>
       <tr>
         <td width="50%">
-          <%= link_to step.title, admin_reports_step_path(step) %>
-          <% if step.ignore_in_front? %>
-            <span class="badge bg-secondary"><%= t('admin.ignored_in_front') %></span>
-          <% end %>
+          <span style="padding-left: <%= depth * 1.5 %>rem">
+            <%= link_to step.title, admin_reports_step_path(step) %>
+            <% if step.ignore_in_front? %>
+              <span class="badge bg-secondary"><%= t('admin.ignored_in_front') %></span>
+            <% end %>
+          </span>
         </td>
         <td><%= step.description %></td>
         <td><%= step.position %></td>

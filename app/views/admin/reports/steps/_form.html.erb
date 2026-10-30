@@ -5,7 +5,11 @@
 
   <%= f.input :title %>
   <%= f.input :description %>
-  <%= f.input :position%>
+  <%= f.input :parent_id,
+              collection: step.available_parents.map { |parent, depth| ["#{'— ' * depth}#{parent}", parent.id] },
+              include_blank: t('admin.no_parent') %>
+  <%= f.input :position,
+              hint: t('admin.position_hint') %>
   <%= f.input :ignore_in_front %>
 
   <%= f.button :submit, t('admin.save'), class: button_classes %>

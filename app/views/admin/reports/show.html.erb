@@ -1,7 +1,7 @@
 <% content_for :title, @report %>
 
 <div class="row mb-5">
-  <div class="col-lg-6">
+  <div class="col-lg-5">
     <label class="form-label"><%= Report.human_attribute_name(:brand) %></label>
     <p><%= @report.brand %></p>
 
@@ -41,24 +41,8 @@
         Non associé
       <% end %>
     </div>
-    <div class="my-5">
-      <p class="form-label">
-      <%= Report.human_attribute_name(:step) %>
-      </p>
-      <%
-      Report::Step.ordered.each do |step| 
-      active = step == @report.step
-      classes = active ? 'btn btn-primary' : 'btn btn-light'
-      %>
-      <%= link_to step, 
-                  admin_report_path(@report, report: { step_id: step.id } ), 
-                  method: :put, 
-                  disabled: !active,
-                  class: classes %>
-      <% end %>
-    </div>
   </div>
-  <div class="col-lg-6">
+  <div class="col-lg-4">
     <% if @report.image.attached? %>
       <div class="mb-5">
         <p>Image</p>
@@ -87,6 +71,24 @@
         <% end %>
       </div>
     <% end %>
+  </div>
+  <div class="col-lg-3">
+    <p class="form-label">
+      <%= Report.human_attribute_name(:step) %>
+    </p>
+    <div class="d-grid gap-2">
+      <%
+      Report::Step.tree.each do |step, depth|
+      active = step == @report.step
+      classes = active ? 'btn btn-primary text-start' : 'btn btn-light text-start'
+      %>
+      <%= link_to "#{'— ' * depth}#{step}",
+                  admin_report_path(@report, report: { step_id: step.id } ),
+                  method: :put,
+                  disabled: !active,
+                  class: classes %>
+      <% end %>
+    </div>
   </div>
 </div>
 
