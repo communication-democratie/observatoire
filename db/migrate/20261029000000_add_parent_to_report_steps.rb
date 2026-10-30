@@ -2,8 +2,7 @@ class AddParentToReportSteps < ActiveRecord::Migration[8.1]
   def change
     add_reference :report_steps, :parent,
                   foreign_key: { to_table: :report_steps },
-                  type: :uuid,
-                  null: true
+                  type: :uuid
 
     change_column_default :report_steps, :position, from: 0, to: nil
     change_column_null :report_steps, :position, false
