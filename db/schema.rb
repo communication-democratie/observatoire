@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_10_29_104455) do
+ActiveRecord::Schema[8.1].define(version: 2026_10_30_101144) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -238,6 +238,9 @@ ActiveRecord::Schema[8.1].define(version: 2026_10_29_104455) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "ignore_in_front", default: false, null: false
+    t.boolean "email_notification_active", default: false
+    t.string "email_notification_subject"
+    t.text "email_notification_text"
   end
 
   create_table "reports", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|

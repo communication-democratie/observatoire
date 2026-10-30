@@ -1,3 +1,6 @@
-Le statut de votre signalement de la marque « <%= @report.brand %> » est passé à « <%= @report.step %> ».
-<br>
-Merci pour votre contribution.
+<% if @report.email_notification_text.present? %>
+  <%= simple_format @report.email_notification_text %>
+<% else %>
+  <p>Le statut de votre signalement de la marque « <%= @report.brand %> » est passé à « <%= @report.step %> ».</p>
+  <p>Merci pour votre contribution.</p>
+<% end %>

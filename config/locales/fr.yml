@@ -49,6 +49,9 @@ fr:
         files: Images ou vidéos
       report/step:
         description: Description
+        email_notification_active: Notification de changement d'état ?
+        email_notification_subject: Sujet de la notification
+        email_notification_text: Texte de la notification
         ignore_in_front: Ignorer dans l'affichage en front
         position: Position
         title: Titre

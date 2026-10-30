@@ -70,6 +70,6 @@ class Report < ApplicationRecord
   end
 
   def notify_step_changed_to_author
-    ReportMailer.step_changed(self).deliver_later if author_email.present?
+    ReportMailer.step_changed(self, step).deliver_later if author_email.present?
   end
 end
