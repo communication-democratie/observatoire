@@ -2,7 +2,7 @@ class Admin::Reports::StepsController < Admin::ApplicationController
   before_action :set_report_step, only: %i[ show edit update destroy ]
 
   def index
-    @steps = Report::Step.ordered
+    @steps = Report::Step.tree
   end
 
   def show
@@ -45,7 +45,7 @@ class Admin::Reports::StepsController < Admin::ApplicationController
 
     def step_params
       params.expect(report_step: [
-        :title, :description, :position, :ignore_in_front,
+        :title, :description, :parent_id, :position, :ignore_in_front,
         :email_notification_active, :email_notification_subject, :email_notification_text
       ])
     end

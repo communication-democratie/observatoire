@@ -31,12 +31,8 @@ one:
   title: MyString
   description: MyText
   author_pseudonym: MyString
-  author_place: MyString
-  author_contact: MyText
 
 two:
   title: MyString
   description: MyText
   author_pseudonym: MyString
-  author_place: MyString
-  author_contact: MyText
