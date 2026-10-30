@@ -6,9 +6,7 @@ SimpleNavigation::Configuration.run do |navigation|
   navigation.active_leaf_class = 'active-leaf'
 
   def badge(text, count, depth = 0)
-    content = "<span class=\"badge rounded-pill text-bg-primary\" style=\"width:40px\">#{count} </span> #{text}"
-    return content if depth.zero?
-    "<span style=\"padding-left: #{depth}rem\">#{content}</span>"
+    "<span class=\"badge rounded-pill text-bg-primary\" style=\"width:40px;margin-left:#{depth}rem\">#{count} </span> #{text}"
   end
 
   navigation.items do |primary|
