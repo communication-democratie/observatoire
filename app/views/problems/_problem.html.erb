@@ -5,7 +5,7 @@
                       width: 400 if problem.image.attached? %>
     <div class="card-body">
       <h2 class="card-title h5">
-        <%= link_to problem, problem, class: 'stretched-link text-black text-decoration-none' %>
+        <%= link_to problem, problem_path(problem.slug), class: 'stretched-link text-black text-decoration-none' %>
       </h2>
       <%
       Taxonomy.all.ordered.each do |taxonomy|

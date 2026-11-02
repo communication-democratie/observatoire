@@ -3,13 +3,22 @@
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <%= f.input :title %>
-  <%= f.input :description %>
-  <%= f.input :parent_id,
-              collection: step.available_parents.map { |parent, depth| ["#{'— ' * depth}#{parent}", parent.id] },
-              include_blank: :translate %>
-  <%= f.input :position %>
-  <%= f.input :ignore_in_front %>
+  <div class="row">
+    <div class="col-lg-4 col-md-6">
+      <%= f.input :title %>
+      <%= f.input :description %>
+      <%= f.input :parent_id,
+                  collection: step.available_parents.map { |parent, depth| ["#{'— ' * depth}#{parent}", parent.id] },
+                  include_blank: :translate %>
+      <%= f.input :position %>
+      <%= f.input :ignore_in_front %>
+    </div>
+    <div class="col-lg-4 col-md-6">
+      <%= f.input :email_notification_active %>
+      <%= f.input :email_notification_subject %>
+      <%= f.input :email_notification_text, input_html: { rows: 5 } %>
+    </div>
+  </div>
 
   <%= f.button :submit, t('admin.save'), class: button_classes %>
 <% end %>

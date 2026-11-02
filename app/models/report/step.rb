@@ -2,14 +2,17 @@
 #
 # Table name: report_steps
 #
-#  id              :uuid             not null, primary key
-#  description     :text
-#  ignore_in_front :boolean          default(FALSE), not null
-#  position        :integer          not null
-#  title           :string
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
-#  parent_id       :uuid
+#  id                         :uuid             not null, primary key
+#  description                :text
+#  email_notification_active  :boolean          default(FALSE)
+#  email_notification_subject :string
+#  email_notification_text    :text
+#  ignore_in_front            :boolean          default(FALSE), not null
+#  position                   :integer          not null
+#  title                      :string
+#  created_at                 :datetime         not null
+#  updated_at                 :datetime         not null
+#  parent_id                  :uuid
 #
 # Indexes
 #
@@ -25,6 +28,9 @@ class Report::Step < ApplicationRecord
   include WithTree
 
   has_many :reports
+
+  validates :email_notification_subject, :email_notification_text,
+            presence: true, if: :email_notification_active?
 
   scope :visible_in_front, -> { where(ignore_in_front: false) }
 

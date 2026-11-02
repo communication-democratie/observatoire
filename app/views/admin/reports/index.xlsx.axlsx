@@ -1,0 +1,42 @@
+wb = xlsx_package.workbook
+wb.add_worksheet(name: Report.model_name.human(count: 2)) do |sheet|
+  headers = [
+    Report.human_attribute_name(:brand),
+    Report.human_attribute_name(:link),
+    Report.human_attribute_name(:description),
+    Report.human_attribute_name(:author_pseudonym),
+    Report.human_attribute_name(:author_email),
+    Report.human_attribute_name(:problem),
+    Report.human_attribute_name(:step),
+    Report.human_attribute_name(:internal_note),
+    Report.human_attribute_name(:created_at),
+  ]
+
+  types = [
+    :string,  # brand
+    :string,  # link
+    :string,  # description
+    :string,  # author_pseudonym
+    :string,  # author_email
+    :string,  # problem
+    :string,  # step
+    :string,  # internal_note
+    nil       # created_at
+  ]
+
+  sheet.add_row headers, types: Array.new(types.count) { |_| :string }
+
+  @reports.each do |report|
+    sheet.add_row [
+      report.brand,
+      report.link,
+      report.description,
+      report.author_pseudonym,
+      report.author_email,
+      report.problem&.to_s,
+      report.step&.to_s,
+      report.internal_note,
+      report.created_at
+    ], types: types
+  end
+end

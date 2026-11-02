@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_10_29_000000) do
+ActiveRecord::Schema[8.1].define(version: 2026_10_30_152943) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -228,6 +228,8 @@ ActiveRecord::Schema[8.1].define(version: 2026_10_29_000000) do
     t.string "title"
     t.uuid "step_id"
     t.datetime "reported_at"
+    t.string "slug", null: false
+    t.index ["slug"], name: "index_problems_on_slug", unique: true
     t.index ["step_id"], name: "index_problems_on_step_id"
   end
 
@@ -238,6 +240,9 @@ ActiveRecord::Schema[8.1].define(version: 2026_10_29_000000) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "ignore_in_front", default: false, null: false
+    t.boolean "email_notification_active", default: false
+    t.string "email_notification_subject"
+    t.text "email_notification_text"
     t.uuid "parent_id"
     t.index ["parent_id", "position"], name: "index_report_steps_on_parent_id_and_position", unique: true, where: "(parent_id IS NOT NULL)"
     t.index ["parent_id"], name: "index_report_steps_on_parent_id"
@@ -255,6 +260,9 @@ ActiveRecord::Schema[8.1].define(version: 2026_10_29_000000) do
     t.string "link"
     t.uuid "step_id"
     t.string "brand"
+    t.text "internal_note"
+    t.boolean "should_opt_in_newsletter", default: false
+    t.boolean "should_opt_in_pixel_tracking", default: false
     t.index ["problem_id"], name: "index_reports_on_problem_id"
     t.index ["step_id"], name: "index_reports_on_step_id"
   end

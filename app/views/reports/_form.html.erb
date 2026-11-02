@@ -1,4 +1,4 @@
-<%= simple_form_for(@report) do |f| %>
+<%= simple_form_for(@report, url: reports_url(anchor: :reporting)) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
@@ -11,7 +11,7 @@
 
   <% Taxonomy.for_reports.each do |taxonomy| %>
     <h3 class="h4"><%= taxonomy %></h3>
-    <div class="group mb-3 d-flex gap-3 flex-wrap">
+    <div class="group mb-3 d-flex gap-3 flex-wrap taxonomy-group">
       <% taxonomy.categories.ordered.each do |category| %>
         <div class="form-check">
           <input  class="form-check-input"
@@ -40,6 +40,8 @@
       <%= f.input :author_email %>
     </div>
   </div>
+  <%= f.input :should_opt_in_newsletter, label: t("front.report_form.fields.opt_in.newsletter").html_safe %>
+  <%= f.input :should_opt_in_pixel_tracking, label: t("front.report_form.fields.opt_in.pixel_tracking") %>
   <label class="btn-icon mt-5">
     <%= f.button :submit, 'Envoyer' %>
   </label>

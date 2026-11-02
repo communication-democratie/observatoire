@@ -2,6 +2,7 @@ class MarkdownRenderer
   attr_reader :markdown
 
   SHORTCODES = [
+    :funders,
     :partners,
     :members
   ]

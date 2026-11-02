@@ -20,6 +20,7 @@
 #
 class Problem < ApplicationRecord
   include WithSteps
+  include WithSlug
 
   has_many :reports
   has_and_belongs_to_many :categories
@@ -44,7 +45,11 @@ class Problem < ApplicationRecord
   end
 
   def main_categories
-    categories.where(id: Taxonomy.main.categories)
+    categories.where(id: Taxonomy.main.category_ids)
+  end
+
+  def advertiser_categories
+    categories.where(id: Taxonomy.advertiser.category_ids)
   end
 
   def important?
@@ -77,6 +82,11 @@ class Problem < ApplicationRecord
   end
 
   protected
+
+  def computed_slug
+    advertisers = advertiser_categories.ordered.pluck(:slug).join('-')
+    [advertisers, to_s.parameterize].compact_blank.join('-')
+  end
 
   def set_reported_at
     date = first_report&.created_at || created_at

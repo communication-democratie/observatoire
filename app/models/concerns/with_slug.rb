@@ -9,7 +9,7 @@ module WithSlug
   end
 
   def set_slug
-    self.slug = to_s.parameterize if self.slug.blank?
+    self.slug = computed_slug if self.slug.blank?
     current_slug = self.slug
     n = 0
     while slug_unavailable?(self.slug)
@@ -19,6 +19,10 @@ module WithSlug
   end
 
   protected
+
+  def computed_slug
+    to_s.parameterize
+  end
 
   def slug_unavailable?(slug)
     self.class.unscoped
