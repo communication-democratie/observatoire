@@ -3,6 +3,6 @@ class Brevo::SubscribeJob < ApplicationJob
 
   def perform(report)
     return unless report.author_email.present? && report.should_opt_in_newsletter?
-    Brevo::ContactService.subscribe(report.author_email, report.should_opt_in_newsletter?)
+    Brevo::ContactService.subscribe(report.author_email, report.should_opt_in_pixel_tracking?)
   end
 end
