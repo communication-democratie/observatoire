@@ -37,7 +37,7 @@ class Report < ApplicationRecord
   belongs_to :problem, optional: true, touch: true
 
   validates_presence_of :brand, :description, :author_pseudonym, on: :create
-  validate :opt_in_newsletter_requires_author_email
+  validates :author_email, presence: true, if: :should_opt_in_newsletter?
 
   after_commit :subscribe_author_email_later, on: :create, if: :should_opt_in_newsletter?
   after_commit :notify_step_changed_to_author, on: :update, if: :saved_change_to_step_id
@@ -88,12 +88,6 @@ class Report < ApplicationRecord
   def notify_step_changed_to_author
     return unless step.email_notification_active?
     ReportMailer.step_changed(self, step).deliver_later if author_email.present?
-  end
-
-  def opt_in_newsletter_requires_author_email
-    if should_opt_in_newsletter? && author_email.blank?
-      errors.add(:author_email, :blank)
-    end
   end
 
   def subscribe_author_email_later
