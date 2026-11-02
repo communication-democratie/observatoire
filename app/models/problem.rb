@@ -29,9 +29,8 @@ class Problem < ApplicationRecord
   has_one_attached_deletable :image
   has_one_attached_deletable :pdf
 
-  validates_presence_of :title, :slug
+  validates_presence_of :title
 
-  before_validation :set_slug, on: :create
   after_save :set_reported_at
   after_touch :set_reported_at
 
