@@ -1,5 +1,5 @@
 <%
-text = @report.step.email_notification_text
+text = @step.email_notification_text
 text = text.gsub('{{brand}}', Sanitizer.sanitize_string(@report.brand))
 %>
 <%= simple_format text %>
