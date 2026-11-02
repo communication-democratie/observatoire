@@ -178,12 +178,14 @@ fr:
       report_step:
         parent_id: Aucune (étape principale)
     hints:
-      report_step:
-        position: Laissez vide pour placer l'étape à la fin, parmi celles qui ont la même étape parente.
       organization:
         website: Commençant par https://
       page:
         position: Position dans le menu. Si laissé vide la page n'apparaitra pas dans le menu.
+      report_step:
+        email_notification_subject: Vous pouvez insérer la marque renseignée dans le signalement en utilisant {{brand}}
+        email_notification_text: Vous pouvez insérer la marque renseignée dans le signalement en utilisant {{brand}}
+        position: Laissez vide pour placer l'étape à la fin, parmi celles qui ont la même étape parente.
     placeholders:
       report:
         author_pseudonym: Cela permet d'identifier publiquement vos signalements

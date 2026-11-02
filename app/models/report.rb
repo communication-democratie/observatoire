@@ -61,18 +61,6 @@ class Report < ApplicationRecord
     link_uri.host
   end
 
-  def computed_step_changed_email_notification_subject
-    notification_subject = step.email_notification_subject.dup
-    notification_subject.gsub!('{{brand}}', Sanitizer.sanitize_string(brand))
-    notification_subject
-  end
-
-  def computed_step_changed_email_notification_text
-    notification_text = step.email_notification_text.dup
-    notification_text.gsub!('{{brand}}', Sanitizer.sanitize_string(brand))
-    notification_text
-  end
-
   def to_s
     title.blank? ? "#{id}" : "#{title}"
   end
@@ -87,7 +75,7 @@ class Report < ApplicationRecord
 
   def notify_step_changed_to_author
     return unless step.email_notification_active?
-    ReportMailer.step_changed(self, step).deliver_later if author_email.present?
+    ReportMailer.step_changed(self).deliver_later if author_email.present?
   end
 
   def subscribe_author_email_later

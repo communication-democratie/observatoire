@@ -6,7 +6,8 @@ class ReportsMailer < ApplicationMailer
     email = @report.author_email
     return unless email.present?
 
-    subject = @report.computed_step_changed_email_notification_subject
+    subject = @report.step.email_notification_subject
+    subject = subject.gsub('{{brand}}', Sanitizer.sanitize_string(@report.brand))
     mail(to: email, subject: subject) if should_send?(email)
   end
 

@@ -1,5 +1,11 @@
 <% content_for :title, @report %>
 
+<% if @report.internal_note.present? %>
+  <div class="alert alert-warning">
+    <%= simple_format @report.internal_note %>
+  </div>
+<% end %>
+
 <div class="row mb-5">
   <div class="col-lg-5">
     <label class="form-label"><%= Report.human_attribute_name(:brand) %></label>
@@ -43,13 +49,6 @@
     </div>
   </div>
   <div class="col-lg-4">
-    <% if @report.internal_note.present? %>
-      <div class="mb-5">
-        <p><%= Report.human_attribute_name(:internal_note) %></p>
-        <%= simple_format @report.internal_note %>
-      </div>
-    <% end %>
-
     <% if @report.image.attached? %>
       <div class="mb-5">
         <p>Image</p>
