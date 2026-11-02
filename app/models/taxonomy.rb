@@ -22,11 +22,11 @@ class Taxonomy < ApplicationRecord
   scope :ordered, -> { order(:position) }
 
   def self.main
-    self.class.unscoped.ordered.first
+    unscoped.ordered.first
   end
 
   def self.advertiser
-    self.class.unscoped.find_by(slug: 'annonceurs')
+    unscoped.find_by(slug: 'annonceurs')
   end
 
   def to_s
