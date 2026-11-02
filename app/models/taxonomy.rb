@@ -20,10 +20,13 @@ class Taxonomy < ApplicationRecord
 
   scope :for_reports, -> { where(for_reports: true) }
   scope :ordered, -> { order(:position) }
-  scope :main, -> { ordered.first }
+
+  def self.main
+    self.class.unscoped.ordered.first
+  end
 
   def self.advertiser
-    find_by(slug: 'annonceurs')
+    self.class.unscoped.find_by(slug: 'annonceurs')
   end
 
   def to_s

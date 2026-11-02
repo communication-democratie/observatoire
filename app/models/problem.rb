@@ -46,11 +46,11 @@ class Problem < ApplicationRecord
   end
 
   def main_categories
-    categories.where(id: Taxonomy.main.categories)
+    categories.where(id: Taxonomy.main.category_ids)
   end
 
   def advertiser_categories
-    categories.where(id: Taxonomy.advertiser.categories)
+    categories.where(id: Taxonomy.advertiser.category_ids)
   end
 
   def important?
@@ -85,7 +85,7 @@ class Problem < ApplicationRecord
   protected
 
   def computed_slug
-    advertisers = advertiser_categories.map(&:slug).join('-')
+    advertisers = advertiser_categories.ordered.pluck(:slug).join('-')
     [advertisers, to_s.parameterize].compact_blank.join('-')
   end
 
