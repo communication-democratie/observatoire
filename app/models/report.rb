@@ -61,6 +61,18 @@ class Report < ApplicationRecord
     link_uri.host
   end
 
+  def computed_step_changed_email_notification_subject
+    notification_subject = step.email_notification_subject.dup
+    notification_subject.gsub!('{{brand}}', Sanitizer.sanitize_string(brand))
+    notification_subject
+  end
+
+  def computed_step_changed_email_notification_text
+    notification_text = step.email_notification_text.dup
+    notification_text.gsub!('{{brand}}', Sanitizer.sanitize_string(brand))
+    notification_text
+  end
+
   def to_s
     title.blank? ? "#{id}" : "#{title}"
   end

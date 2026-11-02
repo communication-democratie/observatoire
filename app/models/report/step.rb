@@ -29,6 +29,9 @@ class Report::Step < ApplicationRecord
 
   has_many :reports
 
+  validates :email_notification_subject, :email_notification_text,
+            presence: true, if: :email_notification_active?
+
   scope :visible_in_front, -> { where(ignore_in_front: false) }
 
   # Les signalements de cette étape et de ses sous-étapes
