@@ -43,8 +43,8 @@ fr:
         internal_note: Remarque interne OCP
         link: Lien web
         problem: Campagne
-        should_opt_in_newsletter: J'accepte de recevoir la newsletter de l'OCP
-        should_opt_in_pixel_tracking: J'accepte d'être suivi(e) via des pixels de suivi des emails
+        should_opt_in_newsletter: Je souhaite recevoir la newsletter de l’Observatoire Citoyen de la Publicité (6 emails par an maximum)
+        should_opt_in_pixel_tracking: J'accepte que vous suiviez l'ouverture des prochains envois et mes clics sur leurs liens, afin de mesurer mon usage, adapter la fréquence d'envoi et personnaliser le contenu.
         slug: Slug
         step: Étape
         title: Titre
@@ -163,8 +163,8 @@ fr:
           title: Identifiez-vous
         more: "Remplissez le formulaire ci-dessous, puis :"
         opt_in:
-          newsletter: J'accepte de recevoir la newsletter de l'OCP et confirme avoir pris connaissance de notre <a href="/mentions-legales-et-politique-de-confidentialite" target="_blank">politique de confidentialité</a>.
-          pixel_tracking: J'accepte d'être suivi(e) via des pixels de suivi des emails afin de recevoir des communications personnalisées.
+          newsletter: Je souhaite recevoir la newsletter de l’Observatoire Citoyen de la Publicité (6 emails par an maximum).<br>Vous pouvez vous désinscrire à tout moment en cliquant sur le lien présent dans nos emails.
+          pixel_tracking: J'accepte que vous suiviez l'ouverture des prochains envois et mes clics sur leurs liens, afin de mesurer mon usage, adapter la fréquence d'envoi et personnaliser le contenu.
       details:
         instructions: "Remplissez le formulaire ci-dessous, puis :"
         informations:
