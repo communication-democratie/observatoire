@@ -183,8 +183,18 @@ fr:
       page:
         position: Position dans le menu. Si laissé vide la page n'apparaitra pas dans le menu.
       report_step:
-        email_notification_subject: Vous pouvez insérer la marque renseignée dans le signalement en utilisant {{brand}}
-        email_notification_text: Vous pouvez insérer la marque renseignée dans le signalement en utilisant {{brand}}
+        email_notification_subject: |
+          Vous pouvez utiliser les variables suivantes :<br>
+          <span class="font-monospace">{{report_date}}</span> : Date du signalement (ex: 5 novembre 2026)<br>
+          <span class="font-monospace">{{problem_title}}</span> : Nom de la campagne<br>
+          <span class="font-monospace">{{problem_advertisers}}</span> : Annonceur(s) de la campagne
+        email_notification_text: |
+          Vous pouvez utiliser les variables suivantes :<br>
+          <span class="font-monospace">{{report_date}}</span> : Date du signalement (ex: 5 novembre 2026)<br>
+          <span class="font-monospace">{{problem_title}}</span> : Nom de la campagne<br>
+          <span class="font-monospace">{{problem_url}}</span> : URL de la campagne<br>
+          <span class="font-monospace">{{problem_advertisers}}</span> : Annonceur(s) de la campagne
+
         position: Laissez vide pour placer l'étape à la fin, parmi celles qui ont la même étape parente.
     placeholders:
       report:
