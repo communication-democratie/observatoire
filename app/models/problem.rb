@@ -5,6 +5,7 @@
 #  id          :uuid             not null, primary key
 #  description :text
 #  reported_at :datetime
+#  slug        :string           not null
 #  title       :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
@@ -12,6 +13,7 @@
 #
 # Indexes
 #
+#  index_problems_on_slug     (slug) UNIQUE
 #  index_problems_on_step_id  (step_id)
 #
 # Foreign Keys

@@ -162,9 +162,13 @@ fr:
         identification:
           title: Identifiez-vous
         more: "Remplissez le formulaire ci-dessous, puis :"
+        newsletter:
+          title: Newsletter
         opt_in:
           newsletter: Je souhaite recevoir la newsletter de l’Observatoire Citoyen de la Publicité (6 emails par an maximum).<br>Vous pouvez vous désinscrire à tout moment en cliquant sur le lien présent dans nos emails.
           pixel_tracking: J'accepte que vous suiviez l'ouverture des prochains envois et mes clics sur leurs liens, afin de mesurer mon usage, adapter la fréquence d'envoi et personnaliser le contenu.
+        post_submit:
+          title: Et ensuite ?
       details:
         instructions: "Remplissez le formulaire ci-dessous, puis :"
         informations:

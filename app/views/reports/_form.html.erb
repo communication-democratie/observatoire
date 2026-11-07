@@ -33,13 +33,14 @@
 
   <h3 class="h4"><%= t('front.report_form.fields.identification.title') %></h3>
   <div class="row">
-    <div class="col-lg-6">
+    <div class="col-lg-6 mb-n3">
       <%= f.input :author_pseudonym %>
     </div>
-    <div class="col-lg-6">
+    <div class="col-lg-6 mb-n3">
       <%= f.input :author_email %>
     </div>
   </div>
+  <h3 class="h4"><%= t('front.report_form.fields.newsletter.title') %></h3>
   <%= f.input :should_opt_in_newsletter, label: t("front.report_form.fields.opt_in.newsletter").html_safe %>
   <%= f.input :should_opt_in_pixel_tracking, label: t("front.report_form.fields.opt_in.pixel_tracking") %>
   <label class="btn-icon mt-5">
@@ -47,6 +48,7 @@
   </label>
 
   <div class="form-details mt-5">
+    <h3 class="h4"><%= t('front.report_form.fields.post_submit.title') %></h3>
     <p class="visually-hidden"><%= t('front.report_form.fields.more') %></p>
     <ol class="ps-3">
       <% t('front.report_form.details.informations').each do |information| %>
