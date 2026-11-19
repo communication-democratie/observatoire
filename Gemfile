@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-ruby "4.0.9"
+ruby "4.0.10"
 
 gem "activestorage-scaleway-service", "~> 1.1"
 gem "autoprefixer-rails", "~> 10.6"
